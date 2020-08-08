@@ -25,7 +25,6 @@ export default function Card(props) {
   }
 
   function handleCardClick(){
-    
     console.log(props.number)
 
   }
