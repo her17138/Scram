@@ -1,32 +1,34 @@
 import React from "react";
 import Card from "../card/Card.jsx";
-import Fucs from "../utilities.js";
+import Fucs from "../js/utilities.js";
 
+import back from '../../assets/back.jpg'
+import dorval from '../../assets/dorval.jpg'
+import hans from '../../assets/hans.jpg'
+import mijangos from '../../assets/mijangos.jpg'
 
-class Hand extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Hand(props) {
+  
+  //this array should contain the names of
+  let images = [back, dorval, hans, mijangos];
+  //function that returns random index in arr array.
+  function randomIndex(array) {
+    let size = array.length;
+    return Math.floor(Math.random() * size + 1);
   }
-  async componentWillMount(){
-    var images = await Fucs.importImages()
-    console.log(images)
-  }
-  render() {
-    return (
-      <div className="hand">
-        <div>{images}</div>
-        {this.props.cards.map((x, i) => (
-          <Card
-            key={i}
-            player={this.props.player}
-            img={images[0].default}
-            startFunction={Fucs.dragStart}
-            endFunction={Fucs.dropEnd}
-          ></Card>
-        ))}
-      </div>
-    );
-  }
+  return (
+    <div className="hand">
+      {props.cards.map((x, i) => (
+        <Card
+          key={i}
+          player={props.player}
+          img={images[Fucs.randomIndex(images)]}
+          startFunction={Fucs.dragStart}
+          endFunction={Fucs.dropEnd}
+        ></Card>
+      ))}
+    </div>
+  );
 }
-export default Hand;
+
 // img={"../../assets/" + arr[randomIndex(arr)]}
