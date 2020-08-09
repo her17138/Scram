@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Chat from './Chat.jsx'
 
 export default function Index(props) {
     return(

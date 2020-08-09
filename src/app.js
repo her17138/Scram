@@ -1,17 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import Index from './Index.jsx'
 import Board from './board/Board.jsx';
 const App = () => {
  
   return (
-    <div>Hello React,Webpack 4 & Babel 7!
-        <Board>
-          
-          
-        </Board>
-        
-      
+    <div> hola a todos
+        <Index />
     </div>
     
   )

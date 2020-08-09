@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import backImage from "../assets/back.jpg";
+import backImage from "../../assets/back.jpg";
 import "./Card.scss";
 
 //  La carta deberia contener (en props supongo)...
