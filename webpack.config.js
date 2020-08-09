@@ -1,8 +1,9 @@
 const path = require("path");
 const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: path.join(__dirname, "js", "app.js"),
+    entry: path.join(__dirname, "app.js"),
     module: {
         rules: [
           {
@@ -11,9 +12,27 @@ module.exports = {
             use: {
               loader: "babel-loader"
             }
+          },
+          {
+            test: /\.scss$/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+          },
+          {
+            test: /\.(gif|png|jpe?g|svg)$/i,
+            use: [
+              'file-loader',
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  bypassOnDebug: true, // webpack@1.x
+                  disable: true, // webpack@2.x and newer
+                },
+              },
+            ],
           }
         ]
     },
+    
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
