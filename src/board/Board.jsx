@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./Board.scss";
 import Card from "../card/Card.jsx";
 import Player from "../player/Player.jsx";
+import funcs from '../utilities';
+
+const images = funcs.importImages()
+console.log(images)
 export default function Board(props) {
   // card init - amount of cards to be rendered..
   let array = [];
@@ -18,7 +22,7 @@ export default function Board(props) {
           <Card
             key={x}
             class="target"
-            img={"./assets/hans.jpeg"}
+            img={images[Fucs.randomIndex(images)].default}
             number={0}
           ></Card>
         ))}
@@ -30,7 +34,7 @@ export default function Board(props) {
           <Card
             key={x}
             class="target"
-            img={"./assets/hans.jpeg"}
+            img={images[Fucs.randomIndex(images)].default}
             number={0}
           ></Card>
         ))}

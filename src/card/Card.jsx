@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import backImage from "../../assets/back.jpg";
 import "./Card.scss";
-
 //  La carta deberia contener (en props supongo)...
 //      - Imagen
 //      - Tipo de carta

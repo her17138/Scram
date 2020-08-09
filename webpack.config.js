@@ -46,7 +46,6 @@ module.exports = {
         publicPath: "/"
     }, 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebPackPlugin({
           template: "./src/index.html",
           filename: "./index.html"
