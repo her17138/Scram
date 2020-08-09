@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Card from "./card/Card.jsx";
+
 import Board from './board/Board.jsx';
 const App = () => {
  
