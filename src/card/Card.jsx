@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import backImage from "../../assets/back.jpg";
 import "./Card.scss";
 
@@ -25,12 +25,12 @@ export default function Card(props) {
   }
 
   function handleCardClick(){
-    console.log(props.number)
+
 
   }
 
   return (
-    <div draggable="false"
+    <div
       className="card"
       onClick={(e) => {
         handleClick(e);

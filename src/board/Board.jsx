@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./Board.scss";
 import Card from "../card/Card.jsx";
-
+import Player from "../player/Player.jsx";
 export default function Board(props) {
   // card init - amount of cards to be rendered..
   let array = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 5; i++) {
     array.push(i);
   }
 
@@ -22,8 +22,9 @@ export default function Board(props) {
             number={0}
           ></Card>
         ))}
+        
       </div>
-
+      <Player name={"fran"}></Player>
       <div className="litter">
         {array.map((x) => (
           <Card
@@ -35,5 +36,6 @@ export default function Board(props) {
         ))}
       </div>
     </div>
+
   );
 }
