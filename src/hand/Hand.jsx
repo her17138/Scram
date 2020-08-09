@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "../card/Card.jsx";
 import Fucs from "../js/utilities.js";
 
@@ -11,10 +11,29 @@ export default function Hand(props) {
   
   //this array should contain the names of
   let images = [back, dorval, hans, mijangos];
-  //function that returns random index in arr array.
-  function randomIndex(array) {
-    let size = array.length;
-    return Math.floor(Math.random() * size + 1);
+
+  const[cards, setCard] = useState(props.cards)
+
+  function dragStart(event) {
+    event.dataTransfer.setData("clicked", event.target.id);
+    
+  }
+
+  function dropEnd(event){
+    let data = event.dataTransfer.getData("clicked");
+    let dragged_obj = document.getElementById(data)
+    let parent_elem = dragged_obj.parentElement
+    console.log("parent!",parent_elem)
+    let dragged_obj_value = dragged_obj.getElementsByTagName("p")[0].innerHTML
+    event.target.appendChild(document.getElementById(data));
+    let target_value = event.target.getElementsByTagName("p")[0].innerHTML
+    //si el elemento es mayor solo por un numero, se agrega como child.
+    if(target_value - dragged_obj_value == 1){
+      console.log("success")
+    } else{
+      console.log("incorrect!")
+      parent_elem.appendChild(dragged_obj)
+    }
   }
   return (
     <div className="hand">
@@ -22,13 +41,12 @@ export default function Hand(props) {
         <Card
           key={i}
           player={props.player}
-          img={images[Fucs.randomIndex(images)]}
-          startFunction={Fucs.dragStart}
-          endFunction={Fucs.dropEnd}
+          img={images[Fucs.randomInterval(images.length)]}
+          startFunction={dragStart}
+          endFunction={dropEnd}
+          value = {Fucs.randomInterval(5)}
         ></Card>
       ))}
     </div>
   );
 }
-
-// img={"../../assets/" + arr[randomIndex(arr)]}

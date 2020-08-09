@@ -4,6 +4,7 @@ import "./Board.scss";
 import Card from "../card/Card.jsx";
 import Player from "../player/Player.jsx";
 import Fucs from '../js/utilities';
+///
 import back from '../../assets/back.jpg'
 import dorval from '../../assets/dorval.jpg'
 import hans from '../../assets/hans.jpg'
@@ -27,19 +28,19 @@ export default function Board(props) {
           <Card
             key={x}
             class="target"
-            img={images[Fucs.randomIndex(images)]}
+            img={images[Fucs.randomInterval(images.length)]}
             number={0}
           ></Card>
         ))}
         
       </div>
-      <Player name={"fran"}></Player>
+      <Player player={"fran"}></Player>
       <div className="litter">
         {array.map((x) => (
           <Card
             key={x}
             class="target"
-            img={images[Fucs.randomIndex(images)]}
+            img={images[Fucs.randomInterval(images.length)]}
             number={0}
           ></Card>
         ))}
