@@ -1,6 +1,7 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import "./Board.scss";
 import Card from "../card/Card.jsx";
+
 export default function Board(props) {
   // card init - amount of cards to be rendered..
   let array = [];
