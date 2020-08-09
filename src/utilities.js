@@ -9,15 +9,17 @@ const funcs = {
     event.target.appendChild(document.getElementById(data));
   },
   randomIndex(array) {
+    console.log(array)
     let size = array.length;
     return Math.floor(Math.random() * size + 1);
   },
-  importAll(r) {
-    return r.keys().map(r);
+  async importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
   },
-  importImages(){
-    const images = this.importAll(require.context('../assets/', false, /\.(png|jpg|jpeg)$/));
-    return images
+  async importImages(){
+    return this.importAll(require.context('../assets/', false, /\.(png|jpg|jpeg)$/));
   }
 };
 
