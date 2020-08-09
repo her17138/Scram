@@ -5,7 +5,7 @@ import Board from './board/Board.jsx';
 const App = () => {
  
   return (
-    <div> hola a todos
+    <div> 
         <Index />
         <Board />
     </div>

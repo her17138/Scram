@@ -81,5 +81,5 @@ const PORT = process.env.PORT || 3000;
 //         open(`http://localhost:${PORT}`)
 //     }
 // });
-server.listen(PORT, () => console.log(`Server running on https://localhost:${PORT}`));
+server.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
   
