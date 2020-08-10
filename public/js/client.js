@@ -24,9 +24,11 @@ socket.onopen = function (event) {
 socket.onmessage = function(event) {
     let data = event.data.split("||")
     let action = data[0]
+    console.log(data)
     switch(action){
         case 'receive_message':
-            outputMessage(data[1])
+            var msg_json  = JSON.parse(data[1])
+            outputMessage(msg_json)
             // Scroll down
             chatMessages.scrollTop = chatMessages.scrollHeight;
     }

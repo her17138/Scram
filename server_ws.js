@@ -77,7 +77,10 @@ app.ws("/", (ws, req) => {
         ws.send(["join", new_player["room"]].join("||"));
         // welcome user
         ws.send(
-          ["receive_message", formatMessage(botName, "¡Bienvenido!")].join("||")
+          [
+              "receive_message", 
+              JSON.stringify(formatMessage(botName, "¡Bienvenido!"))
+            ].join("||")
         );
         // broadcast to all room users
         let room_plyrs = rooms[rooms.length - 1];
@@ -86,7 +89,7 @@ app.ws("/", (ws, req) => {
           usr_socket.send(
             [
               "receive_message",
-              formatMessage(botName, msg[1] + " se ha unido al chat."),
+              JSON.stringify(formatMessage(botName, msg[1] + " se ha unido al chat.")),
             ].join("||")
           );
         }
@@ -94,11 +97,12 @@ app.ws("/", (ws, req) => {
       case "send_message":
         let player_usr = msg[1];
         let message = msg[2];
+        console.log(message)
         let room = getUserRoom(player_usr);
         for (let i = 0; i < rooms[room].length; i++) {
           let usr_socket = rooms[room][i].id;
           usr_socket.send(
-            ["receive_message", formatMessage(player_usr, message)].join("||")
+            ["receive_message", JSON.stringify(formatMessage(player_usr, message))].join("||")
           );
         }
         break;
@@ -111,7 +115,7 @@ app.ws("/", (ws, req) => {
           usr_socket.send(
             [
               "receive_message",
-              formatMessage(botName, msg[1] + " ha salido del chat."),
+              JSON.stringify(formatMessage(botName, msg[1] + " ha salido del chat.")),
             ].join("||")
           );
         }

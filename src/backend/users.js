@@ -29,7 +29,7 @@ function getRoomUsers(room) {
 
 // get room of single user
 function getUserRoom(username) {
-  return users.find(user => user.room === room); 
+  return users.find(user => user.username === username).room; 
 }
 
 module.exports = {
