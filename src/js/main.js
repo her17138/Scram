@@ -11,16 +11,16 @@ const { username, room } = Qs.parse(location.search, {
 const socket = io();
 
 // Join chatroom
-socket.emit('joinRoom', { username, room });
+socket.send('joinRoom', { username, room });
 
 // Get room and users
-socket.on('roomUsers', ({ room, users }) => {
+socket.onmessage('roomUsers', ({ room, users }) => {
   outputRoomName(room);
   outputUsers(users);
 });
 
 // Message from server
-socket.on('message', message => {
+socket.onmessage(message => {
   console.log(message);
   outputMessage(message);
 
@@ -36,7 +36,7 @@ chatForm.addEventListener('submit', e => {
   const msg = e.target.elements.msg.value;
 
   // Emit message to server
-  socket.emit('chatMessage', msg);
+  socket.send('chatMessage', msg);
 
   // Clear input
   e.target.elements.msg.value = '';

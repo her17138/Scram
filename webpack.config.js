@@ -1,10 +1,6 @@
 const path = require("path");
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-// const WebpackShellPlugin = require('webpack-shell-plugin');
-// if (process.env.NODE_ENV !== 'production') {
-//   config.plugins.push(new WebpackShellPlugin({onBuildEnd: ['nodemon build/server.js --watch build']}));
-// }
 
 module.exports = {
     entry: path.join(__dirname, "src", "app.js"),
