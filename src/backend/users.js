@@ -29,7 +29,6 @@ function getRoomUsers(room) {
 
 // get room of single user
 function getUserRoom(username) {
-  console.log('usn' + username)
   return users.find(user => user.username === username).room; 
 }
 
