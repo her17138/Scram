@@ -17,21 +17,20 @@ export default function Card(props) {
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
   const [flipped, setFlip] = useState(false);
   const [stack, setStack] = useState([]);
+  const [clicked, setClick] = useState(false);
 
   function handleClick(e) {
     e.preventDefault();
-    setFlip((prevVal) => !prevVal);
-    handleCardClick()
+    setFlip((prevVal) => !prevVal)
+    setClick((prevVal) => !prevVal)
   }
 
-  function handleCardClick(){
-
-
-  }
 
   return (
     <div
+      id={props.player+props.img}
       className="card"
+      draggable="true"
       onClick={(e) => {
         handleClick(e);
       }}
@@ -42,6 +41,7 @@ export default function Card(props) {
         props.startFunction(e);
       }}
     >
+      <p className="hidden">{props.value}</p>
       {flipped ? (
         <img draggable="false" className="cardImg" src={props.img}></img>
       ) : (

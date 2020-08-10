@@ -1,8 +1,18 @@
+  
 import React, { useState } from "react";
 import "./Board.scss";
 import Card from "../card/Card.jsx";
 import Player from "../player/Player.jsx";
+import Fucs from '../js/utilities';
+///
+import back from '../../assets/back.jpg'
+import dorval from '../../assets/dorval.jpg'
+import hans from '../../assets/hans.jpg'
+import mijangos from '../../assets/mijangos.jpg'
+
+
 export default function Board(props) {
+  let images = [back, dorval, hans, mijangos];
   // card init - amount of cards to be rendered..
   let array = [];
   for (let i = 0; i < 5; i++) {
@@ -18,19 +28,19 @@ export default function Board(props) {
           <Card
             key={x}
             class="target"
-            img={"./assets/hans.jpeg"}
+            img={images[Fucs.randomInterval(images.length)]}
             number={0}
           ></Card>
         ))}
         
       </div>
-      <Player name={"fran"}></Player>
+      <Player player={"fran"}></Player>
       <div className="litter">
         {array.map((x) => (
           <Card
             key={x}
             class="target"
-            img={"./assets/hans.jpeg"}
+            img={images[Fucs.randomInterval(images.length)]}
             number={0}
           ></Card>
         ))}
