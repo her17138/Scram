@@ -11,10 +11,9 @@ const { username, room } = Qs.parse(location.search, {
 
 /** 
  *  action types and message structure:
- *      1. join_room : action||username
+ *      1. join_room : action||room
  *      2. send_message : action||username||message
- *      3. disconnect : action||username
- *      4. receive_message : action||message
+ *      3. receive_message : action||message
  */
 var socket = new WebSocket("ws://localhost:3000/");
 socket.onopen = function (event) {
