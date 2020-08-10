@@ -5,13 +5,7 @@ import "./Card.scss";
 //  La carta deberia contener (en props supongo)...
 //      - Imagen
 //      - Tipo de carta
-//      - Subtipo de Carta
-//      - Puntos
-//      - Texto (description) -- las cartas no tienen texto hasta donde sem solo como un counter..
-//      - Stack info
-
-// En base a tipo y subtipo se pone la funcionalidad supongo
-//      En base a los puntos al parecer tambien cambian los efectos
+//      - Valor
 
 export default function Card(props) {
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
