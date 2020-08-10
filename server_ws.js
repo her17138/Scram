@@ -41,7 +41,8 @@ const botName = 'ChatCord Bot';
 let rooms = []
 
 /** 
- *  action types and message structure:
+ *  action types and message structure (cada mensaje que envie el cliente debe llevar la 
+ *  siguiente estructura):
  *      1. join_room : action||username
  *      2. send_message : action||username||message
  *      3. disconnect : action||username
