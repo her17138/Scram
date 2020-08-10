@@ -97,8 +97,9 @@ app.ws("/", (ws, req) => {
       case "send_message":
         let player_usr = msg[1];
         let message = msg[2];
-        console.log(message)
+        console.log(msg)
         let room = getUserRoom(player_usr);
+        console.log('room ' + room)
         for (let i = 0; i < rooms[room].length; i++) {
           let usr_socket = rooms[room][i].id;
           usr_socket.send(

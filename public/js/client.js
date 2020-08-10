@@ -42,7 +42,7 @@ chatForm.addEventListener('submit', e => {
     const msg = e.target.elements.msg.value;
   
     // Emit message to server
-    socket.send(['send_message', msg].join("||"));
+    socket.send(['send_message', username, msg].join("||"));
   
     // Clear input
     e.target.elements.msg.value = '';
