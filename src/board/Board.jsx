@@ -1,28 +1,61 @@
-  
-import React, { useState } from "react";
+import React from "react";
 import "./Board.scss";
 import Card from "../card/Card.jsx";
-import Player from "../player/Player.jsx";
-import Fucs from '../js/utilities';
-///
-import back from '../../assets/back.jpg'
-import dorval from '../../assets/dorval.jpg'
-import hans from '../../assets/hans.jpg'
-import mijangos from '../../assets/mijangos.jpg'
+import Fucs from "../js/utilities";
+import back from "../../assets/back.jpg";
+import dorval from "../../assets/dorval.jpg";
+import hans from "../../assets/hans.jpg";
+import mijangos from "../../assets/mijangos.jpg";
+import Hand from "../hand/Hand.jsx";
 
+export default class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      roomPlayers: [],
+    };
+    const images = [back, dorval, hans, mijangos];
+    const types = ["spades", "clubs", "diamonds", "hearts"];
+    const roomPlayers = [null, null, null, null];
 
-export default function Board(props) {
-  let images = [back, dorval, hans, mijangos];
-  let types = ["spades", "clubs", "diamonds", "hearts"]
+    this.reference = React.createRef();
+    let array = [];
 
-  // card init - amount of cards to be rendered..
-  let array = [];
-  for (let i = 0; i < 5; i++) {
-    array.push(i);
+    // Card list init
+    let cards = [];
+    for (let i = 0; i < types.length; i++) {
+      for (let j = 1; j < 14; j++) {
+        cards.push({
+          type: types[i],
+          value: j,
+          img_path: "../../assets/" + types[i] + "/" + j + ".jpg",
+        });
+      }
+    }
+
+    //cards = shuffle(cards);
+
+    for (let i = 0; i < 5; i++) {
+      array.push(i);
+    }
   }
 
-  function shuffle(array){
-    let currentIndex = array.length, temporaryValue, randomIndex;
+  /* init of references
+     INPUT: natural number of player (4)
+     OUTPUT: array of references. 
+   */
+
+  call(ref) {
+    
+    ref.current.addCard();
+  }
+
+  // card init - amount of cards to be rendered..
+
+  shuffle(array) {
+    let currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
     while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
@@ -30,35 +63,11 @@ export default function Board(props) {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-    return array
+    return array;
   }
-
-
-  // Card list init
-  let cards = [];
-  for (let i = 0; i < types.length; i++) {
-    for (let j = 1; j < 14; j++) {
-      cards.push({
-                  type: types[i], 
-                  value: j, 
-                  img_path: '../../assets/'+types[i]+'/'+j+'.jpg'
-                });
-    }
-  }
-
-  cards = shuffle(cards);
 
   // Create players
   // yo imagino que en props recibimos algo con los jugadores?
-  let players = props.players;
-  playersObj = []
-  for (let i=0; i < players.length; i++) {
-    playersObj.push(players[i])
-  }
-
-  playersObj.map((player, index) => {
-    return <Player player={player} />
-  })
 
   /* TODO */
   // Borrar wrapper (Player)
@@ -67,13 +76,13 @@ export default function Board(props) {
 
   // Deal cards
   //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.
-  while (true){
-    // Conseguir ultima carta
-    players[1].cartas.push(cards[-1]);
-    // Darsela al player
-    
-    // Quitar la carta de la lista de cartas
-  }
+  // while (true){
+  // Conseguir ultima carta
+  // players[1].cartas.push(cards[-1]);
+  // Darsela al player
+
+  // Quitar la carta de la lista de cartas
+  // }
 
   // Enviar informacion
 
@@ -82,32 +91,36 @@ export default function Board(props) {
   //    Should stop when there are no more available cards to play on all players
 
   //card litter. Should start with 0 cards.
-  const [litter, setLitter] = useState([]);
-  return (
-    <div className="board">
-      <div className="deck">
-        {array.map((x) => (
-          <Card
-            key={x}
-            class="target"
-            img={images[Fucs.randomInterval(images.length)]}
-            number={0}
-          ></Card>
-        ))}
-        
-      </div>
-      <Player player={"fran"}></Player>
-      <div className="litter">
-        {array.map((x) => (
-          <Card
-            key={x}
-            class="target"
-            img={images[Fucs.randomInterval(images.length)]}
-            number={0}
-          ></Card>
-        ))}
-      </div>
-    </div>
+  render() {
+    return (
+      
+      <div className="board">
+        <button onClick={console.log(this.reference)}></button>
+        <div className="deck">
+          {array.map((x) => (
+            <Card
+              key={x}
+              class="target"
+              img={images[Fucs.randomInterval(images.length)]}
+              number={0}
+            ></Card>
+          ))}
+        </div>
+        {roomPlayers.map((elem, i) => {
+          <Hand player={"Ernesto" + String(i)} ref={this.reference}></Hand>;
+        })}
 
-  );
+        <div className="litter">
+          {array.map((x) => (
+            <Card
+              key={x}
+              class="target"
+              img={images[Fucs.randomInterval(images.length)]}
+              number={0}
+            ></Card>
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
