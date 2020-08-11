@@ -20,9 +20,6 @@ export default class Board extends React.Component {
     const images = [back, dorval, hans, mijangos];
     const types = ["spades", "clubs", "diamonds", "hearts"];
     
-
-    
-
     // Card list init
     let cards = [];
     for (let i = 0; i < types.length; i++) {
@@ -108,7 +105,7 @@ export default class Board extends React.Component {
   render() {
     return (
       <div className="board">
-        <button onClick={console.log(this.reference)}></button>
+        
         <div className="deck">
           {this.state.deck.map((x) => (
             <Card
