@@ -57,14 +57,28 @@ export default function Board(props) {
   }
 
   playersObj.map((player, index) => {
-    <Player player={player} />
+    return <Player player={player} />
   })
+
+  /* TODO */
+  // Borrar wrapper (Player)
+  // Poner players como arrays temporales que serán asignados al estado de mano
+  // Board afecta array de cartas a hand
 
   // Deal cards
   //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.
-  
+  while (true){
+    // Conseguir ultima carta
+    players[1].cartas.push(cards[-1]);
+    // Darsela al player
+    
+    // Quitar la carta de la lista de cartas
+  }
+
+  // Enviar informacion
 
   // Main game loop
+  //    El while debería de parar hasta que la suma de las cartas de todos los jugadores sea 0
   //    Should stop when there are no more available cards to play on all players
 
   //card litter. Should start with 0 cards.
