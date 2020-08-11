@@ -12,14 +12,16 @@ export default class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomPlayers: [],
+      roomPlayers: [null, null, null, null],
+      cementery: [],
+      deck: [],
+      reference: React.createRef()
     };
     const images = [back, dorval, hans, mijangos];
     const types = ["spades", "clubs", "diamonds", "hearts"];
-    const roomPlayers = [null, null, null, null];
+    
 
-    this.reference = React.createRef();
-    let array = [];
+    
 
     // Card list init
     let cards = [];
@@ -34,10 +36,9 @@ export default class Board extends React.Component {
     }
 
     //cards = shuffle(cards);
+    
 
-    for (let i = 0; i < 5; i++) {
-      array.push(i);
-    }
+    
   }
 
   /* init of references
@@ -45,14 +46,27 @@ export default class Board extends React.Component {
      OUTPUT: array of references. 
    */
 
-  call(ref) {
-    
+  call = (ref) => {
+    console.log("ref",ref)
     ref.current.addCard();
+  };
+
+  componentDidMount(){
+    let array = []
+    for (let i = 0; i < 5; i++) {
+      array.push(i);
+    }
+    this.setState({
+      deck: array,
+      cementery: array,
+      reference: React.createRef()
+    })
+    this.call(this.state.reference)
   }
 
   // card init - amount of cards to be rendered..
 
-  shuffle(array) {
+  shuffle = (array) => {
     let currentIndex = array.length,
       temporaryValue,
       randomIndex;
@@ -64,7 +78,7 @@ export default class Board extends React.Component {
       array[randomIndex] = temporaryValue;
     }
     return array;
-  }
+  };
 
   // Create players
   // yo imagino que en props recibimos algo con los jugadores?
@@ -93,11 +107,10 @@ export default class Board extends React.Component {
   //card litter. Should start with 0 cards.
   render() {
     return (
-      
       <div className="board">
         <button onClick={console.log(this.reference)}></button>
         <div className="deck">
-          {array.map((x) => (
+          {this.state.deck.map((x) => (
             <Card
               key={x}
               class="target"
@@ -106,12 +119,12 @@ export default class Board extends React.Component {
             ></Card>
           ))}
         </div>
-        {roomPlayers.map((elem, i) => {
-          <Hand player={"Ernesto" + String(i)} ref={this.reference}></Hand>;
+        {this.state.roomPlayers.map((elem, i) => {
+          <Hand player={"Ernesto" + String(i)} ref={this.state.reference}></Hand>;
         })}
 
         <div className="litter">
-          {array.map((x) => (
+          {this.state.cementery.map((x) => (
             <Card
               key={x}
               class="target"
