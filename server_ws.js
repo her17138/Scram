@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // const WebSocket = require('ws');
 // const wss = new WebSocket.Server({ server });
 
-const formatMessage = require("./src/backend/messages");
+const formatMessage = require("./src/js/messages");
 const {
   userJoin,
   getCurrentUser,

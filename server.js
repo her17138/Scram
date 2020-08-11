@@ -5,7 +5,7 @@ const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const open = require('open')
-const formatMessage = require('./src/backend/messages');
+const formatMessage = require('./src/js/messages');
 let  app = express()
 const server = http.createServer(app);
 const io = socketio(server);
@@ -17,7 +17,7 @@ const {
     getCurrentUser,
     userLeave,
     getRoomUsers
-  } = require('./src/backend/users');
+  } = require('./src/js/users');
   const botName = 'ChatCord Bot';
 
   // Run when client connects
