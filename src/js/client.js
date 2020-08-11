@@ -3,6 +3,7 @@ const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
 
+const ref = require('referee')
 // Get username and room from URL
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
@@ -11,10 +12,9 @@ const { username, room } = Qs.parse(location.search, {
 
 /** 
  *  action types and message structure:
- *      1. join_room : action||username
+ *      1. join_room : action||room
  *      2. send_message : action||username||message
- *      3. disconnect : action||username
- *      4. receive_message : action||message
+ *      3. receive_message : action||message
  */
 var socket = new WebSocket("ws://localhost:3000/");
 socket.onopen = function (event) {
@@ -24,14 +24,33 @@ socket.onopen = function (event) {
 socket.onmessage = function(event) {
     let data = event.data.split("||")
     let action = data[0]
+    console.log(data)
     switch(action){
         case 'receive_message':
-            outputMessage(data[1])
+            var msg_json  = JSON.parse(data[1])
+            outputMessage(msg_json)
             // Scroll down
             chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 }
 
+/**
+ * implementacion de movimientos del juego 
+ */
+
+// whos_turn() -> username 
+
+//    {jugador: carta}
+// make_move(array) -> [username, equipo, {equipo1: pts, equipo2: pts}]
+
+// set_trump_card(card_value) -> void
+
+// get_trump_card() -> card_value
+
+
+/**
+ *  implementacion de chat 
+ */
 // Message submit
 chatForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -40,7 +59,7 @@ chatForm.addEventListener('submit', e => {
     const msg = e.target.elements.msg.value;
   
     // Emit message to server
-    socket.send(['send_message', msg].join("||"));
+    socket.send(['send_message', username, msg].join("||"));
   
     // Clear input
     e.target.elements.msg.value = '';

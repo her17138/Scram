@@ -21,7 +21,7 @@ const {
   userLeave,
   getRoomUsers,
   getUserRoom,
-} = require("./src/backend/users");
+} = require("./src/js/users");
 const botName = "ChatCord Bot";
 
 /**
