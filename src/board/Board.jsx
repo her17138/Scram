@@ -16,7 +16,6 @@ export default class Board extends React.Component {
       deck: [],
       reference: React.createRef()
     };
-    const images = [back, dorval, hans, mijangos];
     const types = ["spades", "clubs", "diamonds", "hearts"];
     
     // Card list init
@@ -32,6 +31,7 @@ export default class Board extends React.Component {
     }
 
     //cards = shuffle(cards);
+    var images = [back, dorval, hans, mijangos];
     
 
     
@@ -57,7 +57,7 @@ export default class Board extends React.Component {
       cementery: array,
       reference: React.createRef()
     })
-    this.call(this.state.reference)
+    //this.call(this.state.reference)
   }
 
   // card init - amount of cards to be rendered..
@@ -102,6 +102,8 @@ export default class Board extends React.Component {
 
   //card litter. Should start with 0 cards.
   render() {
+    var images = [back, dorval, hans, mijangos];
+
     return (
       <div className="board">
         
