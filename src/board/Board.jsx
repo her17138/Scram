@@ -13,7 +13,6 @@ export default class Board extends React.Component {
     super(props);
     this.state = {
       roomPlayers: [null, null, null, null],
-      cementery: [],
       deck: [],
       reference: React.createRef()
     };
@@ -118,18 +117,7 @@ export default class Board extends React.Component {
         </div>
         {this.state.roomPlayers.map((elem, i) => {
           <Hand player={"Ernesto" + String(i)} ref={this.state.reference}></Hand>;
-        })}
-
-        <div className="litter">
-          {this.state.cementery.map((x) => (
-            <Card
-              key={x}
-              class="target"
-              img={images[Fucs.randomInterval(images.length)]}
-              number={0}
-            ></Card>
-          ))}
-        </div>
+        })}        
       </div>
     );
   }
