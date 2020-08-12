@@ -7,6 +7,7 @@ import dorval from "../../assets/dorval.jpg";
 import hans from "../../assets/hans.jpg";
 import mijangos from "../../assets/mijangos.jpg";
 
+import './Hand.scss'
 export default function Hand(props) {
   //this array should contain the names of
   let images = [back, dorval, hans, mijangos];
@@ -15,18 +16,16 @@ export default function Hand(props) {
 
   function addCard() {
     setCard((cards) => cards.push(0));
-    console.log("adding")
+    console.log("adding");
   }
 
   function popCard(cardId) {
-    
     const index = cards.indexOf(cardId);
     if (index > -1) {
       let newHand = cards.splice(index, 1);
       setCard(newHand);
     }
-    console.log("pop card", String(cardId))
-
+    console.log("pop card", String(cardId));
   }
 
   function dragStart(event) {
@@ -52,14 +51,16 @@ export default function Hand(props) {
   return (
     <div className="hand">
       {cards.map((x, i) => (
-        <Card
-          key={i}
-          player={props.player}
-          img={images[Fucs.randomInterval(images.length)]}
-          startFunction={dragStart}
-          endFunction={dropEnd}
-          value={Fucs.randomInterval(5)}
-        ></Card>
+        <div className="cardContainer">
+          <Card
+            key={i}
+            player={props.player}
+            img={images[Fucs.randomInterval(images.length)]}
+            startFunction={dragStart}
+            endFunction={dropEnd}
+            value={Fucs.randomInterval(5)}
+          ></Card>
+        </div>
       ))}
     </div>
   );
