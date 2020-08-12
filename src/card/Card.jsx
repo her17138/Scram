@@ -36,6 +36,7 @@ export default function Card(props) {
       }}
     >
       <p className="hidden">{props.value}</p>
+      <p className="hidden">{props.key}</p>
       {flipped ? (
         <img draggable="false" className="cardImg" src={props.img}></img>
       ) : (

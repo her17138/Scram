@@ -12,13 +12,33 @@ export default class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomPlayers: [0, 0, 0, 0],
-      deck: [],
-      reference: React.createRef()
+      //  "nombre_carta","valor_carta"
+      // j || 11 || k || 13 || //
+
+      deck: [0, 0, 0, 0],
+      players: [
+        {
+          nombre: "",
+          hand: [],
+          equipo,
+          turno: false,
+        },
+      ],
+
+      trick: [
+        {
+          equipo: "",
+          suma: 0,
+        },
+      ],
+      hand: [],
     };
+
+    var globalTrumpCard = undefined;
     const types = ["spades", "clubs", "diamonds", "hearts"];
-    
+
     // Card list init
+    //TODO -> repurpose
     let cards = [];
     for (let i = 0; i < types.length; i++) {
       for (let j = 1; j < 14; j++) {
@@ -32,9 +52,6 @@ export default class Board extends React.Component {
 
     //cards = shuffle(cards);
     var images = [back, dorval, hans, mijangos];
-    
-
-    
   }
 
   /* init of references
@@ -42,58 +59,116 @@ export default class Board extends React.Component {
      OUTPUT: array of references. 
    */
 
-  call = (ref) => {
-    console.log("ref",ref)
-    ref.current.addCard();
-  };
-
-  componentDidMount(){
-    let array = []
-    for (let i = 0; i < 5; i++) {
+  componentDidMount() {
+    let array = [];
+    for (let i = 0; i < 12; i++) {
       array.push(i);
     }
     this.setState({
       deck: array,
       cementery: array,
-      reference: React.createRef()
-    })
+    });
     //this.call(this.state.reference)
+  }
+
+  addCard(e) {
+    e.preventDefault();
+    console.log("gustavo de leon");
+    let tmpArr = this.state.hand;
+    tmpArr.push(0);
+    this.setState({
+      hand: tmpArr,
+    });
   }
 
   // card init - amount of cards to be rendered..
 
-  shuffle = (array) => {
-    let currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-    return array;
-  };
-
   // Create players
   // yo imagino que en props recibimos algo con los jugadores?
+  /* 
+      newPlayer(params){
+        let x = this.state.players
+        obj = {
+          nombre: "",
+          hand: [],
+          equipo: ""
+        }
+        x.push(obj)
+
+      }
+  
+  */
 
   /* TODO */
-  // Borrar wrapper (Player)
   // Poner players como arrays temporales que serán asignados al estado de mano
-  // Board afecta array de cartas a hand
 
   // Deal cards
   //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.
-  // while (true){
-  // Conseguir ultima carta
-  // players[1].cartas.push(cards[-1]);
-  // Darsela al player
 
-  // Quitar la carta de la lista de cartas
-  // }
+  dealCard = () => {
+    let actualDeck = this.state.deck;
+    let players = this.state.players;
+    let trumpCard = undefined;
+    while (actualDeck.length !== 0) {
+      for (let i = 0; i < players.length; i++) {
+        players[i].hand.push(actualDeck[-1]);
 
+        if (actualDeck.length === 1) {
+          trumpCard = actualDeck.pop();
+        }
+        //elimina ultimo elemento
+        actualDeck.pop();
+      }
+
+      //first player gets trump card -> hes the dealer
+      players[0].hand.push(trumpCard);
+      globalTrumpCard = trumpCard;
+    }
+  };
+
+  isHandEmpty = () => {
+    let players = this.state.players;
+    let count = 0;
+    for (let i = 0; i < players.length; i++) {
+      count = player[i].hands.length + count;
+    }
+    //gracias zea
+    return count === 0 ? true : false;
+  };
+
+  /* 
+    retuns team which won, param -> name of teams in array, else returns -1
+  */
+  calculateTrick = (arrTeam) => {
+    let trick = this.state.trick;
+    let teamA = trick.filter((elem) => {
+      elem.equipo === arrTeam[0];
+    });
+    let teamB = trick.filter((elem) => {
+      elem.equipo === arrTeam[1];
+    });
+    let sumA = null;
+    let sumB = null;
+    teamA.map((e) => {
+      sumA = teamA.suma + 1;
+    });
+
+    teamB.map((e) => {
+      sumB = sumB.suma + 1;
+    });
+    if(sumB !== sumA){
+      return (sumB > sumA ? arrTeam[0] : arrTeam[1])
+    } else{
+      return -1
+    }
+    
+  };
+
+  playTrick = () => {
+    while (!this.isHandEmpty()) {
+      this.nextTurn();
+    }
+  };
   // Enviar informacion
 
   // Main game loop
@@ -106,7 +181,6 @@ export default class Board extends React.Component {
 
     return (
       <div className="board">
-        
         <div className="deck">
           {this.state.deck.map((x) => (
             <Card
@@ -117,7 +191,7 @@ export default class Board extends React.Component {
             ></Card>
           ))}
         </div>
-          <Hand player={"Ernesto"} cards={[0,0,0,0]}></Hand>;
+        <Hand player={"Ernesto"} cards={this.state.hand}></Hand>;
       </div>
     );
   }

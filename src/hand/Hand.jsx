@@ -14,11 +14,6 @@ export default function Hand(props) {
 
   const [cards, setCard] = useState(props.cards);
 
-  function addCard() {
-    setCard((cards) => cards.push(0));
-    console.log("adding");
-  }
-
   function popCard(cardId) {
     const index = cards.indexOf(cardId);
     if (index > -1) {
@@ -37,12 +32,14 @@ export default function Hand(props) {
     let dragged_obj = document.getElementById(data);
     let parent_elem = dragged_obj.parentElement;
     console.log("parent!", parent_elem);
+    let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
     let dragged_obj_value = dragged_obj.getElementsByTagName("p")[0].innerHTML;
     event.target.appendChild(document.getElementById(data));
     let target_value = event.target.getElementsByTagName("p")[0].innerHTML;
     //si el elemento es mayor solo por un numero, se agrega como child.
     if (target_value - dragged_obj_value == 1) {
       console.log("success");
+      popCard(index)
     } else {
       console.log("incorrect!");
       parent_elem.appendChild(dragged_obj);
