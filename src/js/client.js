@@ -43,6 +43,7 @@ socket.onmessage = function(event) {
 //    {jugador: carta}
 // make_move(array) -> [username, equipo, {equipo1: pts, equipo2: pts}]
 
+
 // set_trump_card(card_value) -> void
 
 // get_trump_card() -> card_value

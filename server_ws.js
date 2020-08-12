@@ -105,6 +105,8 @@ app.ws("/", (ws, req) => {
           );
         }
         break;
+      case "send_trick_winner":
+        
       case "disconnect":
         const user = userLeave(msg[1]);
         // broadcast to all room users
@@ -121,6 +123,17 @@ app.ws("/", (ws, req) => {
         break;
     }
   });
+
+  //esto no se si lo deberiamos de hacer o se trabaja siempre en el "message"
+  // tampoco entiendo cuales deberiamos de poner aca en si
+  ws.on("game", function(cards){
+    switch (action){
+      case "send_trick_winner":
+        let user = "p"
+    }
+    
+
+  })
 });
 
 app.listen(PORT, () => console.log(`Server running on ws://localhost:${PORT}`));
