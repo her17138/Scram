@@ -33,17 +33,9 @@ export default function Hand(props) {
     let parent_elem = dragged_obj.parentElement;
     console.log("parent!", parent_elem);
     let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
-    let dragged_obj_value = dragged_obj.getElementsByTagName("p")[0].innerHTML;
     event.target.appendChild(document.getElementById(data));
-    let target_value = event.target.getElementsByTagName("p")[0].innerHTML;
-    //si el elemento es mayor solo por un numero, se agrega como child.
-    if (target_value - dragged_obj_value == 1) {
-      console.log("success");
-      popCard(index)
-    } else {
-      console.log("incorrect!");
-      parent_elem.appendChild(dragged_obj);
-    }
+    popCard(index)
+
   }
   return (
     <div className="hand">

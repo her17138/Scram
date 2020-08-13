@@ -7,6 +7,7 @@ import dorval from "../../assets/dorval.jpg";
 import hans from "../../assets/hans.jpg";
 import mijangos from "../../assets/mijangos.jpg";
 import Hand from "../hand/Hand.jsx";
+import Playarea from "../playarea/Playarea.jsx";
 
 export default class Board extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class Board extends React.Component {
       // j || 11 || k || 13 || //
 
       deck: [0, 0, 0, 0],
-      players: [
+/*       players: [
         {
           nombre: "",
           hand: [],
@@ -30,7 +31,7 @@ export default class Board extends React.Component {
           equipo: "",
           suma: 0,
         },
-      ],
+      ] */
       hand: [],
     };
 
@@ -164,6 +165,37 @@ export default class Board extends React.Component {
     
   };
 
+  nextTurn = () => {
+    // Lista de jugadores desde estado
+    let players = this.state.players;
+    // Player 1 starts first trick solo porque si
+    let activePlayer = 0;
+
+    for (let i=0; i<players.length; i++){
+      if (players[i] == activePlayer) {
+        // Primero le quitamos el turno a todos, excepto a quien va a jugar
+        this.disablePlayersTurn(i);
+        // Hacer la jugada
+        this.playACard(i);
+      }
+    }
+  };
+
+  disablePlayersTurn = (id) => {
+    let players = this.state.players;
+    for (let i=0; i<players.length; i++){
+      if (players[i] == id) {
+        players[i].turno = true;
+      }else{
+        players[i].turno = false;
+      }
+    }
+  }
+
+  playACard = () => {
+    
+  }
+
   playTrick = () => {
     while (!this.isHandEmpty()) {
       this.nextTurn();
@@ -181,17 +213,9 @@ export default class Board extends React.Component {
 
     return (
       <div className="board">
-        <div className="deck">
-          {this.state.deck.map((x) => (
-            <Card
-              key={x}
-              class="target"
-              img={images[Fucs.randomInterval(images.length)]}
-              number={0}
-            ></Card>
-          ))}
-        </div>
-        <Hand player={"Ernesto"} cards={this.state.hand}></Hand>;
+        <Playarea/>
+       
+        <Hand player={"franz heidacher"} cards={this.state.deck}></Hand>;
       </div>
     );
   }
