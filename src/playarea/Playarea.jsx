@@ -26,7 +26,8 @@ export default function Playarea(props) {
 
     return (
         <div
-            className="playableArea"   
+            className="playableArea"
+            id="playablearea"
             onDrop={(e) => {
                 drop(e);
             }}

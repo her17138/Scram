@@ -7,7 +7,7 @@ import dorval from "../../assets/dorval.jpg";
 import hans from "../../assets/hans.jpg";
 import mijangos from "../../assets/mijangos.jpg";
 
-import './Hand.scss'
+import "./Hand.scss";
 export default function Hand(props) {
   //this array should contain the names of
   let images = [back, dorval, hans, mijangos];
@@ -30,15 +30,30 @@ export default function Hand(props) {
   function dropEnd(event) {
     let data = event.dataTransfer.getData("clicked");
     let dragged_obj = document.getElementById(data);
-    let parent_elem = dragged_obj.parentElement;
-    console.log("parent!", parent_elem);
-    let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
+    let index = dragged_obj.getElementsByTagName("p")[0].innerHTML
+    let oldParent = document.getElementById(props.player+"hand")
     event.target.appendChild(document.getElementById(data));
-    popCard(index)
 
+    switch (dragged_obj.parentElement.className) {
+      case "playableArea":
+        break;
+      case "cardImg":
+        let original_target = document.getElementById("playablearea");
+        original_target.appendChild(dragged_obj);
+        console.log("card",dragged_obj.parentElement)
+        break;
+
+      default:
+        alert("invalid move!");
+        console.log("old", oldParent)
+        oldParent.appendChild(dragged_obj)
+        break;
+    }
+    
+    popCard(index);
   }
   return (
-    <div className="hand">
+    <div className="hand" id={props.player+"hand"}>
       {cards.map((x, i) => (
         <div className="cardContainer">
           <Card
