@@ -10,13 +10,9 @@ import "./Card.scss";
 export default function Card(props) {
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
   const [flipped, setFlip] = useState(false);
-  const [stack, setStack] = useState([]);
-  const [clicked, setClick] = useState(false);
-
   function handleClick(e) {
     e.preventDefault();
     setFlip((prevVal) => !prevVal)
-    setClick((prevVal) => !prevVal)
   }
 
 
@@ -36,16 +32,13 @@ export default function Card(props) {
       }}
     >
       <p className="hidden">{props.value}</p>
-      <p className="hidden">{props.key}</p>
+      <p className="hidden">{props.identifier}</p>
       {flipped ? (
         <img draggable="false" className="cardImg" src={props.img}></img>
       ) : (
         <img className="cardImg" draggable="false" src={backImage}></img>
       )}
-      <div className="cardDetails">
-        <div className="cardPoints">{props.cardPts}</div>
-        <div className="cardDesc">{props.cardDesc}</div>
-      </div>
+      
     </div>
   );
 }

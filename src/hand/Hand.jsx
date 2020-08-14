@@ -27,37 +27,23 @@ export default function Hand(props) {
     event.dataTransfer.setData("clicked", event.target.id);
   }
 
-  function dropEnd(event) {
+  function dropEnd(event){
     let data = event.dataTransfer.getData("clicked");
     let dragged_obj = document.getElementById(data);
-    let index = dragged_obj.getElementsByTagName("p")[0].innerHTML
-    let oldParent = document.getElementById(props.player+"hand")
-    event.target.appendChild(document.getElementById(data));
-
-    switch (dragged_obj.parentElement.className) {
-      case "playableArea":
-        break;
-      case "cardImg":
-        let original_target = document.getElementById("playablearea");
-        original_target.appendChild(dragged_obj);
-        console.log("card",dragged_obj.parentElement)
-        break;
-
-      default:
-        alert("invalid move!");
-        console.log("old", oldParent)
-        oldParent.appendChild(dragged_obj)
-        break;
-    }
+    let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
     
     popCard(index);
-  }
+    cards.pop();
+    console.log(cards)
+    setCard(cards);
+  };
   return (
-    <div className="hand" id={props.player+"hand"}>
+    <div className="hand" id={props.player + "hand"}>
       {cards.map((x, i) => (
         <div className="cardContainer">
           <Card
             key={i}
+            identifier={i}
             player={props.player}
             img={images[Fucs.randomInterval(images.length)]}
             startFunction={dragStart}

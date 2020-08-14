@@ -19,7 +19,7 @@ export default class Board extends React.Component {
 
       deck: [0, 0, 0, 0],
       playedCards: [],
-/*       players: [
+      /*       players: [
         {
           nombre: "",
           hand: [],
@@ -139,60 +139,30 @@ export default class Board extends React.Component {
     return count === 0 ? true : false;
   };
 
-  /* 
-    retuns team which won, param -> name of teams in array, else returns -1
-  */
-  calculateTrick = (arrTeam) => {
-    let trick = this.state.trick;
-    let teamA = trick.filter((elem) => {
-      elem.equipo === arrTeam[0];
-    });
-    let teamB = trick.filter((elem) => {
-      elem.equipo === arrTeam[1];
-    });
-    let sumA = null;
-    let sumB = null;
-    teamA.map((e) => {
-      sumA = teamA.suma + 1;
-    });
-
-    teamB.map((e) => {
-      sumB = sumB.suma + 1;
-    });
-    if(sumB !== sumA){
-      return (sumB > sumA ? arrTeam[0] : arrTeam[1])
-    } else{
-      return -1
-    }
-    
-  };
-
   nextTurn = () => {
     // Lista de jugadores desde estado
     let players = this.state.players;
     // Player 1 starts first trick solo porque si
     let activePlayer = 0;
 
-    for (let i=0; i<players.length; i++){
+    for (let i = 0; i < players.length; i++) {
       if (players[i] == activePlayer) {
         // Primero le quitamos el turno a todos, excepto a quien va a jugar
         this.disablePlayersTurn(i);
-
       }
     }
   };
 
   disablePlayersTurn = (id) => {
     let players = this.state.players;
-    for (let i=0; i<players.length; i++){
+    for (let i = 0; i < players.length; i++) {
       if (players[i] == id) {
         players[i].turno = true;
-      }else{
+      } else {
         players[i].turno = false;
       }
     }
-  }
-
+  };
 
   playTrick = () => {
     while (!this.isHandEmpty()) {
@@ -212,9 +182,7 @@ export default class Board extends React.Component {
     return (
       <div className="board">
         <CardsContext.Provider value={this.state.playedCards}>
-          <div>
-            <Playarea/>
-          </div>
+          <Playarea />
         </CardsContext.Provider>
         <Hand player={"franz heidacher"} cards={this.state.deck}></Hand>;
       </div>

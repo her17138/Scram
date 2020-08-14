@@ -10,10 +10,12 @@ export default function Playarea(props) {
 
     function drop(ev) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("clicked");
-        ev.target.appendChild(document.getElementById(data));
-        var card = document.getElementById(data);
-        var pts = card.getElementsByTagName("p")[0].innerHTML;
+        let data = ev.dataTransfer.getData("clicked");
+        let card = document.getElementById(data)
+        //jalamos padre por el wrapper de la carta.
+        ev.target.appendChild(card.parentElement);
+
+        let pts = card.getElementsByTagName("p")[0].innerHTML;
 
         //modificar arreglo del board
         cardContext.push(pts);
