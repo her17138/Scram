@@ -10,16 +10,18 @@ import mijangos from "../../assets/mijangos.jpg";
 import "./Hand.scss";
 export default function Hand(props) {
   //this array should contain the names of
-  let images = [back, dorval, hans, mijangos];
+  let images = [dorval, hans, mijangos];
 
   const [cards, setCard] = useState(props.cards);
 
   function popCard(cardId) {
-    const index = cards.indexOf(cardId);
+    let index = cards.indexOf(cardId);
+    console.log("html->",cardId)
     if (index > -1) {
       let newHand = cards.splice(index, 1);
       setCard(newHand);
     }
+    
     console.log("pop card", String(cardId));
   }
 
@@ -27,16 +29,16 @@ export default function Hand(props) {
     event.dataTransfer.setData("clicked", event.target.id);
   }
 
-  function dropEnd(event){
+  function dropEnd(event) {
     let data = event.dataTransfer.getData("clicked");
     let dragged_obj = document.getElementById(data);
-    let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
-    
+    let index = dragged_obj.getElementsByTagName("p")[1].innerHTML
+    console.log("ERNESTO", index)
     popCard(index);
     cards.pop();
-    console.log(cards)
+    console.log(cards);
     setCard(cards);
-  };
+  }
   return (
     <div className="hand" id={props.player + "hand"}>
       {cards.map((x, i) => (

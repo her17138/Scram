@@ -4,41 +4,37 @@ import backImage from "../../assets/bonz.jpg";
 import "./Playarea.scss";
 
 export default function Playarea(props) {
-    //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
-    const [stack, setStack] = useState([]);
-    const cardContext = useContext(CardsContext);
+  //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
+  const [stack, setStack] = useState([]);
+  const cardContext = useContext(CardsContext);
 
-    function drop(ev) {
-        ev.preventDefault();
-        let data = ev.dataTransfer.getData("clicked");
-        let card = document.getElementById(data)
-        //jalamos padre por el wrapper de la carta.
-        ev.target.appendChild(card.parentElement);
+  function drop(ev) {
+    ev.preventDefault();
+    let data = ev.dataTransfer.getData("clicked");
+    let card = document.getElementById(data);
+    //jalamos padre por el wrapper de la carta.
+    ev.target.appendChild(card.parentElement);
 
-        let pts = card.getElementsByTagName("p")[0].innerHTML;
+    let pts = card.getElementsByTagName("p")[0].innerHTML;
 
-        //modificar arreglo del board
-        cardContext.push(pts);
-    }
+    //modificar arreglo del board
+    cardContext.push(pts);
+  }
 
-    function allowDrop(ev) {
-        ev.preventDefault();
-    }
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
 
-
-    return (
-        <div
-            className="playableArea"
-            id="playablearea"
-            onDrop={(e) => {
-                drop(e);
-            }}
-            onDragOver={(e) => {
-                allowDrop(e);
-            }}
-        >
-
-        
-        </div>
-    );
+  return (
+    <div
+      className="playableArea"
+      id="playablearea"
+      onDrop={(e) => {
+        drop(e);
+      }}
+      onDragOver={(e) => {
+        allowDrop(e);
+      }}
+    ></div>
+  );
 }

@@ -35,9 +35,9 @@ export default class Board extends React.Component {
         },
       ] */
       hand: [],
+      trumpCard: null,
     };
 
-    var globalTrumpCard = undefined;
     const types = ["spades", "clubs", "diamonds", "hearts"];
 
     // Card list init
@@ -84,10 +84,6 @@ export default class Board extends React.Component {
     });
   }
 
-  // card init - amount of cards to be rendered..
-
-  // Create players
-  // yo imagino que en props recibimos algo con los jugadores?
   /* 
       newPlayer(params){
         let x = this.state.players
@@ -107,25 +103,15 @@ export default class Board extends React.Component {
 
   // Deal cards
   //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.
-
   dealCard = () => {
     let actualDeck = this.state.deck;
     let players = this.state.players;
-    let trumpCard = undefined;
     while (actualDeck.length !== 0) {
       for (let i = 0; i < players.length; i++) {
         players[i].hand.push(actualDeck[-1]);
-
-        if (actualDeck.length === 1) {
-          trumpCard = actualDeck.pop();
-        }
-        //elimina ultimo elemento
-        actualDeck.pop();
       }
 
-      //first player gets trump card -> hes the dealer
-      players[0].hand.push(trumpCard);
-      globalTrumpCard = trumpCard;
+      players[0].hand.push(this.state.trumpCard);
     }
   };
 
@@ -139,43 +125,12 @@ export default class Board extends React.Component {
     return count === 0 ? true : false;
   };
 
-  nextTurn = () => {
-    // Lista de jugadores desde estado
-    let players = this.state.players;
-    // Player 1 starts first trick solo porque si
-    let activePlayer = 0;
-
-    for (let i = 0; i < players.length; i++) {
-      if (players[i] == activePlayer) {
-        // Primero le quitamos el turno a todos, excepto a quien va a jugar
-        this.disablePlayersTurn(i);
-      }
-    }
-  };
-
-  disablePlayersTurn = (id) => {
-    let players = this.state.players;
-    for (let i = 0; i < players.length; i++) {
-      if (players[i] == id) {
-        players[i].turno = true;
-      } else {
-        players[i].turno = false;
-      }
-    }
-  };
-
-  playTrick = () => {
-    while (!this.isHandEmpty()) {
-      this.nextTurn();
-    }
-  };
   // Enviar informacion
 
   // Main game loop
   //    El while debería de parar hasta que la suma de las cartas de todos los jugadores sea 0
   //    Should stop when there are no more available cards to play on all players
 
-  //card litter. Should start with 0 cards.
   render() {
     var images = [back, dorval, hans, mijangos];
 
