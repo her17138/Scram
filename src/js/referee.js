@@ -7,6 +7,7 @@
  }
 
  function getTrump(){
+     trump = "heart";
      return trump;
  }
 
@@ -37,17 +38,28 @@
      };
      
      //asumiendo que cards es un array que se ve asi:
-     // cards =[["men","0"],["hola","3"],["pedro","A"],["luis","B"]]
+     // cards =[["heart","0"],["heart","3"],["heart","A"],["x","B"]]
     
-     
-     cards.forEach(element =>
-         cplayed.push(element[1])
-     );
+     isTrump = true
+     trump = getTrump();
 
-    //haria falta analizar el trump en caso que venga de lo contrario si se manda como 
-    //0 no hace falta
-     cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
-     maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
+
+     while (isTrump){
+            cards.forEach(element =>
+               cplayed.push(element[1])
+         );
+
+         //haria falta analizar el trump en caso que venga de lo contrario si se manda como 
+         //0 no hace falta
+         cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
+         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
+
+         trump_card = cards[maxCardIndex][0]
+         if (trump_card == trump){
+            isTrump = false
+         }
+     }
+     
      return maxCardIndex;
  }
 
@@ -60,7 +72,19 @@
  }
 
 
- function calculateScore(){
+ //podemos asumir que los grupos estan formados por pares e impares
+ //es decir el player en la pos 1 es la pareja del player 3 y lo mismo con los
+ //pares
+ //seria bueno que tuvieramos una lista de users en la cual llevemos la cuenta de puntos individuales
+ //la forma de calcular los puntos de grupo es que por cada 7 tricks que lleva la pareja
+ //en conjunto ganan un punto como grupo
+
+ //asumiendo que users se ve asi:
+ //users = [["juan",4],["pedro",1],["carlos",2],["lalo",3]]
+ function calculateGroupScore(users){
+    var p1 = users[0][1] + users[2][1]
+    var p2 = users[1][1] + users[3][1]
+    
 
  }
 
