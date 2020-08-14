@@ -9,6 +9,7 @@ import mijangos from "../../assets/mijangos.jpg";
 import Hand from "../hand/Hand.jsx";
 import Playarea from "../playarea/Playarea.jsx";
 
+export var CardsContext = React.createContext();
 export default class Board extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,7 @@ export default class Board extends React.Component {
       // j || 11 || k || 13 || //
 
       deck: [0, 0, 0, 0],
+      playedCards: [],
 /*       players: [
         {
           nombre: "",
@@ -175,8 +177,7 @@ export default class Board extends React.Component {
       if (players[i] == activePlayer) {
         // Primero le quitamos el turno a todos, excepto a quien va a jugar
         this.disablePlayersTurn(i);
-        // Hacer la jugada
-        this.playACard(i);
+
       }
     }
   };
@@ -192,9 +193,6 @@ export default class Board extends React.Component {
     }
   }
 
-  playACard = () => {
-    
-  }
 
   playTrick = () => {
     while (!this.isHandEmpty()) {
@@ -213,8 +211,11 @@ export default class Board extends React.Component {
 
     return (
       <div className="board">
-        <Playarea/>
-       
+        <CardsContext.Provider value={this.state.playedCards}>
+          <div>
+            <Playarea/>
+          </div>
+        </CardsContext.Provider>
         <Hand player={"franz heidacher"} cards={this.state.deck}></Hand>;
       </div>
     );
