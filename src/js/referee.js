@@ -8,16 +8,13 @@ module.exports = {
     getTrump,
     getHigherCard,
     getTrickWinner,
-    calculateScore
+    calculateGroupScore
 }
 function initDeck(){
     let temp_arr = [...Array(52).keys()]
     var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
     let arr = []    
     temp_arr.forEach(x => arr.push(values[x%13]))
-    // temp_arr = temp_arr.map(x => (x %14) > 0 && ((x+1) %14) > 0 ? values[(x+1) % 14] 
-    //     : (x %14) === 13 ? values[14] : values[0])
-
     /**
      * asignar valores reales a numeros del deck 
      * 1-13: spades 

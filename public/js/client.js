@@ -1,13 +1,11 @@
-const chatForm = document.getElementById('chat-form');
-const chatMessages = document.querySelector('.chat-messages');
-const roomName = document.getElementById('room-name');
-const userList = document.getElementById('users');
-const leaveChat = document.getElementById('leave-room');
+// const chatForm = document.getElementById('chat-form');
+// const chatMessages = document.querySelector('.chat-messages');
+// const roomName = document.getElementById('room-name');
+// const userList = document.getElementById('users');
+// const leaveChat = document.getElementById('leave-room');
 
 // Get username and room from URL
-const { username} = Qs.parse(location.search, {
-    ignoreQueryPrefix: true
-});
+let user = ''
 var players = []
 
 /** 
@@ -29,18 +27,17 @@ socket.onmessage = function(event) {
     switch(action){
         case 'join_room':
             var room = data[1]
-            outputRoomName(room)
+            // outputRoomName(room)
             socket.send(['get_players', room].join("||"))
             break;
         case 'send_players':
             players = JSON.parse(data[1])
-            outputUsers(players)
+            // outputUsers(players)
             break;
         case 'receive_message':
             var msg_json  = JSON.parse(data[1])
-            outputMessage(msg_json)
-            // Scroll down
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            console.log(msg_json)
+            // outputMessage(msg_json)
             break;
         
     }
@@ -61,11 +58,6 @@ alert(`[error] ${error.message}`);
  * implementacion de movimientos del juego 
  */
 
-// get_players() -> [username1, username2, ...]
-function get_players(){
-    return players
-}
-
 // whos_turn() -> username 
 
 //    jugadores = [username1: {value: '2', type:'diamonds'}, ...]
@@ -79,63 +71,50 @@ function get_players(){
 
 // get_players() -> [username1, username2, username3, username4]
 
+// get_winner() -> team_ganador
+function init_deck(){
+    console.log("init deck")
+}
+function whos_turn(){
+    console.log("whos turn")
+}
+function make_move(jugadores){
+    console.log("make move")
+}
+function get_trump_card(){
+    console.log("get trump card")
+}
+function get_winner(){
+    console.log("get winner")
+}
+function get_players(){
+    console.log("get players")
+    // return players
+}
+
 
 /**
  *  implementacion de chat 
  */
-// Message submit
-chatForm.addEventListener('submit', e => {
-    e.preventDefault();
-  
-    // Get message text
-    const msg = e.target.elements.msg.value;
-  
-    // Emit message to server
+function set_username(username){
+    user = username
+}
+function send_message(message){
     socket.send(['send_message', username, msg].join("||"));
-  
-    // Clear input
-    e.target.elements.msg.value = '';
-    e.target.elements.msg.focus();
-});
-
-leaveChat.addEventListener('click', e => {
-    // e.preventDefault();
-    closeSocket(socket)
-})
-
-async function closeSocket(socket){
-    await socket.send(["disconnect", username].join("||"))    
-    // socket.onmessage = await function(event){
-    //     let data = event.data.split("||")
-    //     let action = data[0]
-    //     if(action === "can_disconnect"){
-    //         socket.close()
-    //     }
-    // }
-    // socket.close()
+}
+function get_room(){
+    return room
+}
+function get_users(){
+    return players   
 }
 
-// Output message to DOM
-function outputMessage(message) {
-    const div = document.createElement('div');
-    div.classList.add('message');
-    div.innerHTML = `<p class="meta">${message.username} <span>${message.time}</span></p>
-    <p class="text">
-        ${message.text}
-    </p>`;
-    document.querySelector('.chat-messages').appendChild(div);
-}
-
-// Add room name to DOM
-function outputRoomName(room) {
-    roomName.innerText = room;
-}
-
-// Add users to DOM
-function outputUsers(users) {
-userList.innerHTML = `
-        ${users.map(user => `<li>${user}</li>`).join('')}
-    `;
+module.exports ={
+    set_username,
+    send_message,
+    get_room,
+    get_players,
+    get_users
 }
 
 
