@@ -17,7 +17,7 @@ export default function Card(props) {
 
   return (
     <div
-      id={props.player + props.img}
+      id={props.player + props.img + props.identifier}
       className="card"
       draggable="true"
       onClick={(e) => {
@@ -31,7 +31,8 @@ export default function Card(props) {
       }}
     >
       <p className="hidden">{props.value}</p>
-      <p id="arguello" className="hidden">{props.identifier}</p>
+      <p className="hidden">{props.identifier}</p>
+      <p className="hidden">{props.player}</p>
       {flipped ? (
         <img draggable="false" className="cardImg" src={props.img}></img>
       ) : (

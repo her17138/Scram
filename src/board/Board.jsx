@@ -76,7 +76,7 @@ export default class Board extends React.Component {
 
   addCard(e) {
     e.preventDefault();
-    console.log("gustavo de leon");
+
     let tmpArr = this.state.hand;
     tmpArr.push(0);
     this.setState({

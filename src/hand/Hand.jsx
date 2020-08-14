@@ -16,13 +16,13 @@ export default function Hand(props) {
 
   function popCard(cardId) {
     let index = cards.indexOf(cardId);
-    console.log("html->",cardId)
+    
     if (index > -1) {
       let newHand = cards.splice(index, 1);
       setCard(newHand);
     }
+
     
-    console.log("pop card", String(cardId));
   }
 
   function dragStart(event) {
@@ -31,13 +31,17 @@ export default function Hand(props) {
 
   function dropEnd(event) {
     let data = event.dataTransfer.getData("clicked");
+    
     let dragged_obj = document.getElementById(data);
-    let index = dragged_obj.getElementsByTagName("p")[1].innerHTML
-    console.log("ERNESTO", index)
-    popCard(index);
-    cards.pop();
-    console.log(cards);
-    setCard(cards);
+
+    let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
+    if (dragged_obj.parentElement.parentElement.id === "playablearea") {
+      
+      popCard(index);
+      cards.pop();
+      
+      setCard(cards);
+    }
   }
   return (
     <div className="hand" id={props.player + "hand"}>
