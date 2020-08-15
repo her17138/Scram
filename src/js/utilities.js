@@ -2,7 +2,7 @@
 
 const funcs = {
   randomInterval(upLimit) {
-    return Math.floor(Math.random() * upLimit + 1);
+    return Math.floor(Math.random() * upLimit);
   }
 };
 
