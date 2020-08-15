@@ -1,5 +1,6 @@
+const { initDeck, getTrump, getHigherCard, 
+    calculateGroupScore, getTrickWinner, playerTurn } = require('./referee')
 
-// Get username and room from URL
 let user = ''
 var players = []
 let usr_msg = []
@@ -8,40 +9,33 @@ let room = -1
 /**
  * implementacion de movimientos del juego 
  */
-
 // whos_turn() -> username 
-
 //    jugadores = [username1: {value: '2', type:'diamonds'}, ...]
 // make_move(jugadores) -> [username, equipo, {equipo1: pts, equipo2: pts}]
-
 // set_trump_card(card_value) -> void
-
 // get_trump_card() -> {value: '2', type: 'diamonds'}
-
 // init_deck() ->[{value: '2', type:'diamonds'}]
-
 // get_players() -> [username1, username2, username3, username4]
-
 // get_winner() -> team_ganador
 function init_deck(){
-    console.log("init deck")
+    return initDeck()
 }
 function whos_turn(){
-    console.log("whos turn")
+    return playerTurn(players)
 }
 function make_move(jugadores){
-    console.log("make move")
+    const index = getHigherCard(jugadores)
+    return getTrickWinner(players, index)
 }
 function get_trump_card(){
-    console.log("get trump card")
+    return getTrump()
 }
 function get_winner(){
-    console.log("get winner")
+    return calculateGroupScore()
 }
 function get_players(){
     return players
 }
-
 
 /**
  *  implementacion de chat 
@@ -69,10 +63,17 @@ module.exports ={
     get_room,
     get_players,
     receive_message,
-    get_username
+    get_username,
+    init_deck,
+    whos_turn,
+    make_move,
+    get_trump_card,
+    get_winner
+
 }
 
 /** 
+ *  Implementación de WebSockets. 
  *  action types and (send) message structure:
  *      1. join_room : action||room
  *      2. send_message : action||username||message
@@ -117,5 +118,5 @@ socket.onclose = function(event) {
 };
   
 socket.onerror = function(error) {
-alert(`[error] ${error.message}`);
+    alert(`[error] ${error.message}`);
 };

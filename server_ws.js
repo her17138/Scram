@@ -1,15 +1,9 @@
 const PORT = process.env.PORT || 3000;
 const path = require("path");
-const http = require("http");
 const express = require("express");
 const enableWs = require("express-ws");
 
 let app = express();
-//initialize a simple http server
-// const server = http.createServer(app);
-// const WebSocket = require('ws');
-// const wss = new WebSocket.Server({ port:PORT });
-// const wsInstance = enableWs(app, wss);
 enableWs(app);
 
 
@@ -25,8 +19,7 @@ const {
   getUserRoom,
 } = require("./src/js/users");
 
-const ref = require('./src/js/referee')
-const botName = "ChatCord Bot";
+const botName = "Whist Chat";
 
 /**
  * users = [
@@ -120,8 +113,6 @@ app.ws("/", (ws, req) => {
         const rm_players = getRoomUsers(Number(room))
         const usernames = rm_players.map(x => x.username)
         ws.send(['send_players', JSON.stringify(usernames)].join("||"))
-        break;
-      case "send_trick_winner":
         break;
       case "disconnect":
         const user = userLeave(msg[1]);

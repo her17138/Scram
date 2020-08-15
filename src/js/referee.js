@@ -1,6 +1,9 @@
 /**
  * implementación de reglas del juego 
  */
+var trump = null
+var tricks = []
+var turn = -1
 
 module.exports = {
     initDeck,
@@ -8,7 +11,8 @@ module.exports = {
     getTrump,
     getHigherCard,
     getTrickWinner,
-    calculateGroupScore
+    calculateGroupScore,
+    playerTurn
 }
 function initDeck(){
     let temp_arr = [...Array(52).keys()]
@@ -37,104 +41,112 @@ function initDeck(){
         cards[currentIndex] = cards[randomIndex];
         cards[randomIndex] = temporaryValue;
     }
+    setTrump(cards[cards.length-1])
     return cards
 }
 
- function setTrump(trump){
+function setTrump(trump_card){
+    trump = trump_card
+}
 
- }
+function getTrump(){
+    return trump
+}
 
- function getTrump(){
-     trump = "heart";
-     return trump;
- }
+function getKeyByValue(object, value) {
+return Object.keys(object).find(key => object[key] === value);
+}
 
- function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
-  }
+function getHigherCard(data){
+    const initial_cards = Object.values(data)
+    var cards = []
 
- function getHigherCard(data){
-     const initial_cards = Object.values(data)
-     var cards = []
+    //convertir de data = {username1: {value: '2', type:'diamonds'}, ...}
+    //cards =[["heart","0"],["heart","3"],["heart","A"],["x","B"]]
+    for (i = 0; i < initial_cards.length; i++) {
+        var temp = []
+        temp.push(initial_cards[i].value)
+        temp.push(initial_cards[i].type)
+        cards.push(temp)
+    }
 
-     //convertir de data = {username1: {value: '2', type:'diamonds'}, ...}
-     //cards =[["heart","0"],["heart","3"],["heart","A"],["x","B"]]
-     for (i = 0; i < initial_cards.length; i++) {
-         var temp = []
-         temp.push(initial_cards[i].value)
-         temp.push(initial_cards[i].type)
-         cards.push(temp)
-     }
 
-   
-     var cplayed = [];
-     var cards_map = [];
-     var maxCardIndex = -1;
-     //validar si van a mandar los numeros como ints o como strings desde el frontend
-     var values = {
-        14: 'A',
-        13: 'K',
-        12: 'Q',
-        11: 'J',
-        10: '10',
-        9: '9',
-        8: '8',
-        7: '7',
-        6: '6',
-        5: '5',
-        4: '4',
-        3: '3',
-        2: '2',
-        0: '0'      
-     };
-          
+    var cplayed = [];
+    var cards_map = [];
+    var maxCardIndex = -1;
+    //validar si van a mandar los numeros como ints o como strings desde el frontend
+    var values = {
+    14: 'A',
+    13: 'K',
+    12: 'Q',
+    11: 'J',
+    10: '10',
+    9: '9',
+    8: '8',
+    7: '7',
+    6: '6',
+    5: '5',
+    4: '4',
+    3: '3',
+    2: '2',
+    0: '0'      
+    };
+        
+
+    isTrump = true
+    trump = getTrump();
+
+    while (isTrump){
+        cards.forEach(element =>
+            cplayed.push(element[1])
+        );
+
+        //haria falta analizar el trump en caso que venga de lo contrario si se manda como 
+        //0 no hace falta
+        cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
+        maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
+
+        trump_card = cards[maxCardIndex][0]
+        if (trump_card == trump){
+        isTrump = false
+        }
+    }
     
-     isTrump = true
-     trump = getTrump();
-
-     while (isTrump){
-            cards.forEach(element =>
-               cplayed.push(element[1])
-         );
-
-         //haria falta analizar el trump en caso que venga de lo contrario si se manda como 
-         //0 no hace falta
-         cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
-         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
-
-         trump_card = cards[maxCardIndex][0]
-         if (trump_card == trump){
-            isTrump = false
-         }
-     }
-     
-     return maxCardIndex;
- }
-
-
+    return maxCardIndex;
+}
 
 //players se veria  asi:
 // players = ["Juan", "Pedro", "Luis", "Hee"]
 // index es el valor que getHigherCard devuelve
 function getTrickWinner(players, index){
+    tricks.push(index)
     return players[index];
 }
 
-
- //podemos asumir que los grupos estan formados por pares e impares
- //es decir el player en la pos 1 es la pareja del player 3 y lo mismo con los
- //pares
- //seria bueno que tuvieramos una lista de users en la cual llevemos la cuenta de puntos individuales
- //la forma de calcular los puntos de grupo es que por cada 7 tricks que lleva la pareja
- //en conjunto ganan un punto como grupo
-
- //asumiendo que users se ve asi:
- //users = [["juan",4],["pedro",1],["carlos",2],["lalo",3]]
- function calculateGroupScore(users){
-    var p1 = users[0][1] + users[2][1]
-    var p2 = users[1][1] + users[3][1]
-    
-
+function calculateGroupScore(users){
+    let g1 = 0,
+        g2 = 0
+    for (i = 0; i < tricks.length; i++) {
+        if(tricks[i] % 2 == 0){
+            g1 +=1
+        }
+        else{
+            g2 +=1
+        }
+    }
+    if(g1 >g2){
+        return ["grupo1", g1]
+    }
+    else{
+        return ["grupo2", g2]
+    }
+}
+function playerTurn(players){
+    if(tricks.length !== 13){
+        turn +=1
+        return players[turn % 4]
+    }
+    return null
 }
 
 

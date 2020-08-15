@@ -65,7 +65,7 @@ export default class Chat extends React.Component{
             userList.innerHTML = `
                     ${usrs.map(user => `<li>${user}</li>`).join('')}
                 `;
-        }, 1000)
+        }, 500)
         
     }
     sendMessage(){
