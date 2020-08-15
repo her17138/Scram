@@ -17,7 +17,7 @@ export default class Board extends React.Component {
       //  "nombre_carta","valor_carta"
       // j || 11 || k || 13 || //
 
-      deck: [0, 0, 0, 0],
+      deck: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       playedCards: [],
       /*       players: [
         {
