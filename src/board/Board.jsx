@@ -38,6 +38,9 @@ export default class Board extends React.Component {
       trumpCard: null,
     };
 
+    // Player positions in order: 1, 2, 3, 4
+    const playerPos = [{x: 2, y: 3}, {x: 3, y: 2}, {x: 2, y:1}, {x: 1, y: 2}];
+    
     const types = ["spades", "clubs", "diamonds", "hearts"];
 
     // Card list init
