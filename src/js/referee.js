@@ -53,7 +53,20 @@ function initDeck(){
     return Object.keys(object).find(key => object[key] === value);
   }
 
- function getHigherCard(cards){
+ function getHigherCard(data){
+     const initial_cards = Object.values(data)
+     var cards = []
+
+     //convertir de data = {username1: {value: '2', type:'diamonds'}, ...}
+     //cards =[["heart","0"],["heart","3"],["heart","A"],["x","B"]]
+     for (i = 0; i < initial_cards.length; i++) {
+         var temp = []
+         temp.push(initial_cards[i].value)
+         temp.push(initial_cards[i].type)
+         cards.push(temp)
+     }
+
+   
      var cplayed = [];
      var cards_map = [];
      var maxCardIndex = -1;
@@ -74,13 +87,10 @@ function initDeck(){
         2: '2',
         0: '0'      
      };
-     
-     //asumiendo que cards es un array que se ve asi:
-     // cards =[["heart","0"],["heart","3"],["heart","A"],["x","B"]]
+          
     
      isTrump = true
      trump = getTrump();
-
 
      while (isTrump){
             cards.forEach(element =>
@@ -102,11 +112,12 @@ function initDeck(){
  }
 
 
+
 //players se veria  asi:
 // players = ["Juan", "Pedro", "Luis", "Hee"]
 // index es el valor que getHigherCard devuelve
 function getTrickWinner(players, index){
-return players[index];
+    return players[index];
 }
 
 
