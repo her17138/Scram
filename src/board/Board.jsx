@@ -1,7 +1,6 @@
 import React from "react";
 import "./Board.scss";
-import Card from "../card/Card.jsx";
-import Fucs from "../js/utilities";
+
 import back from "../../assets/back.jpg";
 import dorval from "../../assets/dorval.jpg";
 import hans from "../../assets/hans.jpg";
@@ -10,6 +9,15 @@ import Hand from "../hand/Hand.jsx";
 import Playarea from "../playarea/Playarea.jsx";
 
 export var CardsContext = React.createContext();
+
+/* PLAYER STRUCTURE
+{
+  nombre: "",
+  hand: [],
+  equipo: "",
+  turno: false,
+}, 
+ */
 export default class Board extends React.Component {
   constructor(props) {
     super(props);
@@ -19,26 +27,16 @@ export default class Board extends React.Component {
 
       deck: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       playedCards: [],
-      /*       players: [
-        {
-          nombre: "",
-          hand: [],
-          equipo,
-          turno: false,
-        },
-      ],
-
+      players: [],
       trick: [
         {
           equipo: "",
           suma: 0,
         },
-      ] */
-      hand: [],
+      ],
+      
       trumpCard: null,
     };
-
-    
 
     const types = ["spades", "clubs", "diamonds", "hearts"];
 
@@ -66,15 +64,44 @@ export default class Board extends React.Component {
 
   componentDidMount() {
     let array = [];
+    let deck = null;
     for (let i = 0; i < 12; i++) {
       array.push(i);
     }
-    this.setState({
-      deck: array,
-      cementery: array,
-    });
-    //this.call(this.state.reference)
+
+    this.getDeck();
+    this.getPlayers();
+    this.dealCard(this.state.players, this.state.deck);
   }
+
+  getDeck = () => {
+    this.setState({
+      deck: this.props.clientjs.init_deck(),
+    });
+  };
+
+  getPlayers = () => {
+    let current = this.state.players;
+    setInterval(() => {
+      let usrs = this.props.clientjs.get_players();
+
+      //aarray.. x, y z
+
+      // [] {} -> nombre
+      if (current.length !== usrs.length) {
+        current.push({
+          nombre: usrs[usrs.length - 1],
+          hand: [],
+          equipo: "",
+          turno: false,
+        });
+      }
+    }, 1000);
+    this.setState({
+      players: current,
+    });
+    console.log("array_lulu", this.state.players);
+  };
 
   addCard(e) {
     e.preventDefault();
@@ -105,15 +132,14 @@ export default class Board extends React.Component {
 
   // Deal cards
   //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.
-  dealCard = () => {
-    let actualDeck = this.state.deck;
-    let players = this.state.players;
-    while (actualDeck.length !== 0) {
-      for (let i = 0; i < players.length; i++) {
-        players[i].hand.push(actualDeck[-1]);
-      }
+  dealCard = (playerArr, deckArr) => {
+    /* let actualDeck = this.state.deck;
+    let players = this.state.players; */
 
-      players[0].hand.push(this.state.trumpCard);
+    while (deckArr.length !== 0) {
+      console.log(deckArr.pop());
+
+      //playerArr[0].hand.push(this.state.trumpCard);
     }
   };
 
@@ -137,17 +163,38 @@ export default class Board extends React.Component {
     var images = [back, dorval, hans, mijangos];
 
     // Player positions in order: 1, 2, 3, 4
-    const playerPos = [{ x: 2, y: 3, rotate: 0 }, { x: 3, y: 2, rotate: 270 }, { x: 2, y: 1, rotate: 180 }, { x: 1, y: 2, rotate: 90 }];
+    const playerPos = [
+      { x: 2, y: 3, rotate: 0 },
+      { x: 3, y: 2, rotate: 270 },
+      { x: 2, y: 1, rotate: 180 },
+      { x: 1, y: 2, rotate: 90 },
+    ];
 
     return (
       <div className="board">
         <CardsContext.Provider value={this.state.playedCards}>
           <Playarea />
         </CardsContext.Provider>
-        <Hand player={"franz heidacher"} cards={this.state.deck} pos={playerPos[0]} />
-        <Hand player={"dieter de wit"} cards={this.state.deck} pos={playerPos[1]} />
-        <Hand player={"luis esturban"} cards={this.state.deck} pos={playerPos[2]} />
-        <Hand player={"paulo mejia"} cards={this.state.deck} pos={playerPos[3]} />
+        <Hand
+          player={"franz heidacher"}
+          cards={this.state.deck}
+          pos={playerPos[0]}
+        />
+        <Hand
+          player={"dieter de wit"}
+          cards={this.state.deck}
+          pos={playerPos[1]}
+        />
+        <Hand
+          player={"luis esturban"}
+          cards={this.state.deck}
+          pos={playerPos[2]}
+        />
+        <Hand
+          player={"paulo mejia"}
+          cards={this.state.deck}
+          pos={playerPos[3]}
+        />
       </div>
     );
   }
