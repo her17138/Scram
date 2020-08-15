@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Chat.scss"
 var client = null
 export default class Chat extends React.Component{
     constructor(props){
@@ -82,7 +82,7 @@ export default class Chat extends React.Component{
                 roomName.innerText = room;
                 clearInterval(refreshId);
             }
-        }, 1000);
+        }, 500);
     }
     componentDidMount(){
         this.setState({username:client.get_username()})
@@ -96,7 +96,7 @@ export default class Chat extends React.Component{
     }
     render(){
         return(
-            <div>
+            <div id="main-chat-container">
                 <div className="chat-container">
                 <header className="chat-header">
                     <h1><i className="fas fa-smile"></i> ChatCord</h1>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Chat from '../Chat.jsx'
+import Chat from '../chat/Chat.jsx'
 import Board from '../board/Board.jsx'
 import './Game.scss'
+import '../css/style.scss'
 
 export default function Game(props) {
     console.log(props)
