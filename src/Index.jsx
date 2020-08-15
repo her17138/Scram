@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Chat from './Chat.jsx'
 import ReactDOM from "react-dom";
 import {Link} from "react-router-dom"
 import { Redirect } from 'react-router'

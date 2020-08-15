@@ -1,7 +1,7 @@
 
 import React from "react";
 import Index from './Index.jsx';
-import Game from './Game.jsx';
+import Game from './game/Game.jsx';
 import ReactDOM from "react-dom"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 

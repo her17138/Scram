@@ -125,7 +125,7 @@ app.ws("/", (ws, req) => {
             return room_usrs.splice(index, 1)[0];
           }
           const rm_usrs = room_usrs.map(x => x.username)
-          console.log(rm_usrs)
+          // avisar a todos los usuarios que se ha desconectado
           for (let i = 0; i < room_usrs.length; i++) {
             let usr_socket = room_usrs[i].id;
             if(usr_socket !== user.id){
@@ -139,6 +139,7 @@ app.ws("/", (ws, req) => {
             }
           }
         }
+        user.id.close()
         user.id.send("can_disconnect")
         break;
     }
