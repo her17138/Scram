@@ -38,9 +38,8 @@ export default class Board extends React.Component {
       trumpCard: null,
     };
 
-    // Player positions in order: 1, 2, 3, 4
-    const playerPos = [{x: 2, y: 3}, {x: 3, y: 2}, {x: 2, y:1}, {x: 1, y: 2}];
     
+
     const types = ["spades", "clubs", "diamonds", "hearts"];
 
     // Card list init
@@ -137,12 +136,18 @@ export default class Board extends React.Component {
   render() {
     var images = [back, dorval, hans, mijangos];
 
+    // Player positions in order: 1, 2, 3, 4
+    const playerPos = [{ x: 2, y: 3, rotate: 0 }, { x: 3, y: 2, rotate: 270 }, { x: 2, y: 1, rotate: 180 }, { x: 1, y: 2, rotate: 90 }];
+
     return (
       <div className="board">
         <CardsContext.Provider value={this.state.playedCards}>
           <Playarea />
         </CardsContext.Provider>
-        <Hand player={"franz heidacher"} cards={this.state.deck}></Hand>;
+        <Hand player={"franz heidacher"} cards={this.state.deck} pos={playerPos[0]} />
+        <Hand player={"dieter de wit"} cards={this.state.deck} pos={playerPos[1]} />
+        <Hand player={"luis esturban"} cards={this.state.deck} pos={playerPos[2]} />
+        <Hand player={"paulo mejia"} cards={this.state.deck} pos={playerPos[3]} />
       </div>
     );
   }

@@ -43,8 +43,20 @@ export default function Hand(props) {
       setCard(cards);
     }
   }
+
+  const handStyle = {
+    gridColumn: `${props.pos.x}/${props.pos.x}`,
+    gridRow: `${props.pos.y}`,
+    display: "flex",
+    padding: "20px",
+    width: "245px",
+    height: "150px",
+    transform: `rotate(${props.pos.rotate}deg)`
+  };
+  
   return (
-    <div className="hand" id={props.player + "hand"}>
+    <div style={handStyle} id={props.player + "hand"}>
+      {console.log(props)}
       {cards.map((x, i) => (
         <div className="cardContainer">
           <Card
