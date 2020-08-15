@@ -1,12 +1,8 @@
-// const chatForm = document.getElementById('chat-form');
-// const chatMessages = document.querySelector('.chat-messages');
-// const roomName = document.getElementById('room-name');
-// const userList = document.getElementById('users');
-// const leaveChat = document.getElementById('leave-room');
 
 // Get username and room from URL
 let user = ''
 var players = []
+let usr_msg = ''
 
 /** 
  *  action types and (send) message structure:
@@ -18,7 +14,7 @@ var players = []
  */
 var socket = new WebSocket("ws://localhost:3000/");
 socket.onopen = function (event) {
-    socket.send(['join_room', username].join("||"));
+    socket.send(['join_room', 'lulu'].join("||"));
 };
 
 socket.onmessage = function(event) {
@@ -36,15 +32,18 @@ socket.onmessage = function(event) {
             break;
         case 'receive_message':
             var msg_json  = JSON.parse(data[1])
+            console.log('recv msg')
             console.log(msg_json)
+            console.log(data[1])
             // outputMessage(msg_json)
+            usr_msg = msg_json
             break;
         
     }
 }
 socket.onclose = function(event) {
     if (event.wasClean) {
-        alert(`[close] Connection closed cleanly, code=${event.code} usr=${username}`);
+        alert(`[close] Connection closed cleanly, code=${event.code} usr=${user}`);
     } else {
         alert('[close] Connection died');
     }
@@ -100,15 +99,17 @@ function set_username(username){
     user = username
 }
 function send_message(message){
-    socket.send(['send_message', username, msg].join("||"));
+    console.log("send msg client "+ message)
+    socket.send(['send_message', 'lulu', message].join("||"));
+    setTimeout(function(){ console.log("waiting for server..."); }, 1000);
+    return usr_msg
 }
 function get_room(){
-    return room
+    return 1
 }
 function get_users(){
     return players   
 }
-
 module.exports ={
     set_username,
     send_message,

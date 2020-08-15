@@ -2,20 +2,27 @@ import React, { useState, useEffect } from "react";
 import Chat from './Chat.jsx'
 import ReactDOM from "react-dom";
 import {Link} from "react-router-dom"
+import { Redirect } from 'react-router'
 
 export default class Index extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            username: '',
+            redirect: false
+        }
+        this.handleClick = this.handleClick.bind(this)
     }
-    // componentDidMount () {
-    //     const script = document.createElement("script");
-    //     script.src = "https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js";
-    //     script.integrity = "sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=";
-    //     script.crossOrigin = "anonymous"
-    //     // script.async = true;
-    //     document.body.appendChild(script);
-    // }
+    handleClick(){
+        this.setState({redirect: true});
+    }
     render(){
+        if (this.state.redirect) {
+            return <Redirect to={{
+                pathname: "/game",
+                state: { username: this.state.username }
+              }}/>;
+        }
         return(
             <div className="join-container">
                     <header className="join-header">
@@ -30,10 +37,12 @@ export default class Index extends React.Component {
                                     name="username"
                                     id="username"
                                     placeholder="Enter username..."
+                                    onChange={event => this.setState({username:event.target.value})}
                                     required
                                 />
                             </div>
-                            <Link to='/game'> Join Room</Link>
+                            {/* <Link to='/game' params={{ username: this.state.username }}> Join Room</Link> */}
+                            <button onClick={this.handleClick} type="button">Join Room</button>
                         </form>
                     </main>
                 </div>

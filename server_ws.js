@@ -92,8 +92,8 @@ app.ws("/", (ws, req) => {
         const usrs = room_plyrs.map(x => x.username)
         for (let i = 0; i < room_plyrs.length; i++) {
           let usr_socket = room_plyrs[i].id;
+          usr_socket.send(['send_players', JSON.stringify(usrs)].join("||"))
           if(room_plyrs[i].id !== new_player.id){
-            usr_socket.send(['send_players', JSON.stringify(usrs)].join("||"))
             usr_socket.send(
               [
                 "receive_message",
@@ -107,6 +107,7 @@ app.ws("/", (ws, req) => {
         let player_usr = msg[1];
         let message = msg[2];
         var room = getUserRoom(player_usr) -1;
+        // console.log(msg)
         for (let i = 0; i < rooms[room].length; i++) {
           let usr_socket = rooms[room][i].id;
           usr_socket.send(
@@ -153,7 +154,6 @@ app.ws("/", (ws, req) => {
   });
   ws.on("close", function (message) {
     console.log("SERVER CONNECTION CLOSED")
-    console.log(wsInstance.getWss().clients)
   })
 });
 // console.log(`Server running on ws://localhost:${PORT}`)
