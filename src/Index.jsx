@@ -3,13 +3,13 @@ import Chat from './Chat.jsx'
 
 export default function Index(props) {
     return(
-        <div class="join-container">
-                <header class="join-header">
-                    <h1><i class="fas fa-smile"></i> ChatCord</h1>
+        <div className="join-container">
+                <header className="join-header">
+                    <h1><i className="fas fa-smile"></i> ChatCord</h1>
                 </header>
-                <main class="join-main">
+                <main className="join-main">
                     <form action="chat.html">
-                        <div class="form-control">
+                        <div className="form-control">
                             <label for="username">Username</label>
                             <input
                                 type="text"
@@ -19,8 +19,8 @@ export default function Index(props) {
                                 required
                             />
                         </div>
-                        <div class="form-control">
-                            <label for="room">Room</label>
+                        <div className="form-control">
+                            <label htmlFor="room">Room</label>
                             <select name="room" id="room">
                                 <option value="JavaScript">JavaScript</option>
                                 <option value="Python">Python</option>
@@ -30,7 +30,7 @@ export default function Index(props) {
                                 <option value="Java">Java</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn">Join Chat</button>
+                        <button type="submit" className="btn">Join Chat</button>
                     </form>
                 </main>
             </div>
