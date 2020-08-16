@@ -26,7 +26,7 @@ export default class Board extends React.Component {
       // j || 11 || k || 13 || //
 
       deck: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      playedCards: [],
+      turno: [],
       players: [],
       trick: [
         {
@@ -40,8 +40,7 @@ export default class Board extends React.Component {
 
     const types = ["spades", "clubs", "diamonds", "hearts"];
 
-    // Card list init
-    //TODO -> repurpose
+
     let cards = [];
     for (let i = 0; i < types.length; i++) {
       for (let j = 1; j < 14; j++) {
@@ -53,7 +52,6 @@ export default class Board extends React.Component {
       }
     }
 
-    //cards = shuffle(cards);
     var images = [back, dorval, hans, mijangos];
   }
 
@@ -94,7 +92,9 @@ export default class Board extends React.Component {
         });
         this.getDeck();
         this.dealCard();
-        //this.updateTurn();
+        this.setState({
+          turno: this.props.clientjs.whos_turn()
+        })
         clearInterval(id);
       }
     }, 1000);
@@ -183,15 +183,15 @@ export default class Board extends React.Component {
 
     return (
       <div className="board">
-        <CardsContext.Provider value={this.state.playedCards}>
-          <Playarea clientjs={this.props.clientjs} turn={this.props.clientjs.whos_turn()} />
+        <CardsContext.Provider value={this.state.turno}>
+          <Playarea clientjs={this.props.clientjs} turn={this.state.turno} />
         </CardsContext.Provider>
         {this.state.players.map((player, i) => (
           <Hand
             player={player.nombre}
             cards={player.hand}
             pos={playerPos[i]}
-            turn={this.props.clientjs.whos_turn()}
+            turn={this.state.turno}
           />
         ))}
       </div>

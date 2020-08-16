@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CardsContext, TurnContext } from "../board/Board.jsx";
+import { CardsContext } from "../board/Board.jsx";
 
 import "./Playarea.scss";
 
@@ -28,8 +28,10 @@ export default function Playarea(props) {
       };
       //modificar arreglo del board
 
-      cardContext.push(playerObj);
+      
       props.clientjs.make_move(playerObj)
+      cardContext.push(props.clientjs.whos_turn());
+      //cardContext = props.clientjs.whos_turn()
     }
   }
 

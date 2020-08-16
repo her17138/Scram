@@ -16,7 +16,6 @@ var socket = new WebSocket("ws://localhost:3000/");
 //    jugada = {username1: {value: '2', type:'diamonds'}}
 // make_move(jugada) -> void
 // get_latest_move() -> [username, equipo, {equipo1: pts, equipo2: pts}]
-// set_trump_card(card_value) -> void
 // get_trump_card() -> {value: '2', type: 'diamonds'}
 // init_deck() ->[{value: '2', type:'diamonds'}]
 // get_players() -> [username1, username2, username3, username4]
