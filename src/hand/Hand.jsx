@@ -40,7 +40,7 @@ export default function Hand(props) {
       
       popCard(index);
       cards.pop();
-      
+    
       setCard(cards);
     }
   }
