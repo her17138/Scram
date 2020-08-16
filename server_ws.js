@@ -146,6 +146,7 @@ app.ws("/", (ws, req) => {
   });
   ws.on("close", function (message) {
     console.log("SERVER CONNECTION CLOSED")
+    console.log('readystate', ws.readyState)
   })
 });
 // console.log(`Server running on ws://localhost:${PORT}`)
