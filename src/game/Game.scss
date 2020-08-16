@@ -1,3 +1,5 @@
+$border-color: #303960;
+
 .game {
     display: flex;
     flex-direction: row;
@@ -13,10 +15,19 @@
 .chat {
     padding: 10px;
     flex-basis:30%;
-    border: 3px solid #73AD21;
+    border: 3px solid $border-color;
 }
 .board-dv {
     flex-basis:70%;
-    border: 3px solid #73AD21;
     overflow: hidden;
+
+    border-top-color: $border-color;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: $border-color;
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-bottom-color: $border-color;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
 }

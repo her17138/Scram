@@ -3,7 +3,11 @@
     height: 500px;
     grid-column: 2/2;
     grid-row: 2;
-    background-color: royalblue;
+    background-color: #667aff;
     z-index: 10;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 0.50fr 0.50fr;
+    grid-template-rows: 0.50fr 0.50fr;
 }
 
