@@ -110,6 +110,318 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 /***/ }),
 
+/***/ "./assets/clubs/10.png":
+/*!*****************************!*\
+  !*** ./assets/clubs/10.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"9ed3d91b271d47faa235888a054e6bc1.png\");\n\n//# sourceURL=webpack:///./assets/clubs/10.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/11.png":
+/*!*****************************!*\
+  !*** ./assets/clubs/11.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"81c29a174ddbdaae24e8f9c882551fd9.png\");\n\n//# sourceURL=webpack:///./assets/clubs/11.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/12.png":
+/*!*****************************!*\
+  !*** ./assets/clubs/12.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"7c55d8500b5d578f53d0165797cd8544.png\");\n\n//# sourceURL=webpack:///./assets/clubs/12.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/13.png":
+/*!*****************************!*\
+  !*** ./assets/clubs/13.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"789e806884e7b801970b9ff1d15e5802.png\");\n\n//# sourceURL=webpack:///./assets/clubs/13.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/14.png":
+/*!*****************************!*\
+  !*** ./assets/clubs/14.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"1048c60ec47e687a1337e3f89bf8060d.png\");\n\n//# sourceURL=webpack:///./assets/clubs/14.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/2.png":
+/*!****************************!*\
+  !*** ./assets/clubs/2.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"2fe3f08c1c1199f5324ed1bf970d1db7.png\");\n\n//# sourceURL=webpack:///./assets/clubs/2.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/3.png":
+/*!****************************!*\
+  !*** ./assets/clubs/3.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"740490f682f11c1dcc4c238e5b52c55a.png\");\n\n//# sourceURL=webpack:///./assets/clubs/3.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/4.png":
+/*!****************************!*\
+  !*** ./assets/clubs/4.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"03a7794234fe165b25729577b31741a3.png\");\n\n//# sourceURL=webpack:///./assets/clubs/4.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/5.png":
+/*!****************************!*\
+  !*** ./assets/clubs/5.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"558517b07098cc903ccc536e683091f2.png\");\n\n//# sourceURL=webpack:///./assets/clubs/5.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/6.png":
+/*!****************************!*\
+  !*** ./assets/clubs/6.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"3620f833e1f21345d95c04ee8a46540f.png\");\n\n//# sourceURL=webpack:///./assets/clubs/6.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/7.png":
+/*!****************************!*\
+  !*** ./assets/clubs/7.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"14a56224107b90e4c0a21f9036b24476.png\");\n\n//# sourceURL=webpack:///./assets/clubs/7.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/8.png":
+/*!****************************!*\
+  !*** ./assets/clubs/8.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"a8bc06d19fd3c86f2146128a499945d5.png\");\n\n//# sourceURL=webpack:///./assets/clubs/8.png?");
+
+/***/ }),
+
+/***/ "./assets/clubs/9.png":
+/*!****************************!*\
+  !*** ./assets/clubs/9.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"6965773f58bc68691d75b698b868dd8c.png\");\n\n//# sourceURL=webpack:///./assets/clubs/9.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/10.png":
+/*!********************************!*\
+  !*** ./assets/diamonds/10.png ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"7ae9eea7487c887100631f17ff94a040.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/10.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/11.png":
+/*!********************************!*\
+  !*** ./assets/diamonds/11.png ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"66d734e61d3fd24989e87d641e59d27b.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/11.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/12.png":
+/*!********************************!*\
+  !*** ./assets/diamonds/12.png ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"028ad7d4f96fd38d6215cc8aaa2b41d6.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/12.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/13.png":
+/*!********************************!*\
+  !*** ./assets/diamonds/13.png ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"2e5ab48361135b4a4dc0ce889916f211.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/13.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/14.png":
+/*!********************************!*\
+  !*** ./assets/diamonds/14.png ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"f3b345b1733636b7cc1a1cf50ef7c33d.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/14.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/2.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/2.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"ee39c7dcbcefb2b3623352805dd31201.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/2.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/3.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/3.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"e8d502ddb5a3559bbe48403f1239311c.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/3.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/4.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/4.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"6198dfa5a839ffe15aca238894163cf4.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/4.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/5.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/5.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"0eeb59f155af62d0d734460ea1fe8997.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/5.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/6.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/6.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"d9bad49c7b55c1406c07c3b1bc456f36.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/6.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/7.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/7.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"230fd8a65e477c0936f92e8c89eb7fa4.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/7.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/8.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/8.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"f364d5554826aea4d360ec6b5ef9ea86.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/8.png?");
+
+/***/ }),
+
+/***/ "./assets/diamonds/9.png":
+/*!*******************************!*\
+  !*** ./assets/diamonds/9.png ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"a24056d5095de96fc6975f59f93f780d.png\");\n\n//# sourceURL=webpack:///./assets/diamonds/9.png?");
+
+/***/ }),
+
 /***/ "./assets/dorval.jpg":
 /*!***************************!*\
   !*** ./assets/dorval.jpg ***!
@@ -134,6 +446,162 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 /***/ }),
 
+/***/ "./assets/hearts/10.png":
+/*!******************************!*\
+  !*** ./assets/hearts/10.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"4c239d9d2aacfb16297004e15e5b60f6.png\");\n\n//# sourceURL=webpack:///./assets/hearts/10.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/11.png":
+/*!******************************!*\
+  !*** ./assets/hearts/11.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"28c2c59f8e02adb0f1798f973e16b069.png\");\n\n//# sourceURL=webpack:///./assets/hearts/11.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/12.png":
+/*!******************************!*\
+  !*** ./assets/hearts/12.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"4bc634e4dbae1def33ee29fa9bcd200f.png\");\n\n//# sourceURL=webpack:///./assets/hearts/12.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/13.png":
+/*!******************************!*\
+  !*** ./assets/hearts/13.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"3f8b369751e2ddbf6466d66de5386790.png\");\n\n//# sourceURL=webpack:///./assets/hearts/13.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/14.png":
+/*!******************************!*\
+  !*** ./assets/hearts/14.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"cc5001d4d77b31d9c0a609ba26cb6cd5.png\");\n\n//# sourceURL=webpack:///./assets/hearts/14.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/2.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/2.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"44b256f0852baad7af62671ecd1338fe.png\");\n\n//# sourceURL=webpack:///./assets/hearts/2.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/3.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/3.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"ec26afbd76698f068fe2367b2d7a3b27.png\");\n\n//# sourceURL=webpack:///./assets/hearts/3.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/4.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/4.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"5c782cf1ec5356eda1fafc1b784d71ac.png\");\n\n//# sourceURL=webpack:///./assets/hearts/4.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/5.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/5.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"89ec143821d8606b08c0d97c3bfefe42.png\");\n\n//# sourceURL=webpack:///./assets/hearts/5.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/6.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/6.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"490e85cf59df90d10e292bf7528b6656.png\");\n\n//# sourceURL=webpack:///./assets/hearts/6.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/7.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/7.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"e131e73a0cfc02b725c37c268841f0d3.png\");\n\n//# sourceURL=webpack:///./assets/hearts/7.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/8.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/8.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"ebac5b45a2747838013ab9963111a734.png\");\n\n//# sourceURL=webpack:///./assets/hearts/8.png?");
+
+/***/ }),
+
+/***/ "./assets/hearts/9.png":
+/*!*****************************!*\
+  !*** ./assets/hearts/9.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"21b32cac9c128c8c936572396769f3b6.png\");\n\n//# sourceURL=webpack:///./assets/hearts/9.png?");
+
+/***/ }),
+
 /***/ "./assets/mijangos.jpg":
 /*!*****************************!*\
   !*** ./assets/mijangos.jpg ***!
@@ -143,6 +611,162 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"499d75c1bf8701942c170e77d01804a3.jpg\");\n\n//# sourceURL=webpack:///./assets/mijangos.jpg?");
+
+/***/ }),
+
+/***/ "./assets/spades/10.png":
+/*!******************************!*\
+  !*** ./assets/spades/10.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"b2e5f80068d68337f23c845676766284.png\");\n\n//# sourceURL=webpack:///./assets/spades/10.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/11.png":
+/*!******************************!*\
+  !*** ./assets/spades/11.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"47d629305ca5ac7cb0272173ff9082b9.png\");\n\n//# sourceURL=webpack:///./assets/spades/11.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/12.png":
+/*!******************************!*\
+  !*** ./assets/spades/12.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"6ff68c3367a8bcc8937ce31e4c6bbb8c.png\");\n\n//# sourceURL=webpack:///./assets/spades/12.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/13.png":
+/*!******************************!*\
+  !*** ./assets/spades/13.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"ee2a7f62bc7a813301b0e8b1c494b84f.png\");\n\n//# sourceURL=webpack:///./assets/spades/13.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/14.png":
+/*!******************************!*\
+  !*** ./assets/spades/14.png ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"4832a80ad9754c07d5d29ae871d2ca08.png\");\n\n//# sourceURL=webpack:///./assets/spades/14.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/2.png":
+/*!*****************************!*\
+  !*** ./assets/spades/2.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"b0efcac0effc71114704212de4a87f12.png\");\n\n//# sourceURL=webpack:///./assets/spades/2.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/3.png":
+/*!*****************************!*\
+  !*** ./assets/spades/3.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"9c2eae6ccfa5ace8e6a1d9c7001a4965.png\");\n\n//# sourceURL=webpack:///./assets/spades/3.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/4.png":
+/*!*****************************!*\
+  !*** ./assets/spades/4.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"8c4d9f8ffa1f60348c83740484b6f9e3.png\");\n\n//# sourceURL=webpack:///./assets/spades/4.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/5.png":
+/*!*****************************!*\
+  !*** ./assets/spades/5.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"a4fb9b31390753187fa5cd133e29e47b.png\");\n\n//# sourceURL=webpack:///./assets/spades/5.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/6.png":
+/*!*****************************!*\
+  !*** ./assets/spades/6.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"2a77a732ec35c68a9e6ef59b1e1b9b46.png\");\n\n//# sourceURL=webpack:///./assets/spades/6.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/7.png":
+/*!*****************************!*\
+  !*** ./assets/spades/7.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"5275b8fb75082fe76b07ed564c1cb293.png\");\n\n//# sourceURL=webpack:///./assets/spades/7.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/8.png":
+/*!*****************************!*\
+  !*** ./assets/spades/8.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"2d48dd6845cf522f9a558cd5aa9bdf11.png\");\n\n//# sourceURL=webpack:///./assets/spades/8.png?");
+
+/***/ }),
+
+/***/ "./assets/spades/9.png":
+/*!*****************************!*\
+  !*** ./assets/spades/9.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"6b23955cb9971fde6df0e2f496b107e4.png\");\n\n//# sourceURL=webpack:///./assets/spades/9.png?");
 
 /***/ }),
 
@@ -3931,7 +4555,7 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {/**\n * Copyright (c) 2014, 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \".board {\\n  display: grid;\\n  grid-template-columns: 0.25fr 0.50fr 0.25fr;\\n  grid-template-rows: 0.25fr 0.50fr 0.25fr;\\n  background-color: rebeccapurple;\\n  margin: 0.25vw;\\n  margin-left: 2vw;\\n  justify-items: center; }\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/board/Board.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \".board {\\n  display: grid;\\n  grid-template-columns: 150px 0.50fr 150px;\\n  grid-template-rows: 0.25fr 0.50fr 0.25fr;\\n  margin: 0.25vw;\\n  margin-left: 2vw;\\n  justify-items: center;\\n  align-items: center;\\n  margin-top: 5%;\\n  margin-left: 20%; }\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/board/Board.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -3979,7 +4603,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \".game {\\n  display: flex;\\n  flex-direction: row;\\n  flex-wrap: wrap;\\n  height: 90%;\\n  align-items: stretch;\\n  position: absolute;\\n  top: 0;\\n  left: 0;\\n  width: 99vw; }\\n\\n.chat {\\n  padding: 10px;\\n  flex-basis: 30%;\\n  border: 3px solid #73AD21; }\\n\\n.board-dv {\\n  flex-basis: 70%;\\n  border: 3px solid #73AD21;\\n  overflow: hidden; }\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/game/Game.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \".game {\\n  display: flex;\\n  flex-direction: row;\\n  flex-wrap: wrap;\\n  height: 90%;\\n  align-items: stretch;\\n  position: absolute;\\n  top: 0;\\n  left: 0;\\n  width: 99vw; }\\n\\n.chat {\\n  padding: 10px;\\n  flex-basis: 30%;\\n  border: 3px solid #303960; }\\n\\n.board-dv {\\n  flex-basis: 70%;\\n  overflow: hidden;\\n  border-top-color: #303960;\\n  border-top-style: solid;\\n  border-top-width: 3px;\\n  border-right-color: #303960;\\n  border-right-style: solid;\\n  border-right-width: 3px;\\n  border-bottom-color: #303960;\\n  border-bottom-style: solid;\\n  border-bottom-width: 3px; }\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/game/Game.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -3991,7 +4615,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \".hand {\\n  display: flex;\\n  padding: 20px;\\n  width: 245px;\\n  height: 150px; }\\n\\n.cardContainer {\\n  flex: 1;\\n  margin: 0px 40px; }\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/hand/Hand.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \".hand {\\n  display: flex;\\n  padding: 20px;\\n  width: 245px;\\n  height: 150px; }\\n\\n.cardContainer {\\n  flex: 1;\\n  margin: 0px 8px; }\\n\\n/* :nth-child(n+7) {\\r\\n margin: 150px 40px;\\r\\n}\\r\\n */\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/hand/Hand.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -4383,7 +5007,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"CardsContext\", function() { return CardsContext; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Board; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Board_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Board.scss */ \"./src/board/Board.scss\");\n/* harmony import */ var _Board_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Board_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _assets_back_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/back.jpg */ \"./assets/back.jpg\");\n/* harmony import */ var _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/dorval.jpg */ \"./assets/dorval.jpg\");\n/* harmony import */ var _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/hans.jpg */ \"./assets/hans.jpg\");\n/* harmony import */ var _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/mijangos.jpg */ \"./assets/mijangos.jpg\");\n/* harmony import */ var _hand_Hand_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../hand/Hand.jsx */ \"./src/hand/Hand.jsx\");\n/* harmony import */ var _playarea_Playarea_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../playarea/Playarea.jsx */ \"./src/playarea/Playarea.jsx\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\n\n\n\n\n\n\nvar CardsContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();\n/* PLAYER STRUCTURE \n{\n  nombre: \"\",\n  hand: [],\n  equipo: \"\",\n  turno: false,\n}, \n */\n\nvar Board = /*#__PURE__*/function (_React$Component) {\n  _inherits(Board, _React$Component);\n\n  var _super = _createSuper(Board);\n\n  function Board(props) {\n    var _this;\n\n    _classCallCheck(this, Board);\n\n    _this = _super.call(this, props);\n\n    _defineProperty(_assertThisInitialized(_this), \"getDeck\", function () {\n      _this.setState({\n        deck: _this.props.clientjs.get_deck()\n      });\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"updateTurn\", function () {\n      //index\n      var index = _this.props.clientjs.whos_turn();\n\n      var player = _this.state.players;\n\n      for (var i = 0; i < _this.state.players.length; i++) {\n        if (i !== index) {\n          player[i].turno = false;\n        }\n      }\n\n      player[index].turno = true;\n\n      _this.setState({\n        players: player\n      });\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"checkTurn\", function () {\n      var arrayCards = _this.state.playedCards;\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"buildPlayers\", function () {\n      var current = [];\n      var id = setInterval(function () {\n        var usrs = _this.props.clientjs.get_players(); // [] {} -> nombre\n\n\n        if (usrs.length === 4) {\n          usrs.forEach(function (usr) {\n            current.push({\n              nombre: usr,\n              hand: [],\n              equipo: \"\",\n              turno: false\n            });\n          });\n\n          _this.setState({\n            players: current\n          });\n\n          _this.getDeck();\n\n          _this.dealCard();\n\n          clearInterval(id);\n        }\n      }, 1000);\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"dealCard\", function () {\n      /* let actualDeck = this.state.deck;\n      let players = this.state.players; */\n      var playerArr = _this.state.players;\n      var deckArr = _this.state.deck;\n\n      try {\n        for (var i = 0; i < playerArr.length; i++) {\n          for (var j = 0; j < 12; j++) {\n            playerArr[i].hand.push(deckArr.pop());\n          }\n        }\n\n        _this.setState({\n          players: playerArr\n        });\n\n        console.log(\"reached set state\");\n        console.log(\"play\", playerArr);\n      } catch (e) {\n        console.warn(\"jaja\");\n      } //players[{},{},{}]\n      //playerArr[0].hand.push(this.props.clientjs.get_trump_card());\n\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"isHandEmpty\", function () {\n      var players = _this.state.players;\n      var count = 0;\n\n      for (var i = 0; i < players.length; i++) {\n        count = player[i].hands.length + count;\n      } //gracias zea\n\n\n      return count === 0 ? true : false;\n    });\n\n    _this.state = {\n      //  \"nombre_carta\",\"valor_carta\"\n      // j || 11 || k || 13 || //\n      deck: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\n      playedCards: [],\n      players: [],\n      trick: [{\n        equipo: \"\",\n        suma: 0\n      }],\n      trumpCard: null\n    };\n    var types = [\"spades\", \"clubs\", \"diamonds\", \"hearts\"]; // Card list init\n    //TODO -> repurpose\n\n    var cards = [];\n\n    for (var i = 0; i < types.length; i++) {\n      for (var j = 1; j < 14; j++) {\n        cards.push({\n          type: types[i],\n          value: j,\n          img_path: \"../../assets/\" + types[i] + \"/\" + j + \".jpg\"\n        });\n      }\n    } //cards = shuffle(cards);\n\n\n    var images = [_assets_back_jpg__WEBPACK_IMPORTED_MODULE_2__[\"default\"], _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_3__[\"default\"], _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_4__[\"default\"], _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_5__[\"default\"]];\n    return _this;\n  }\n  /* init of references\n     INPUT: natural number of player (4)\n     OUTPUT: array of references. \n   */\n\n\n  _createClass(Board, [{\n    key: \"componentDidMount\",\n    value: function componentDidMount() {\n      this.buildPlayers();\n    }\n  }, {\n    key: \"addCard\",\n    value: function addCard(e) {\n      e.preventDefault();\n      var tmpArr = this.state.hand;\n      tmpArr.push(0);\n      this.setState({\n        hand: tmpArr\n      });\n    }\n    /* \n        newPlayer(params){\n          let x = this.state.players\n          obj = {\n            nombre: \"\",\n            hand: [],\n            equipo: \"\"\n          }\n          x.push(obj)\n         }\n    \n    */\n\n    /* TODO */\n    // Poner players como arrays temporales que serán asignados al estado de mano\n    // Deal cards\n    //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.\n\n  }, {\n    key: \"render\",\n    // Enviar informacion\n    // Main game loop\n    //    El while debería de parar hasta que la suma de las cartas de todos los jugadores sea 0\n    //    Should stop when there are no more available cards to play on all players\n    value: function render() {\n      var images = [_assets_back_jpg__WEBPACK_IMPORTED_MODULE_2__[\"default\"], _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_3__[\"default\"], _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_4__[\"default\"], _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_5__[\"default\"]]; // Player positions in order: 1, 2, 3, 4\n\n      var playerPos = [{\n        x: 2,\n        y: 3,\n        rotate: 0\n      }, {\n        x: 3,\n        y: 2,\n        rotate: 270\n      }, {\n        x: 2,\n        y: 1,\n        rotate: 180\n      }, {\n        x: 1,\n        y: 2,\n        rotate: 90\n      }];\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n        className: \"board\"\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CardsContext.Provider, {\n        value: this.state.playedCards\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_playarea_Playarea_jsx__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null)), this.state.players.map(function (player, i) {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hand_Hand_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n          player: player.nombre,\n          cards: player.hand,\n          pos: playerPos[i]\n        });\n      }));\n    }\n  }]);\n\n  return Board;\n}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);\n\n\n\n//# sourceURL=webpack:///./src/board/Board.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"CardsContext\", function() { return CardsContext; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Board; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Board_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Board.scss */ \"./src/board/Board.scss\");\n/* harmony import */ var _Board_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Board_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _assets_back_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/back.jpg */ \"./assets/back.jpg\");\n/* harmony import */ var _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/dorval.jpg */ \"./assets/dorval.jpg\");\n/* harmony import */ var _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/hans.jpg */ \"./assets/hans.jpg\");\n/* harmony import */ var _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/mijangos.jpg */ \"./assets/mijangos.jpg\");\n/* harmony import */ var _hand_Hand_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../hand/Hand.jsx */ \"./src/hand/Hand.jsx\");\n/* harmony import */ var _playarea_Playarea_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../playarea/Playarea.jsx */ \"./src/playarea/Playarea.jsx\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\n\n\n\n\n\n\nvar CardsContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();\n/* PLAYER STRUCTURE \r\n{\r\n  nombre: \"\",\r\n  hand: [],\r\n  equipo: \"\",\r\n  turno: false,\r\n}, \r\n */\n\nvar Board = /*#__PURE__*/function (_React$Component) {\n  _inherits(Board, _React$Component);\n\n  var _super = _createSuper(Board);\n\n  function Board(props) {\n    var _this;\n\n    _classCallCheck(this, Board);\n\n    _this = _super.call(this, props);\n\n    _defineProperty(_assertThisInitialized(_this), \"getDeck\", function () {\n      _this.setState({\n        deck: _this.props.clientjs.get_deck()\n      });\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"updateTurn\", function () {\n      //index\n      var index = _this.props.clientjs.whos_turn();\n\n      var player = _this.state.players;\n\n      for (var i = 0; i < _this.state.players.length; i++) {\n        if (i !== index) {\n          player[i].turno = false;\n        }\n      }\n\n      player[index].turno = true;\n\n      _this.setState({\n        players: player\n      });\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"checkTurn\", function () {\n      var arrayCards = _this.state.playedCards;\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"buildPlayers\", function () {\n      var current = [];\n      var id = setInterval(function () {\n        var usrs = _this.props.clientjs.get_players(); // [] {} -> nombre\n\n\n        if (usrs.length === 4) {\n          usrs.forEach(function (usr) {\n            current.push({\n              nombre: usr,\n              hand: [],\n              equipo: \"\",\n              turno: false\n            });\n          });\n\n          _this.setState({\n            players: current\n          });\n\n          _this.getDeck();\n\n          _this.dealCard();\n\n          clearInterval(id);\n        }\n      }, 1000);\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"dealCard\", function () {\n      /* let actualDeck = this.state.deck;\r\n      let players = this.state.players; */\n      var playerArr = _this.state.players;\n      var deckArr = _this.state.deck;\n\n      try {\n        for (var i = 0; i < playerArr.length; i++) {\n          for (var j = 0; j < 12; j++) {\n            playerArr[i].hand.push(deckArr.pop());\n          }\n        }\n\n        _this.setState({\n          players: playerArr\n        });\n\n        console.log(\"reached set state\");\n        console.log(\"play\", playerArr);\n      } catch (e) {\n        console.warn(\"jaja\");\n      } //players[{},{},{}]\n      //playerArr[0].hand.push(this.props.clientjs.get_trump_card());\n\n    });\n\n    _defineProperty(_assertThisInitialized(_this), \"isHandEmpty\", function () {\n      var players = _this.state.players;\n      var count = 0;\n\n      for (var i = 0; i < players.length; i++) {\n        count = player[i].hands.length + count;\n      } //gracias zea\n\n\n      return count === 0 ? true : false;\n    });\n\n    _this.state = {\n      //  \"nombre_carta\",\"valor_carta\"\n      // j || 11 || k || 13 || //\n      deck: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\n      playedCards: [],\n      players: [],\n      trick: [{\n        equipo: \"\",\n        suma: 0\n      }],\n      trumpCard: null\n    };\n    var types = [\"spades\", \"clubs\", \"diamonds\", \"hearts\"]; // Card list init\n    //TODO -> repurpose\n\n    var cards = [];\n\n    for (var i = 0; i < types.length; i++) {\n      for (var j = 1; j < 14; j++) {\n        cards.push({\n          type: types[i],\n          value: j,\n          img_path: \"../../assets/\" + types[i] + \"/\" + j + \".jpg\"\n        });\n      }\n    } //cards = shuffle(cards);\n\n\n    var images = [_assets_back_jpg__WEBPACK_IMPORTED_MODULE_2__[\"default\"], _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_3__[\"default\"], _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_4__[\"default\"], _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_5__[\"default\"]];\n    return _this;\n  }\n  /* init of references\r\n     INPUT: natural number of player (4)\r\n     OUTPUT: array of references. \r\n   */\n\n\n  _createClass(Board, [{\n    key: \"componentDidMount\",\n    value: function componentDidMount() {\n      this.buildPlayers();\n    }\n  }, {\n    key: \"addCard\",\n    value: function addCard(e) {\n      e.preventDefault();\n      var tmpArr = this.state.hand;\n      tmpArr.push(0);\n      this.setState({\n        hand: tmpArr\n      });\n    }\n    /* \r\n        newPlayer(params){\r\n          let x = this.state.players\r\n          obj = {\r\n            nombre: \"\",\r\n            hand: [],\r\n            equipo: \"\"\r\n          }\r\n          x.push(obj)\r\n          }\r\n    \r\n    */\n\n    /* TODO */\n    // Poner players como arrays temporales que serán asignados al estado de mano\n    // Deal cards\n    //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.\n\n  }, {\n    key: \"render\",\n    // Enviar informacion\n    // Main game loop\n    //    El while debería de parar hasta que la suma de las cartas de todos los jugadores sea 0\n    //    Should stop when there are no more available cards to play on all players\n    value: function render() {\n      var images = [_assets_back_jpg__WEBPACK_IMPORTED_MODULE_2__[\"default\"], _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_3__[\"default\"], _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_4__[\"default\"], _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_5__[\"default\"]]; // Player positions in order: 1, 2, 3, 4\n\n      var playerPos = [{\n        x: 2,\n        y: 3,\n        rotate: 0\n      }, {\n        x: 3,\n        y: 2,\n        rotate: 270\n      }, {\n        x: 2,\n        y: 1,\n        rotate: 180\n      }, {\n        x: 1,\n        y: 2,\n        rotate: 90\n      }];\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n        className: \"board\"\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CardsContext.Provider, {\n        value: this.state.playedCards\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_playarea_Playarea_jsx__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null)), this.state.players.map(function (player, i) {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hand_Hand_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n          player: player.nombre,\n          cards: player.hand,\n          pos: playerPos[i]\n        });\n      }));\n    }\n  }]);\n\n  return Board;\n}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);\n\n\n\n//# sourceURL=webpack:///./src/board/Board.jsx?");
 
 /***/ }),
 
@@ -4486,7 +5110,7 @@ eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/run
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Hand; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _card_Card_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../card/Card.jsx */ \"./src/card/Card.jsx\");\n/* harmony import */ var _js_utilities_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/utilities.js */ \"./src/js/utilities.js\");\n/* harmony import */ var _assets_back_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/back.jpg */ \"./assets/back.jpg\");\n/* harmony import */ var _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/dorval.jpg */ \"./assets/dorval.jpg\");\n/* harmony import */ var _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/hans.jpg */ \"./assets/hans.jpg\");\n/* harmony import */ var _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/mijangos.jpg */ \"./assets/mijangos.jpg\");\n/* harmony import */ var _Hand_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Hand.scss */ \"./src/hand/Hand.scss\");\n/* harmony import */ var _Hand_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_Hand_scss__WEBPACK_IMPORTED_MODULE_7__);\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\n\n\n\n\n\nfunction Hand(props) {\n  //this array should contain the names of\n  var images = [_assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_4__[\"default\"], _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_5__[\"default\"], _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_6__[\"default\"]];\n\n  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])(props.cards),\n      _useState2 = _slicedToArray(_useState, 2),\n      cards = _useState2[0],\n      setCard = _useState2[1];\n\n  function popCard(cardId) {\n    var index = cards.indexOf(cardId);\n\n    if (index > -1) {\n      var newHand = cards.splice(index, 1);\n      setCard(newHand);\n    }\n  }\n\n  function dragStart(event) {\n    event.dataTransfer.setData(\"clicked\", event.target.id);\n  }\n\n  function dropEnd(event) {\n    var data = event.dataTransfer.getData(\"clicked\");\n    var dragged_obj = document.getElementById(data);\n    var index = dragged_obj.getElementsByTagName(\"p\")[1].innerHTML;\n\n    if (dragged_obj.parentElement.parentElement.id === \"playablearea\") {\n      popCard(index);\n      cards.pop();\n      setCard(cards);\n    }\n  }\n\n  var handStyle = {\n    gridColumn: \"\".concat(props.pos.x, \"/\").concat(props.pos.x),\n    gridRow: \"\".concat(props.pos.y),\n    display: \"flex\",\n    padding: \"20px\",\n    width: \"245px\",\n    height: \"150px\",\n    transform: \"rotate(\".concat(props.pos.rotate, \"deg)\")\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    style: handStyle,\n    id: props.player + \"hand\"\n  }, console.log(props), cards.map(function (x, i) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"cardContainer\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_card_Card_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n      key: i,\n      identifier: i,\n      player: props.player,\n      img: images[_js_utilities_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].randomInterval(images.length)],\n      startFunction: dragStart,\n      endFunction: dropEnd,\n      value: _js_utilities_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].randomInterval(5)\n    }));\n  }));\n}\n\n//# sourceURL=webpack:///./src/hand/Hand.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Hand; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _card_Card_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../card/Card.jsx */ \"./src/card/Card.jsx\");\n/* harmony import */ var _js_utilities_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/utilities.js */ \"./src/js/utilities.js\");\n/* harmony import */ var _assets_dorval_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/dorval.jpg */ \"./assets/dorval.jpg\");\n/* harmony import */ var _assets_hans_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/hans.jpg */ \"./assets/hans.jpg\");\n/* harmony import */ var _assets_mijangos_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/mijangos.jpg */ \"./assets/mijangos.jpg\");\n/* harmony import */ var _assets_clubs_2_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/clubs/2.png */ \"./assets/clubs/2.png\");\n/* harmony import */ var _assets_clubs_3_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/clubs/3.png */ \"./assets/clubs/3.png\");\n/* harmony import */ var _assets_clubs_4_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/clubs/4.png */ \"./assets/clubs/4.png\");\n/* harmony import */ var _assets_clubs_5_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/clubs/5.png */ \"./assets/clubs/5.png\");\n/* harmony import */ var _assets_clubs_6_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../assets/clubs/6.png */ \"./assets/clubs/6.png\");\n/* harmony import */ var _assets_clubs_7_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/clubs/7.png */ \"./assets/clubs/7.png\");\n/* harmony import */ var _assets_clubs_8_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../assets/clubs/8.png */ \"./assets/clubs/8.png\");\n/* harmony import */ var _assets_clubs_9_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../assets/clubs/9.png */ \"./assets/clubs/9.png\");\n/* harmony import */ var _assets_clubs_10_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../assets/clubs/10.png */ \"./assets/clubs/10.png\");\n/* harmony import */ var _assets_clubs_11_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../assets/clubs/11.png */ \"./assets/clubs/11.png\");\n/* harmony import */ var _assets_clubs_12_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../assets/clubs/12.png */ \"./assets/clubs/12.png\");\n/* harmony import */ var _assets_clubs_13_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../assets/clubs/13.png */ \"./assets/clubs/13.png\");\n/* harmony import */ var _assets_clubs_14_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../assets/clubs/14.png */ \"./assets/clubs/14.png\");\n/* harmony import */ var _assets_diamonds_2_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../assets/diamonds/2.png */ \"./assets/diamonds/2.png\");\n/* harmony import */ var _assets_diamonds_3_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../assets/diamonds/3.png */ \"./assets/diamonds/3.png\");\n/* harmony import */ var _assets_diamonds_4_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../assets/diamonds/4.png */ \"./assets/diamonds/4.png\");\n/* harmony import */ var _assets_diamonds_5_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../assets/diamonds/5.png */ \"./assets/diamonds/5.png\");\n/* harmony import */ var _assets_diamonds_6_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../assets/diamonds/6.png */ \"./assets/diamonds/6.png\");\n/* harmony import */ var _assets_diamonds_7_png__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../assets/diamonds/7.png */ \"./assets/diamonds/7.png\");\n/* harmony import */ var _assets_diamonds_8_png__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../assets/diamonds/8.png */ \"./assets/diamonds/8.png\");\n/* harmony import */ var _assets_diamonds_9_png__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../assets/diamonds/9.png */ \"./assets/diamonds/9.png\");\n/* harmony import */ var _assets_diamonds_10_png__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../assets/diamonds/10.png */ \"./assets/diamonds/10.png\");\n/* harmony import */ var _assets_diamonds_11_png__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../assets/diamonds/11.png */ \"./assets/diamonds/11.png\");\n/* harmony import */ var _assets_diamonds_12_png__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../assets/diamonds/12.png */ \"./assets/diamonds/12.png\");\n/* harmony import */ var _assets_diamonds_13_png__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../assets/diamonds/13.png */ \"./assets/diamonds/13.png\");\n/* harmony import */ var _assets_diamonds_14_png__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../assets/diamonds/14.png */ \"./assets/diamonds/14.png\");\n/* harmony import */ var _assets_hearts_2_png__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../assets/hearts/2.png */ \"./assets/hearts/2.png\");\n/* harmony import */ var _assets_hearts_3_png__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../assets/hearts/3.png */ \"./assets/hearts/3.png\");\n/* harmony import */ var _assets_hearts_4_png__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../assets/hearts/4.png */ \"./assets/hearts/4.png\");\n/* harmony import */ var _assets_hearts_5_png__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../assets/hearts/5.png */ \"./assets/hearts/5.png\");\n/* harmony import */ var _assets_hearts_6_png__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../assets/hearts/6.png */ \"./assets/hearts/6.png\");\n/* harmony import */ var _assets_hearts_7_png__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../assets/hearts/7.png */ \"./assets/hearts/7.png\");\n/* harmony import */ var _assets_hearts_8_png__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../assets/hearts/8.png */ \"./assets/hearts/8.png\");\n/* harmony import */ var _assets_hearts_9_png__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../assets/hearts/9.png */ \"./assets/hearts/9.png\");\n/* harmony import */ var _assets_hearts_10_png__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../../assets/hearts/10.png */ \"./assets/hearts/10.png\");\n/* harmony import */ var _assets_hearts_11_png__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../../assets/hearts/11.png */ \"./assets/hearts/11.png\");\n/* harmony import */ var _assets_hearts_12_png__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../../assets/hearts/12.png */ \"./assets/hearts/12.png\");\n/* harmony import */ var _assets_hearts_13_png__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../../assets/hearts/13.png */ \"./assets/hearts/13.png\");\n/* harmony import */ var _assets_hearts_14_png__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../../assets/hearts/14.png */ \"./assets/hearts/14.png\");\n/* harmony import */ var _assets_spades_2_png__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../../assets/spades/2.png */ \"./assets/spades/2.png\");\n/* harmony import */ var _assets_spades_3_png__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../../assets/spades/3.png */ \"./assets/spades/3.png\");\n/* harmony import */ var _assets_spades_4_png__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ../../assets/spades/4.png */ \"./assets/spades/4.png\");\n/* harmony import */ var _assets_spades_5_png__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ../../assets/spades/5.png */ \"./assets/spades/5.png\");\n/* harmony import */ var _assets_spades_6_png__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ../../assets/spades/6.png */ \"./assets/spades/6.png\");\n/* harmony import */ var _assets_spades_7_png__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ../../assets/spades/7.png */ \"./assets/spades/7.png\");\n/* harmony import */ var _assets_spades_8_png__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ../../assets/spades/8.png */ \"./assets/spades/8.png\");\n/* harmony import */ var _assets_spades_9_png__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ../../assets/spades/9.png */ \"./assets/spades/9.png\");\n/* harmony import */ var _assets_spades_10_png__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ../../assets/spades/10.png */ \"./assets/spades/10.png\");\n/* harmony import */ var _assets_spades_11_png__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ../../assets/spades/11.png */ \"./assets/spades/11.png\");\n/* harmony import */ var _assets_spades_12_png__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ../../assets/spades/12.png */ \"./assets/spades/12.png\");\n/* harmony import */ var _assets_spades_13_png__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ../../assets/spades/13.png */ \"./assets/spades/13.png\");\n/* harmony import */ var _assets_spades_14_png__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ../../assets/spades/14.png */ \"./assets/spades/14.png\");\n/* harmony import */ var _Hand_scss__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./Hand.scss */ \"./src/hand/Hand.scss\");\n/* harmony import */ var _Hand_scss__WEBPACK_IMPORTED_MODULE_58___default = /*#__PURE__*/__webpack_require__.n(_Hand_scss__WEBPACK_IMPORTED_MODULE_58__);\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction Hand(props) {\n  //let images = [dorval, hans, mijangos];\n  var images = [_assets_clubs_2_png__WEBPACK_IMPORTED_MODULE_6__[\"default\"], _assets_clubs_3_png__WEBPACK_IMPORTED_MODULE_7__[\"default\"], _assets_clubs_4_png__WEBPACK_IMPORTED_MODULE_8__[\"default\"], _assets_clubs_5_png__WEBPACK_IMPORTED_MODULE_9__[\"default\"], _assets_clubs_6_png__WEBPACK_IMPORTED_MODULE_10__[\"default\"], _assets_clubs_7_png__WEBPACK_IMPORTED_MODULE_11__[\"default\"], _assets_clubs_8_png__WEBPACK_IMPORTED_MODULE_12__[\"default\"], _assets_clubs_9_png__WEBPACK_IMPORTED_MODULE_13__[\"default\"], _assets_clubs_10_png__WEBPACK_IMPORTED_MODULE_14__[\"default\"], _assets_clubs_11_png__WEBPACK_IMPORTED_MODULE_15__[\"default\"], _assets_clubs_12_png__WEBPACK_IMPORTED_MODULE_16__[\"default\"], _assets_clubs_13_png__WEBPACK_IMPORTED_MODULE_17__[\"default\"], _assets_clubs_14_png__WEBPACK_IMPORTED_MODULE_18__[\"default\"], _assets_diamonds_2_png__WEBPACK_IMPORTED_MODULE_19__[\"default\"], _assets_diamonds_3_png__WEBPACK_IMPORTED_MODULE_20__[\"default\"], _assets_diamonds_4_png__WEBPACK_IMPORTED_MODULE_21__[\"default\"], _assets_diamonds_5_png__WEBPACK_IMPORTED_MODULE_22__[\"default\"], _assets_diamonds_6_png__WEBPACK_IMPORTED_MODULE_23__[\"default\"], _assets_diamonds_7_png__WEBPACK_IMPORTED_MODULE_24__[\"default\"], _assets_diamonds_8_png__WEBPACK_IMPORTED_MODULE_25__[\"default\"], _assets_diamonds_9_png__WEBPACK_IMPORTED_MODULE_26__[\"default\"], _assets_diamonds_10_png__WEBPACK_IMPORTED_MODULE_27__[\"default\"], _assets_diamonds_11_png__WEBPACK_IMPORTED_MODULE_28__[\"default\"], _assets_diamonds_12_png__WEBPACK_IMPORTED_MODULE_29__[\"default\"], _assets_diamonds_13_png__WEBPACK_IMPORTED_MODULE_30__[\"default\"], _assets_diamonds_14_png__WEBPACK_IMPORTED_MODULE_31__[\"default\"], _assets_hearts_2_png__WEBPACK_IMPORTED_MODULE_32__[\"default\"], _assets_hearts_3_png__WEBPACK_IMPORTED_MODULE_33__[\"default\"], _assets_hearts_4_png__WEBPACK_IMPORTED_MODULE_34__[\"default\"], _assets_hearts_5_png__WEBPACK_IMPORTED_MODULE_35__[\"default\"], _assets_hearts_6_png__WEBPACK_IMPORTED_MODULE_36__[\"default\"], _assets_hearts_7_png__WEBPACK_IMPORTED_MODULE_37__[\"default\"], _assets_hearts_8_png__WEBPACK_IMPORTED_MODULE_38__[\"default\"], _assets_hearts_9_png__WEBPACK_IMPORTED_MODULE_39__[\"default\"], _assets_hearts_10_png__WEBPACK_IMPORTED_MODULE_40__[\"default\"], _assets_hearts_11_png__WEBPACK_IMPORTED_MODULE_41__[\"default\"], _assets_hearts_12_png__WEBPACK_IMPORTED_MODULE_42__[\"default\"], _assets_hearts_13_png__WEBPACK_IMPORTED_MODULE_43__[\"default\"], _assets_hearts_14_png__WEBPACK_IMPORTED_MODULE_44__[\"default\"], _assets_spades_2_png__WEBPACK_IMPORTED_MODULE_45__[\"default\"], _assets_spades_3_png__WEBPACK_IMPORTED_MODULE_46__[\"default\"], _assets_spades_4_png__WEBPACK_IMPORTED_MODULE_47__[\"default\"], _assets_spades_5_png__WEBPACK_IMPORTED_MODULE_48__[\"default\"], _assets_spades_6_png__WEBPACK_IMPORTED_MODULE_49__[\"default\"], _assets_spades_7_png__WEBPACK_IMPORTED_MODULE_50__[\"default\"], _assets_spades_8_png__WEBPACK_IMPORTED_MODULE_51__[\"default\"], _assets_spades_9_png__WEBPACK_IMPORTED_MODULE_52__[\"default\"], _assets_spades_10_png__WEBPACK_IMPORTED_MODULE_53__[\"default\"], _assets_spades_11_png__WEBPACK_IMPORTED_MODULE_54__[\"default\"], _assets_spades_12_png__WEBPACK_IMPORTED_MODULE_55__[\"default\"], _assets_spades_13_png__WEBPACK_IMPORTED_MODULE_56__[\"default\"], _assets_spades_14_png__WEBPACK_IMPORTED_MODULE_57__[\"default\"]];\n\n  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])(props.cards),\n      _useState2 = _slicedToArray(_useState, 2),\n      cards = _useState2[0],\n      setCard = _useState2[1];\n\n  function popCard(cardId) {\n    var index = cards.indexOf(cardId);\n\n    if (index > -1) {\n      var newHand = cards.splice(index, 1);\n      setCard(newHand);\n    }\n  }\n\n  function dragStart(event) {\n    event.dataTransfer.setData(\"clicked\", event.target.id);\n  }\n\n  function dropEnd(event) {\n    var data = event.dataTransfer.getData(\"clicked\");\n    var dragged_obj = document.getElementById(data);\n    var index = dragged_obj.getElementsByTagName(\"p\")[1].innerHTML;\n\n    if (dragged_obj.parentElement.parentElement.id === \"playablearea\") {\n      popCard(index);\n      cards.pop();\n      setCard(cards);\n    }\n  }\n\n  var handStyle = {\n    gridColumn: \"\".concat(props.pos.x, \"/\").concat(props.pos.x),\n    gridRow: \"\".concat(props.pos.y),\n    display: \"flex\",\n    padding: \"20px\",\n    width: \"245px\",\n    position: \"relative\",\n    height: \"150px\",\n    transform: \"rotate(\".concat(props.pos.rotate, \"deg)\")\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    style: handStyle,\n    id: props.player + \"hand\"\n  }, props.cards.map(function (x, i) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"cardContainer\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_card_Card_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n      key: i,\n      identifier: i,\n      player: props.player,\n      img: images[_js_utilities_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].randomInterval(images.length)],\n      startFunction: dragStart,\n      endFunction: dropEnd,\n      value: _js_utilities_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].randomInterval(5)\n    }));\n  }));\n}\n\n//# sourceURL=webpack:///./src/hand/Hand.jsx?");
 
 /***/ }),
 
@@ -4588,7 +5212,7 @@ eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/run
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! babel-polyfill */\"./node_modules/babel-polyfill/lib/index.js\");\nmodule.exports = __webpack_require__(/*! /home/molinajimenez/Documents/UVG/Year 4/Redes/Proyecto1/Scram/src/app.js */\"./src/app.js\");\n\n\n//# sourceURL=webpack:///multi_babel-polyfill_./src/app.js?");
+eval("__webpack_require__(/*! babel-polyfill */\"./node_modules/babel-polyfill/lib/index.js\");\nmodule.exports = __webpack_require__(/*! D:\\UVG\\4toAno\\8voSem\\Redes\\Proyecto1\\Scram\\src\\app.js */\"./src/app.js\");\n\n\n//# sourceURL=webpack:///multi_babel-polyfill_./src/app.js?");
 
 /***/ })
 
