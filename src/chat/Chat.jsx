@@ -92,6 +92,11 @@ export default class Chat extends React.Component{
               }}/>;
         }
         return(
+            <div className="global-div">
+                <div className="chat-sidebar">
+                    <h3><i className="icon fas fa-users"></i> Users</h3>
+                    <ul id="users"></ul>
+                    </div>
             <div id="main-chat-container">
                 <div className="chat-container">
                 <header className="chat-header">
@@ -102,10 +107,7 @@ export default class Chat extends React.Component{
                     <button onClick={this.exitRoom} id="leave-room" className="btn">Leave Room</button>
                 </header>
                 <main className="chat-main">
-                    <div className="chat-sidebar">
-                    <h3><i className="icon fas fa-users"></i> Users</h3>
-                    <ul id="users"></ul>
-                    </div>
+                    
                     <div className="chat-messages"></div>
                 </main>
                 <div className="chat-form-container">
@@ -125,6 +127,8 @@ export default class Chat extends React.Component{
                 </div>
                 </div>
             </div>
+            </div>
+
         )
     }
 }
