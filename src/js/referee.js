@@ -79,7 +79,7 @@ function setMove(room,move){
         const moves_json = {0: 0, 1: 1, 2: 0, 3: 0}
         for (var key in moves_json) {
             var index = Number(key)
-            moves_json[key] = moves[index].username
+            moves_json[key] = moves[index][0].username
         }
         room_variables[room].moves = []
         return getHigherCard(moves_json)
@@ -147,7 +147,7 @@ function getHigherCard(room,data){
         
 
     isTrump = true
-    const trump = getTrump(room);
+    const trump = getTrump(room).type;
 
     while (isTrump){
         cards.forEach(element =>
