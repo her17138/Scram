@@ -147,7 +147,7 @@ function getHigherCard(room,data){
         
 
     isTrump = true
-    const trump = getTrump(room);
+    const trump = getTrump(room).type;
 
     while (isTrump){
         cards.forEach(element =>
