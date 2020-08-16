@@ -109,18 +109,19 @@ export default class Chat extends React.Component{
                     <div className="chat-messages"></div>
                 </main>
                 <div className="chat-form-container">
-                    <div id="chat-form">
+                    <div className="message_input_wrapper">
                     <input
                         id="msg"
                         type="text"
+                        className="message_input"
                         placeholder="Enter Message"
                         required
                         autoComplete="off"
                         value={this.state.message}
                         onChange={event => this.setState({message:event.target.value})}
                     />
-                    <button onClick={this.sendMessage} className="btn"><i className="fas fa-paper-plane"></i> Send</button>
                     </div>
+                    <button onClick={this.sendMessage} className="send_message"><i className="fas fa-paper-plane"></i> Send</button>
                 </div>
                 </div>
             </div>

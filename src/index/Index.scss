@@ -53,7 +53,6 @@
 
 header{
     position: relative;
-    height: 500px;
 }
 
 .wrapfull{
@@ -304,16 +303,7 @@ p {
 	padding: 15px 10px 15px 40px;
 	width: 100%;
 }
-#content form input[type="text"]:focus{
-	-webkit-box-shadow: 0 0 2px #ed1c24 inset;
-	-moz-box-shadow: 0 0 2px #ed1c24 inset;
-	-ms-box-shadow: 0 0 2px #ed1c24 inset;
-	-o-box-shadow: 0 0 2px #ed1c24 inset;
-	box-shadow: 0 0 2px #ed1c24 inset;
-	background-color: #fff;
-	border: 1px solid #ed1c24;
-	outline: none;
-}
+
 #username { background-position: 10px 10px !important }
 #password { background-position: 10px -53px !important }
 .enter {
