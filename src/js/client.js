@@ -5,6 +5,8 @@ let user = ''
 var players = []
 let usr_msg = []
 let room = -1
+var deck = []
+var socket = new WebSocket("ws://localhost:3000/");
 
 /**
  * implementacion de movimientos del juego 
@@ -18,7 +20,12 @@ let room = -1
 // get_players() -> [username1, username2, username3, username4]
 // get_winner() -> team_ganador
 function init_deck(){
-    return initDeck()
+    // return initDeck()
+    console.log("INIT DECK")
+    socket.send("init_deck")
+}
+function get_deck(){
+    return deck
 }
 function whos_turn(){
     return playerTurn(players)
@@ -44,7 +51,6 @@ function set_username(username){
     user = username
 }
 function send_message(message){
-    console.log("send msg client "+ message)
     socket.send(['send_message', user, message].join("||"));
 }
 function receive_message(){
@@ -68,7 +74,8 @@ module.exports ={
     whos_turn,
     make_move,
     get_trump_card,
-    get_winner
+    get_winner,
+    get_deck
 
 }
 
@@ -80,11 +87,11 @@ module.exports ={
  *      3. receive_message : action||message
  *      4. get_players : action||room
  *      5. can_disconnect : action
+ *      6. init_deck : action
  */
-var socket = new WebSocket("ws://localhost:3000/");
 socket.onopen = function (event) {
-    console.log('user ' + user)
     socket.send(['join_room', user].join("||"));
+    init_deck()
 };
 
 socket.onmessage = function(event) {
@@ -93,12 +100,10 @@ socket.onmessage = function(event) {
     switch(action){
         case 'join_room':
             room = data[1]
-            console.log('room '+room)
             socket.send(['get_players', room].join("||"))
             break;
         case 'send_players':
             players = JSON.parse(data[1])
-            console.log(data)
             // outputUsers(players)
             break;
         case 'receive_message':
@@ -106,6 +111,12 @@ socket.onmessage = function(event) {
             // outputMessage(msg_json)
             usr_msg.push(msg_json)
             break;
+        case 'init_deck':
+            deck = JSON.parse(data[1])
+            console.log("deck", deck)
+            initDeck(deck)
+            break;
+
         
     }
 }

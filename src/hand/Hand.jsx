@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Card from "../card/Card.jsx";
 import Fucs from "../js/utilities.js";
 
-import back from "../../assets/back.jpg";
 import dorval from "../../assets/dorval.jpg";
 import hans from "../../assets/hans.jpg";
 import mijangos from "../../assets/mijangos.jpg";
@@ -56,8 +55,8 @@ export default function Hand(props) {
   
   return (
     <div style={handStyle} id={props.player + "hand"}>
-      {console.log(props)}
-      {cards.map((x, i) => (
+      
+      {props.cards.map((x, i) => (
         <div className="cardContainer">
           <Card
             key={i}

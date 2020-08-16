@@ -7,31 +7,13 @@ export default class Chat extends React.Component{
         this.state ={
             message: '',
             old_msg: '',
-            username: ''
+            username: '',
+            room: -1
         }
         client = this.props.clientjs
         // username = this.props.username
         this.sendMessage = this.sendMessage.bind(this)
-    }
-    // Output message to DOM
-    outputMessage(message) {
-        const div = document.createElement('div');
-        div.classList.add('message');
-        div.innerHTML = `<p className="meta">${message.username} <span>${message.time}</span></p>
-        <p className="text">
-            ${message.text}
-        </p>`;
-        document.querySelector('.chat-messages').appendChild(div);
-        const chatMessages = document.querySelector('.chat-messages');
-        // Scroll down
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    // Add room name to DOM
-    outputRoomName(room) {
-        console.log('outputroomname '+room)
-        const roomName = document.getElementById('room-name');
-        roomName.innerText = room;
+        this.getRoom = this.getRoom.bind(this)
     }
 
     // Add users to DOM
@@ -73,22 +55,21 @@ export default class Chat extends React.Component{
         console.log('msg ' + msg)
         client.send_message(msg)
     }
-    getRoom(){
-        var room =-1
-        var refreshId = setInterval(function() {
-            room = client.get_room();
-            if (room !== -1) {
+    getRoom() {
+        var room_nm =-1
+        var refreshId = setInterval(function(){
+            room_nm = client.get_room();
+            if (room_nm !== -1) {
                 const roomName = document.getElementById('room-name');
-                roomName.innerText = room;
+                roomName.innerText = `Room: ${room_nm}`
+                console.log("innerhtml")
                 clearInterval(refreshId);
             }
         }, 500);
     }
     componentDidMount(){
         this.setState({username:client.get_username()})
-        const ply = client.get_players()
-        this.outputUsers(ply)
-        console.log(ply)
+        this.outputUsers(client.get_players())
         this.receiveMessage()
         this.getPlayers()
         this.getRoom()
@@ -99,14 +80,15 @@ export default class Chat extends React.Component{
             <div id="main-chat-container">
                 <div className="chat-container">
                 <header className="chat-header">
-                    <h1><i className="fas fa-smile"></i> ChatCord</h1>
+                    <div id="room-name-container">
+                        <i className="icon fas fa-comments"></i><h3 id="room-name">Room: </h3>
+                    </div>
+                    {/* <h3 id="room-name"></h3> */}
                     <a href="index.html" id="leave-room" className="btn">Leave Room</a>
                 </header>
                 <main className="chat-main">
                     <div className="chat-sidebar">
-                    <h3><i className="fas fa-comments"></i> Room Name:</h3>
-                    <h2 id="room-name"></h2>
-                    <h3><i className="fas fa-users"></i> Users</h3>
+                    <h3><i className="icon fas fa-users"></i> Users</h3>
                     <ul id="users"></ul>
                     </div>
                     <div className="chat-messages"></div>
