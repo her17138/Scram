@@ -34,7 +34,7 @@ export default class Board extends React.Component {
           suma: 0,
         },
       ],
-      
+
       trumpCard: null,
     };
 
@@ -62,15 +62,9 @@ export default class Board extends React.Component {
      OUTPUT: array of references. 
    */
 
-  componentDidMount() {
-    let array = [];
-    let deck = null;
-    for (let i = 0; i < 12; i++) {
-      array.push(i);
-    }
-
+  async componentDidMount() {
     this.getDeck();
-    this.getPlayers();
+    await this.buildPlayers();
     this.dealCard(this.state.players, this.state.deck);
   }
 
@@ -80,27 +74,28 @@ export default class Board extends React.Component {
     });
   };
 
-  getPlayers = () => {
+  buildPlayers = () => {
     let current = this.state.players;
-    setInterval(() => {
+
+    let id = setInterval(() => {
       let usrs = this.props.clientjs.get_players();
 
-      //aarray.. x, y z
-
       // [] {} -> nombre
-      if (current.length !== usrs.length) {
+      if (current.length < usrs.length) {
         current.push({
           nombre: usrs[usrs.length - 1],
           hand: [],
           equipo: "",
           turno: false,
         });
+        
+        this.setState({
+          players: current,
+        });
+      } else if (current.length === usrs.length) {
+        clearInterval(id);
       }
     }, 1000);
-    this.setState({
-      players: current,
-    });
-    console.log("array_lulu", this.state.players);
   };
 
   addCard(e) {
@@ -135,12 +130,25 @@ export default class Board extends React.Component {
   dealCard = (playerArr, deckArr) => {
     /* let actualDeck = this.state.deck;
     let players = this.state.players; */
+    try {
+      for (let i = 0; i < playerArr.length; i++) {
+        for (let j = 0; j < 12; j++) {
+          playerArr[i].hand.push(deckArr.pop());
+        }
+      }
+      this.setState({
+        players: playerArr,
+      });
 
-    while (deckArr.length !== 0) {
-      console.log(deckArr.pop());
-
-      //playerArr[0].hand.push(this.state.trumpCard);
+      console.log("reached set state");
+      console.log("play", playerArr)
+    } catch (e) {
+      console.warn("jaja");
     }
+
+    //players[{},{},{}]
+
+    //playerArr[0].hand.push(this.props.clientjs.get_trump_card());
   };
 
   isHandEmpty = () => {
