@@ -36,6 +36,7 @@ export default function Hand(props) {
     let dragged_obj = document.getElementById(data);
 
     let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
+    console.log("llegando", props.player, props.turn)
     if (dragged_obj.parentElement.parentElement.id === "playablearea" && (props.turn === props.player)) {
       
       popCard(index);

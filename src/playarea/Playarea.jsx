@@ -31,6 +31,7 @@ export default function Playarea(props) {
       
       props.clientjs.make_move(playerObj)
       cardContext.push(props.clientjs.whos_turn());
+      console.log(cardContext)
       //cardContext = props.clientjs.whos_turn()
     }
   }
