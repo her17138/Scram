@@ -50,6 +50,7 @@ function get_winner(){
     return winner
 }
 function get_players(){
+    current_turn = players[0]
     return players
 }
 
@@ -126,7 +127,7 @@ socket.onmessage = function(event) {
         case 'init_deck':
             deck = JSON.parse(data[1])
             console.log("deck", deck)
-            initDeck(deck)
+            //initDeck(deck)
             break;
         case 'get_move':
             moves.push(JSON.parse(data[1]))

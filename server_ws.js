@@ -137,15 +137,15 @@ app.ws("/", (ws, req) => {
         const user_name = getCurrentUser(ws).username
         const room_users = getRoomUsers(getUserRoom(user_name))
         // hacer movimiento 
-        const max_index = setMove(move)
+        const max_index = setMove(getUserRoom(user_name),move)
         // verificar si ya se hicieron los 4 moves, si sí, enviar el ganador del trick 
         if(getMoves() === 4){
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;
-            usr_socket.send(['trick_winner', getTrickWinner(room_users, max_index)].join("||"))
+            usr_socket.send(['trick_winner', getTrickWinner(getUserRoom(user_name),room_users, max_index)].join("||"))
             // de paso, verificar si se termino el juego 
             if(getTricks() == 13){
-              usr_socket.send(['game_over', JSON.stringify(calculateGroupScore())].join("||"))
+              usr_socket.send(['game_over', JSON.stringify(calculateGroupScore(getUserRoom(user_name)))].join("||"))
             }
           }
         }
@@ -161,7 +161,7 @@ app.ws("/", (ws, req) => {
       case 'whos_turn':
         // se envia el username del jugador al que le toca
         // si el juego ya termino, whos_turn devuelve null
-        ws.send(["whos_turn", playerTurn()].join("||"))
+        ws.send(["whos_turn", playerTurn(getUserRoom(user_name),room_users)].join("||"))
       case "disconnect":
         const user = userLeave(msg[1]);
         // broadcast to all room users

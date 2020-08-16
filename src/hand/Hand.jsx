@@ -23,9 +23,11 @@ export default function Hand(props) {
 
     
   }
+  
 
   function dragStart(event) {
     event.dataTransfer.setData("clicked", event.target.id);
+    event.dataTransfer.setData("owner", props.player)
   }
 
   function dropEnd(event) {
@@ -34,7 +36,7 @@ export default function Hand(props) {
     let dragged_obj = document.getElementById(data);
 
     let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
-    if (dragged_obj.parentElement.parentElement.id === "playablearea") {
+    if (dragged_obj.parentElement.parentElement.id === "playablearea" && (props.turn === props.player)) {
       
       popCard(index);
       cards.pop();

@@ -64,33 +64,13 @@ export default class Board extends React.Component {
 
   componentDidMount() {
     this.buildPlayers();
+    //this.updateTurn();
   }
 
   getDeck = () => {
     this.setState({
       deck: this.props.clientjs.get_deck(),
     });
-  };
-
-  updateTurn = () => {
-    //index
-    let index = this.props.clientjs.whos_turn();
-    let player = this.state.players;
-    for (let i = 0; i < this.state.players.length; i++) {
-      if (i !== index) {
-        player[i].turno = false;
-      }
-    }
-
-    player[index].turno = true;
-
-    this.setState({
-      players: player,
-    });
-  };
-
-  checkTurn = () => {
-    let arrayCards = this.state.playedCards;
   };
 
   buildPlayers = () => {
@@ -114,6 +94,7 @@ export default class Board extends React.Component {
         });
         this.getDeck();
         this.dealCard();
+        //this.updateTurn();
         clearInterval(id);
       }
     }, 1000);
@@ -203,11 +184,16 @@ export default class Board extends React.Component {
     return (
       <div className="board">
         <CardsContext.Provider value={this.state.playedCards}>
-          <Playarea />
+          <Playarea turn={this.props.clientjs.whos_turn()} />
         </CardsContext.Provider>
 
         {this.state.players.map((player, i) => (
-          <Hand player={player.nombre} cards={player.hand} pos={playerPos[i]} />
+          <Hand
+            player={player.nombre}
+            cards={player.hand}
+            pos={playerPos[i]}
+            turn={this.props.clientjs.whos_turn()}
+          />
         ))}
       </div>
     );
