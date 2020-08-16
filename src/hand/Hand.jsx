@@ -82,6 +82,7 @@ export default function Hand(props) {
     
   }
   
+  let flip = true
 
   function dragStart(event) {
     event.dataTransfer.setData("clicked", event.target.id);
@@ -114,9 +115,11 @@ export default function Hand(props) {
     position: "relative",
     height: "150px",
     transform: `rotate(${props.pos.rotate}deg)`
-  };
+  }
+
   if(props.player !== props.username){
     handStyle.pointerEvents = "none"
+    flip = false
   }
   
   return (
@@ -127,6 +130,7 @@ export default function Hand(props) {
           <Card
             key={i}
             identifier={i}
+            flipped={flip}
             player={props.player}
             img={images[Fucs.randomInterval(images.length)]}
             startFunction={dragStart}
