@@ -1,7 +1,17 @@
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const express = require("express");
+const WebSocket = require('ws')
+const SocketServer = WebSocket.Server
+let app = express();
+const server = app.listen(PORT, () => console.log(`Server running on ws://localhost:${PORT}`));
+const wss = new SocketServer({server})
+
 const enableWs = require("express-ws");
+// enableWs(app);
+
+
+
 const { 
   getTrickWinner,
   calculateGroupScore,
@@ -14,8 +24,6 @@ const {
   initVariables} = require('./src/js/referee')
 initVariables()
 
-let app = express();
-enableWs(app);
 
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -52,15 +60,16 @@ let rooms = [];
  *  siguiente estructura):
  *      1. join_room : action||username
  *      2. send_message : action||username||message
- *      3. disconnect : action||username
- *      4. receive_message : action||message
- *      5. send_players : action||players
- *      6. init_deck : action||deck
- *      7. trick_winner : action||winner_index
+ *      3. receive_message : action||message
+ *      4. send_players : action||players
+ *      5. init_deck : action||deck
+ *      6. trick_winner : action||winner_index
+ *      7. game_over : action||winner_data
  */
 
 // Run when client connects
-app.ws("/", (ws, req) => {
+// app.ws("/", (ws, req) => {
+wss.on('connection',  (ws) => {
   ws.on("message", function (message) {
     msg = message.split("||");
     action = msg[0];
@@ -137,15 +146,15 @@ app.ws("/", (ws, req) => {
         const user_name = getCurrentUser(ws).username
         const room_users = getRoomUsers(getUserRoom(user_name))
         // hacer movimiento 
-        const max_index = setMove(move)
+        const max_index = setMove(getUserRoom(user_name),move)
         // verificar si ya se hicieron los 4 moves, si sí, enviar el ganador del trick 
         if(getMoves() === 4){
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;
-            usr_socket.send(['trick_winner', getTrickWinner(room_users, max_index)].join("||"))
+            usr_socket.send(['trick_winner', getTrickWinner(getUserRoom(user_name),room_users, max_index)].join("||"))
             // de paso, verificar si se termino el juego 
             if(getTricks() == 13){
-              usr_socket.send(['game_over', JSON.stringify(calculateGroupScore())].join("||"))
+              usr_socket.send(['game_over', JSON.stringify(calculateGroupScore(getUserRoom(user_name)))].join("||"))
             }
           }
         }
@@ -161,41 +170,37 @@ app.ws("/", (ws, req) => {
       case 'whos_turn':
         // se envia el username del jugador al que le toca
         // si el juego ya termino, whos_turn devuelve null
-        ws.send(["whos_turn", playerTurn()].join("||"))
+        ws.send(["whos_turn", playerTurn(getUserRoom(user_name),room_users)].join("||"))
+        break;
       case "disconnect":
-        const user = userLeave(msg[1]);
+        const user = userLeave(getCurrentUser(ws).id);
         // broadcast to all room users
-        let room_usrs = rooms[user.room];
+        // console.log("userleave user", user)
+        let room_usrs = rooms[user.room -1];
         if (room_usrs){
           //eliminar del room al usuario 
           const index = room_usrs.findIndex(usr => usr.id === user.id);
           if (index !== -1) {
-            return room_usrs.splice(index, 1)[0];
+            room_usrs.splice(index, 1)[0];
           }
           const rm_usrs = room_usrs.map(x => x.username)
           // avisar a todos los usuarios que se ha desconectado
           for (let i = 0; i < room_usrs.length; i++) {
             let usr_socket = room_usrs[i].id;
-            if(usr_socket !== user.id){
-              usr_socket.send(
-                [
-                  "receive_message",
-                  JSON.stringify(formatMessage(botName, msg[1] + " ha salido del chat.")),
-                ].join("||")
-              );
-              usr_socket.send(['send_players', JSON.stringify(rm_usrs)].join("||"))
-            }
+            usr_socket.send(
+              [
+                "receive_message",
+                JSON.stringify(formatMessage(botName, user.username + " ha salido del chat.")),
+              ].join("||")
+            );
+            usr_socket.send(['send_players', JSON.stringify(rm_usrs)].join("||"))
           }
         }
         user.id.close()
-        user.id.send("can_disconnect")
         break;
     }
   });
   ws.on("close", function (message) {
-    console.log("SERVER CONNECTION CLOSED")
-    console.log('readystate', ws.readyState)
+    console.log("[SERVER] client disconnected")
   })
 });
-// console.log(`Server running on ws://localhost:${PORT}`)
-app.listen(PORT, () => console.log(`Server running on ws://localhost:${PORT}`));

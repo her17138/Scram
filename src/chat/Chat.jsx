@@ -1,5 +1,6 @@
 import React from "react";
 import "./Chat.scss"
+import { Redirect } from 'react-router'
 var client = null
 export default class Chat extends React.Component{
     constructor(props){
@@ -8,12 +9,14 @@ export default class Chat extends React.Component{
             message: '',
             old_msg: '',
             username: '',
-            room: -1
+            room: -1,
+            exit: false
         }
         client = this.props.clientjs
         // username = this.props.username
         this.sendMessage = this.sendMessage.bind(this)
         this.getRoom = this.getRoom.bind(this)
+        this.exitRoom = this.exitRoom.bind(this)
     }
 
     // Add users to DOM
@@ -67,6 +70,13 @@ export default class Chat extends React.Component{
             }
         }, 500);
     }
+    exitRoom(){
+        client.exit()
+        this.setState({
+            exit:true
+        })
+
+    }
     componentDidMount(){
         this.setState({username:client.get_username()})
         this.outputUsers(client.get_players())
@@ -76,6 +86,11 @@ export default class Chat extends React.Component{
 
     }
     render(){
+        if (this.state.exit) {
+            return <Redirect to={{
+                pathname: "/"
+              }}/>;
+        }
         return(
             <div id="main-chat-container">
                 <div className="chat-container">
@@ -84,7 +99,7 @@ export default class Chat extends React.Component{
                         <i className="icon fas fa-comments"></i><h3 id="room-name">Room: </h3>
                     </div>
                     {/* <h3 id="room-name"></h3> */}
-                    <a href="index.html" id="leave-room" className="btn">Leave Room</a>
+                    <button onClick={this.exitRoom} id="leave-room" className="btn">Leave Room</button>
                 </header>
                 <main className="chat-main">
                     <div className="chat-sidebar">
