@@ -89,10 +89,11 @@ export default function Hand(props) {
   }
 
   function dropEnd(event) {
+    console.log("event", event)
     let data = event.dataTransfer.getData("clicked");
-    
+    console.log("data", data)
     let dragged_obj = document.getElementById(data);
-
+    console.log("dragged_obj", dragged_obj)
     let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
     console.log("llegando", props.player, props.turn)
     if (dragged_obj.parentElement.parentElement.id === "playablearea" && (props.turn === props.player)) {
