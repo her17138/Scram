@@ -62,37 +62,37 @@ export default class Board extends React.Component {
      OUTPUT: array of references. 
    */
 
-  async componentDidMount() {
-    this.getDeck();
-    await this.buildPlayers();
-    this.dealCard(this.state.players, this.state.deck);
+  componentDidMount() {
+    this.buildPlayers();
   }
 
   getDeck = () => {
     this.setState({
-      deck: this.props.clientjs.init_deck(),
+      deck: this.props.clientjs.get_deck(),
     });
   };
 
   buildPlayers = () => {
-    let current = this.state.players;
+    let current = []
 
     let id = setInterval(() => {
       let usrs = this.props.clientjs.get_players();
-
       // [] {} -> nombre
-      if (current.length < usrs.length) {
-        current.push({
-          nombre: usrs[usrs.length - 1],
-          hand: [],
-          equipo: "",
-          turno: false,
-        });
-        
+
+      if (usrs.length === 2) {
+        usrs.forEach(usr => {
+          current.push({
+            nombre: usr,
+            hand: [],
+            equipo: "",
+            turno: false,
+          });
+        })
         this.setState({
           players: current,
         });
-      } else if (current.length === usrs.length) {
+        this.getDeck();
+        this.dealCard();
         clearInterval(id);
       }
     }, 1000);
@@ -127,9 +127,11 @@ export default class Board extends React.Component {
 
   // Deal cards
   //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.
-  dealCard = (playerArr, deckArr) => {
+  dealCard = () => {
     /* let actualDeck = this.state.deck;
     let players = this.state.players; */
+    const playerArr = this.state.players
+    const deckArr = this.state.deck
     try {
       for (let i = 0; i < playerArr.length; i++) {
         for (let j = 0; j < 12; j++) {
@@ -139,7 +141,6 @@ export default class Board extends React.Component {
       this.setState({
         players: playerArr,
       });
-
       console.log("reached set state");
       console.log("play", playerArr)
     } catch (e) {
