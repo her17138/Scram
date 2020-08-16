@@ -14,35 +14,8 @@ module.exports = {
     calculateGroupScore,
     playerTurn
 }
-function initDeck(){
-    let temp_arr = [...Array(52).keys()]
-    var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-    let arr = []    
-    temp_arr.forEach(x => arr.push(values[x%13]))
-    /**
-     * asignar valores reales a numeros del deck 
-     * 1-13: spades 
-     * 14-26: clubs
-     * 27-39: diamonds
-     * 40-52: hearts 
-     */
-    let c_types = [...Array(13).fill("spades")].concat(Array(13).fill("clubs"), Array(13).fill("diamonds"), Array(13).fill("hearts"))
-    // console.log(c_types) 
-    let cards = temp_arr.map(x => JSON.parse(`{"value": "${arr[x]}", "type": "${c_types[temp_arr.indexOf(x)]}"}`))
-    console.log(cards)
-    // randomize deck
-    let currentIndex = temp_arr.length,
-        temporaryValue,
-        randomIndex;
-    while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = cards[currentIndex];
-        cards[currentIndex] = cards[randomIndex];
-        cards[randomIndex] = temporaryValue;
-    }
-    setTrump(cards[cards.length-1])
-    return cards
+function initDeck(deck){
+    setTrump(deck[deck.length-1])
 }
 
 function setTrump(trump_card){

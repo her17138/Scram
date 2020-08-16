@@ -36,7 +36,7 @@ const botName = "Whist Chat";
  * ]
  */
 let rooms = [];
-
+var deck = initDeck()
 /**
  *  action types and (send) message structure (cada mensaje que **envie** el cliente debe llevar la
  *  siguiente estructura):
@@ -45,6 +45,7 @@ let rooms = [];
  *      3. disconnect : action||username
  *      4. receive_message : action||message
  *      5. send_players : action||players
+ *      6. init_deck : action||deck
  */
 
 // Run when client connects
@@ -114,6 +115,9 @@ app.ws("/", (ws, req) => {
         const usernames = rm_players.map(x => x.username)
         ws.send(['send_players', JSON.stringify(usernames)].join("||"))
         break;
+      case "init_deck":
+        ws.send(["init_deck", JSON.stringify(deck)].join("||"))
+        break;
       case "disconnect":
         const user = userLeave(msg[1]);
         // broadcast to all room users
@@ -151,4 +155,40 @@ app.ws("/", (ws, req) => {
 });
 // console.log(`Server running on ws://localhost:${PORT}`)
 app.listen(PORT, () => console.log(`Server running on ws://localhost:${PORT}`));
+
+
+
+
+
+
+
+
+function initDeck(){
+  let temp_arr = [...Array(52).keys()]
+  var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+  let arr = []    
+  temp_arr.forEach(x => arr.push(values[x%13]))
+  /**
+   * asignar valores reales a numeros del deck 
+   * 1-13: spades 
+   * 14-26: clubs
+   * 27-39: diamonds
+   * 40-52: hearts 
+   */
+  let c_types = [...Array(13).fill("spades")].concat(Array(13).fill("clubs"), Array(13).fill("diamonds"), Array(13).fill("hearts"))
+  // console.log(c_types) 
+  let cards = temp_arr.map(x => JSON.parse(`{"value": "${arr[x]}", "type": "${c_types[temp_arr.indexOf(x)]}"}`))
+  // randomize deck
+  let currentIndex = temp_arr.length,
+      temporaryValue,
+      randomIndex;
+  while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = cards[currentIndex];
+      cards[currentIndex] = cards[randomIndex];
+      cards[randomIndex] = temporaryValue;
+  }
+  return cards
+}
 

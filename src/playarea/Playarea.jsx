@@ -24,7 +24,7 @@ export default function Playarea(props) {
     //modificar arreglo del board
 
     cardContext.push(playerObj);
-    console.log(cardContext);
+    
   }
 
   function allowDrop(ev) {
