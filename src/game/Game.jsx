@@ -5,11 +5,10 @@ import './Game.scss'
 import '../css/style.scss'
 
 export default function Game(props) {
-    console.log(props)
     var username = props.location.state.username
-    console.log(username)
     var client = require('../js/client')
     client.set_username(username)
+    client.startWebsocket()
     return(
         <div className="game">
             <div className="chat">

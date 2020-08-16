@@ -2,6 +2,9 @@ import React from "react";
 import "./Chat.scss"
 import { Redirect } from 'react-router'
 var client = null
+var refreshId = null
+var userlist_update = null
+var message_update = null
 export default class Chat extends React.Component{
     constructor(props){
         super(props)
@@ -27,7 +30,7 @@ export default class Chat extends React.Component{
             `;
     }
     receiveMessage(){
-        setInterval(function(){ 
+        message_update = setInterval(function(){ 
             const message = client.receive_message()
             if(message){
                 const div = document.createElement('div');
@@ -44,12 +47,17 @@ export default class Chat extends React.Component{
          }, 100);
     }
     getPlayers(){
-        setInterval(function() {
-            const usrs = client.get_players()
-            const userList = document.getElementById('users');
-            userList.innerHTML = `
-                    ${usrs.map(user => `<li>${user}</li>`).join('')}
-                `;
+        userlist_update = setInterval(function() {
+            try {
+                const usrs = client.get_players()
+                const userList = document.getElementById('users');
+                userList.innerHTML = `
+                        ${usrs.map(user => `<li>${user}</li>`).join('')}
+                    `;
+            }
+            catch(e){
+                clearInterval(userlist_update)
+            }
         }, 500)
         
     }
@@ -60,12 +68,11 @@ export default class Chat extends React.Component{
     }
     getRoom() {
         var room_nm =-1
-        var refreshId = setInterval(function(){
+        refreshId = setInterval(function(){
             room_nm = client.get_room();
             if (room_nm !== -1) {
                 const roomName = document.getElementById('room-name');
                 roomName.innerText = `Room: ${room_nm}`
-                console.log("innerhtml")
                 clearInterval(refreshId);
             }
         }, 500);

@@ -7,11 +7,6 @@ let app = express();
 const server = app.listen(PORT, () => console.log(`Server running on ws://localhost:${PORT}`));
 const wss = new SocketServer({server})
 
-const enableWs = require("express-ws");
-// enableWs(app);
-
-
-
 const { 
   getTrickWinner,
   calculateGroupScore,
@@ -193,6 +188,7 @@ wss.on('connection',  (ws) => {
                 JSON.stringify(formatMessage(botName, user.username + " ha salido del chat.")),
               ].join("||")
             );
+            console.log('room users after exit', rm_usrs)
             usr_socket.send(['send_players', JSON.stringify(rm_usrs)].join("||"))
           }
         }
