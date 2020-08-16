@@ -50,6 +50,7 @@ function get_winner(){
     return winner
 }
 function get_players(){
+    current_turn = players[0]
     return players
 }
 
