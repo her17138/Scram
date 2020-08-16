@@ -10,7 +10,7 @@ import Playarea from "../playarea/Playarea.jsx";
 
 export var CardsContext = React.createContext();
 
-/* PLAYER STRUCTURE
+/* PLAYER STRUCTURE 
 {
   nombre: "",
   hand: [],
@@ -26,7 +26,7 @@ export default class Board extends React.Component {
       // j || 11 || k || 13 || //
 
       deck: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      playedCards: [],
+      turno: [],
       players: [],
       trick: [
         {
@@ -40,8 +40,7 @@ export default class Board extends React.Component {
 
     const types = ["spades", "clubs", "diamonds", "hearts"];
 
-    // Card list init
-    //TODO -> repurpose
+
     let cards = [];
     for (let i = 0; i < types.length; i++) {
       for (let j = 1; j < 14; j++) {
@@ -53,7 +52,6 @@ export default class Board extends React.Component {
       }
     }
 
-    //cards = shuffle(cards);
     var images = [back, dorval, hans, mijangos];
   }
 
@@ -64,6 +62,7 @@ export default class Board extends React.Component {
 
   componentDidMount() {
     this.buildPlayers();
+    //this.updateTurn();
   }
 
   getDeck = () => {
@@ -73,26 +72,29 @@ export default class Board extends React.Component {
   };
 
   buildPlayers = () => {
-    let current = []
+    let current = [];
 
     let id = setInterval(() => {
       let usrs = this.props.clientjs.get_players();
       // [] {} -> nombre
 
       if (usrs.length === 4) {
-        usrs.forEach(usr => {
+        usrs.forEach((usr) => {
           current.push({
             nombre: usr,
             hand: [],
             equipo: "",
             turno: false,
           });
-        })
+        });
         this.setState({
           players: current,
         });
         this.getDeck();
         this.dealCard();
+        this.setState({
+          turno: this.props.clientjs.whos_turn()
+        })
         clearInterval(id);
       }
     }, 1000);
@@ -130,8 +132,8 @@ export default class Board extends React.Component {
   dealCard = () => {
     /* let actualDeck = this.state.deck;
     let players = this.state.players; */
-    const playerArr = this.state.players
-    const deckArr = this.state.deck
+    const playerArr = this.state.players;
+    const deckArr = this.state.deck;
     try {
       for (let i = 0; i < playerArr.length; i++) {
         for (let j = 0; j < 12; j++) {
@@ -142,7 +144,7 @@ export default class Board extends React.Component {
         players: playerArr,
       });
       console.log("reached set state");
-      console.log("play", playerArr)
+      console.log("play", playerArr);
     } catch (e) {
       console.warn("jaja");
     }
@@ -181,29 +183,17 @@ export default class Board extends React.Component {
 
     return (
       <div className="board">
-        <CardsContext.Provider value={this.state.playedCards}>
-          <Playarea />
+        <CardsContext.Provider value={this.state.turno}>
+          <Playarea clientjs={this.props.clientjs} turn={this.state.turno} />
         </CardsContext.Provider>
-        <Hand
-          player={"franz heidacher"}
-          cards={this.state.deck}
-          pos={playerPos[0]}
-        />
-        <Hand
-          player={"dieter de wit"}
-          cards={this.state.deck}
-          pos={playerPos[1]}
-        />
-        <Hand
-          player={"luis esturban"}
-          cards={this.state.deck}
-          pos={playerPos[2]}
-        />
-        <Hand
-          player={"paulo mejia"}
-          cards={this.state.deck}
-          pos={playerPos[3]}
-        />
+        {this.state.players.map((player, i) => (
+          <Hand
+            player={player.nombre}
+            cards={player.hand}
+            pos={playerPos[i]}
+            turn={this.state.turno}
+          />
+        ))}
       </div>
     );
   }

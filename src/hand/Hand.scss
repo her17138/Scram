@@ -1,6 +1,5 @@
 .hand {
   display: flex;
-
   padding: 20px;
   width: 245px;
   height: 150px;
@@ -8,9 +7,10 @@
 
 .cardContainer {
   flex: 1;
-  margin: 0px 40px;
+  margin: 0px 8px;
 }
 
-// :nth-child(n+7) {
-//   margin: 150px 40px;
-// }
+/* :nth-child(n+7) {
+ margin: 150px 40px;
+}
+ */
