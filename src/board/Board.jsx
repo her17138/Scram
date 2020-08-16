@@ -79,7 +79,7 @@ export default class Board extends React.Component {
       let usrs = this.props.clientjs.get_players();
       // [] {} -> nombre
 
-      if (usrs.length === 2) {
+      if (usrs.length === 4) {
         usrs.forEach(usr => {
           current.push({
             nombre: usr,
