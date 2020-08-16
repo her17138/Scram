@@ -17,14 +17,14 @@ export default function Playarea(props) {
 
     let pts = card.getElementsByTagName("p")[0].innerHTML;
     let player = card.getElementsByTagName("p")[2].innerHTML;
+
     let playerObj = {
       player: player,
       points: pts,
     };
     //modificar arreglo del board
-
+    console.log("adding", playerObj)
     cardContext.push(playerObj);
-    
   }
 
   function allowDrop(ev) {

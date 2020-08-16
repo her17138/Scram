@@ -10,7 +10,7 @@ import Playarea from "../playarea/Playarea.jsx";
 
 export var CardsContext = React.createContext();
 
-/* PLAYER STRUCTURE
+/* PLAYER STRUCTURE 
 {
   nombre: "",
   hand: [],
@@ -72,22 +72,43 @@ export default class Board extends React.Component {
     });
   };
 
+  updateTurn = () => {
+    //index
+    let index = this.props.clientjs.whos_turn();
+    let player = this.state.players;
+    for (let i = 0; i < this.state.players.length; i++) {
+      if (i !== index) {
+        player[i].turno = false;
+      }
+    }
+
+    player[index].turno = true;
+
+    this.setState({
+      players: player,
+    });
+  };
+
+  checkTurn = () => {
+    let arrayCards = this.state.playedCards;
+  };
+
   buildPlayers = () => {
-    let current = []
+    let current = [];
 
     let id = setInterval(() => {
       let usrs = this.props.clientjs.get_players();
       // [] {} -> nombre
 
       if (usrs.length === 4) {
-        usrs.forEach(usr => {
+        usrs.forEach((usr) => {
           current.push({
             nombre: usr,
             hand: [],
             equipo: "",
             turno: false,
           });
-        })
+        });
         this.setState({
           players: current,
         });
@@ -130,8 +151,8 @@ export default class Board extends React.Component {
   dealCard = () => {
     /* let actualDeck = this.state.deck;
     let players = this.state.players; */
-    const playerArr = this.state.players
-    const deckArr = this.state.deck
+    const playerArr = this.state.players;
+    const deckArr = this.state.deck;
     try {
       for (let i = 0; i < playerArr.length; i++) {
         for (let j = 0; j < 12; j++) {
@@ -142,7 +163,7 @@ export default class Board extends React.Component {
         players: playerArr,
       });
       console.log("reached set state");
-      console.log("play", playerArr)
+      console.log("play", playerArr);
     } catch (e) {
       console.warn("jaja");
     }
@@ -184,26 +205,10 @@ export default class Board extends React.Component {
         <CardsContext.Provider value={this.state.playedCards}>
           <Playarea />
         </CardsContext.Provider>
-        <Hand
-          player={"franz heidacher"}
-          cards={this.state.deck}
-          pos={playerPos[0]}
-        />
-        <Hand
-          player={"dieter de wit"}
-          cards={this.state.deck}
-          pos={playerPos[1]}
-        />
-        <Hand
-          player={"luis esturban"}
-          cards={this.state.deck}
-          pos={playerPos[2]}
-        />
-        <Hand
-          player={"paulo mejia"}
-          cards={this.state.deck}
-          pos={playerPos[3]}
-        />
+
+        {this.state.players.map((player, i) => (
+          <Hand player={player.nombre} cards={player.hand} pos={playerPos[i]} />
+        ))}
       </div>
     );
   }
