@@ -2,6 +2,17 @@ const PORT = process.env.PORT || 3000;
 const path = require("path");
 const express = require("express");
 const enableWs = require("express-ws");
+const { 
+  getTrickWinner,
+  calculateGroupScore,
+  playerTurn,
+  initRoom,
+  getDeck,
+  getMoves,
+  getTricks,
+  setMove, 
+  initVariables} = require('./src/js/referee')
+initVariables()
 
 let app = express();
 enableWs(app);
@@ -36,7 +47,6 @@ const botName = "Whist Chat";
  * ]
  */
 let rooms = [];
-var deck = initDeck()
 /**
  *  action types and (send) message structure (cada mensaje que **envie** el cliente debe llevar la
  *  siguiente estructura):
@@ -46,6 +56,7 @@ var deck = initDeck()
  *      4. receive_message : action||message
  *      5. send_players : action||players
  *      6. init_deck : action||deck
+ *      7. trick_winner : action||winner_index
  */
 
 // Run when client connects
@@ -54,11 +65,13 @@ app.ws("/", (ws, req) => {
     msg = message.split("||");
     action = msg[0];
     let new_player = null;
+    var usr_room = -1
     switch (action) {
       case "join_room":
         // check if room has available space
         let last_rm = rooms[rooms.length - 1];
         if (!last_rm) {
+          initRoom()
           new_player = userJoin(ws, msg[1], rooms.length + 1, 0);
           rooms.push([new_player]);
         } else if (last_rm.length < 4) {
@@ -67,6 +80,7 @@ app.ws("/", (ws, req) => {
           last_rm.push(new_player);
         } else {
           // room full, create new one
+          initRoom()
           new_player = userJoin(ws, msg[1], rooms.length + 1, 0);
           rooms.push([new_player]);
         }
@@ -100,24 +114,54 @@ app.ws("/", (ws, req) => {
       case "send_message":
         let player_usr = msg[1];
         let message = msg[2];
-        var room = getUserRoom(player_usr) -1;
+        usr_room = getUserRoom(player_usr) -1;
         // console.log(msg)
-        for (let i = 0; i < rooms[room].length; i++) {
-          let usr_socket = rooms[room][i].id;
+        for (let i = 0; i < rooms[usr_room].length; i++) {
+          let usr_socket = rooms[usr_room][i].id;
           usr_socket.send(
             ["receive_message", JSON.stringify(formatMessage(player_usr, message))].join("||")
           );
         }
         break;
       case "get_players":
-        var room = msg[1]
-        const rm_players = getRoomUsers(Number(room))
+        usr_room = msg[1]
+        const rm_players = getRoomUsers(Number(usr_room))
         const usernames = rm_players.map(x => x.username)
         ws.send(['send_players', JSON.stringify(usernames)].join("||"))
         break;
       case "init_deck":
-        ws.send(["init_deck", JSON.stringify(deck)].join("||"))
+        ws.send(["init_deck", JSON.stringify(getDeck(getUserRoom(getCurrentUser(ws).username)))].join("||"))
         break;
+      case "make_move":
+        const move = JSON.parse(msg[1])
+        const user_name = getCurrentUser(ws).username
+        const room_users = getRoomUsers(getUserRoom(user_name))
+        // hacer movimiento 
+        const max_index = setMove(move)
+        // verificar si ya se hicieron los 4 moves, si sí, enviar el ganador del trick 
+        if(getMoves() === 4){
+          for (let i = 0; i < room_users.length; i++) {
+            let usr_socket = room_users[i].id;
+            usr_socket.send(['trick_winner', getTrickWinner(room_users, max_index)].join("||"))
+            // de paso, verificar si se termino el juego 
+            if(getTricks() == 13){
+              usr_socket.send(['game_over', JSON.stringify(calculateGroupScore())].join("||"))
+            }
+          }
+        }
+        // si no, solo hacer broadcast al movimiento 
+        else {
+          for (let i = 0; i < room_users.length; i++) {
+            let usr_socket = room_users[i].id;
+            usr_socket.send(['get_move', JSON.stringify(move)].join("||"))
+          }
+        }
+        
+        break;
+      case 'whos_turn':
+        // se envia el username del jugador al que le toca
+        // si el juego ya termino, whos_turn devuelve null
+        ws.send(["whos_turn", playerTurn()].join("||"))
       case "disconnect":
         const user = userLeave(msg[1]);
         // broadcast to all room users
@@ -155,40 +199,3 @@ app.ws("/", (ws, req) => {
 });
 // console.log(`Server running on ws://localhost:${PORT}`)
 app.listen(PORT, () => console.log(`Server running on ws://localhost:${PORT}`));
-
-
-
-
-
-
-
-
-function initDeck(){
-  let temp_arr = [...Array(52).keys()]
-  var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-  let arr = []    
-  temp_arr.forEach(x => arr.push(values[x%13]))
-  /**
-   * asignar valores reales a numeros del deck 
-   * 1-13: spades 
-   * 14-26: clubs
-   * 27-39: diamonds
-   * 40-52: hearts 
-   */
-  let c_types = [...Array(13).fill("spades")].concat(Array(13).fill("clubs"), Array(13).fill("diamonds"), Array(13).fill("hearts"))
-  // console.log(c_types) 
-  let cards = temp_arr.map(x => JSON.parse(`{"value": "${arr[x]}", "type": "${c_types[temp_arr.indexOf(x)]}"}`))
-  // randomize deck
-  let currentIndex = temp_arr.length,
-      temporaryValue,
-      randomIndex;
-  while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = cards[currentIndex];
-      cards[currentIndex] = cards[randomIndex];
-      cards[randomIndex] = temporaryValue;
-  }
-  return cards
-}
-

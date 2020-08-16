@@ -1,24 +1,26 @@
-const { initDeck, getTrump, getHigherCard, 
-    calculateGroupScore, getTrickWinner, playerTurn } = require('./referee')
-
 let user = ''
 var players = []
-let usr_msg = []
+let usr_msg = [] //queue de mensajes
 let room = -1
 var deck = []
-var socket = new WebSocket("ws://localhost:3000/");
+var tricks = [] //sera implementado como una cola 
+var moves = [] //sera implementado como una cola 
+var winner = null
+var current_turn =  '' // se envia el username del jugador al que le toca
 
+var socket = new WebSocket("ws://localhost:3000/");
 /**
  * implementacion de movimientos del juego 
  */
 // whos_turn() -> username 
-//    jugadores = [username1: {value: '2', type:'diamonds'}, ...]
-// make_move(jugadores) -> [username, equipo, {equipo1: pts, equipo2: pts}]
+//    jugada = {username1: {value: '2', type:'diamonds'}}
+// make_move(jugada) -> void
+// get_latest_move() -> [username, equipo, {equipo1: pts, equipo2: pts}]
 // set_trump_card(card_value) -> void
 // get_trump_card() -> {value: '2', type: 'diamonds'}
 // init_deck() ->[{value: '2', type:'diamonds'}]
 // get_players() -> [username1, username2, username3, username4]
-// get_winner() -> team_ganador
+// get_winner() -> index_team_ganador
 function init_deck(){
     // return initDeck()
     console.log("INIT DECK")
@@ -28,17 +30,24 @@ function get_deck(){
     return deck
 }
 function whos_turn(){
-    return playerTurn(players)
+    return current_turn
 }
-function make_move(jugadores){
-    const index = getHigherCard(jugadores)
-    return getTrickWinner(players, index)
+function make_move(jugada){
+    // const index = getHigherCard(jugadores)
+    // return getTrickWinner(players, index)
+    socket.send(['make_move', JSON.stringify(jugada)])
+}
+function get_trick_winner(){
+    return tricks.pop()
+}
+function get_lastest_move(){
+    return moves.pop()
 }
 function get_trump_card(){
-    return getTrump()
+    return deck[deck.length-1]
 }
 function get_winner(){
-    return calculateGroupScore()
+    return winner
 }
 function get_players(){
     return players
@@ -88,6 +97,7 @@ module.exports ={
  *      4. get_players : action||room
  *      5. can_disconnect : action
  *      6. init_deck : action
+ *      7. make_move : action||move
  */
 socket.onopen = function (event) {
     socket.send(['join_room', user].join("||"));
@@ -116,8 +126,14 @@ socket.onmessage = function(event) {
             console.log("deck", deck)
             initDeck(deck)
             break;
-
-        
+        case 'get_move':
+            moves.push(JSON.parse(data[1]))
+        case 'trick_winner':
+            tricks.push(JSON.parse(data[1]))
+        case 'game_over':
+            winner = JSON.parse(data[1])
+        case 'whos_turn':
+            turn = data[1]
     }
 }
 socket.onclose = function(event) {
