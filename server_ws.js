@@ -175,7 +175,6 @@ function initDeck(){
   let c_types = [...Array(13).fill("spades")].concat(Array(13).fill("clubs"), Array(13).fill("diamonds"), Array(13).fill("hearts"))
   // console.log(c_types) 
   let cards = temp_arr.map(x => JSON.parse(`{"value": "${arr[x]}", "type": "${c_types[temp_arr.indexOf(x)]}"}`))
-  console.log(cards)
   // randomize deck
   let currentIndex = temp_arr.length,
       temporaryValue,
@@ -187,7 +186,6 @@ function initDeck(){
       cards[currentIndex] = cards[randomIndex];
       cards[randomIndex] = temporaryValue;
   }
-  console.log("cards",cards)
   return cards
 }
 
