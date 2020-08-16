@@ -265,6 +265,8 @@ p {
 	transform: rotate(2deg);
 	top: 0;
 	z-index: -1;
+	box-shadow: 0 4px 8px 0 rgba(200, 200, 200, 0.2), 0 6px 20px 0 rgba(200, 200, 200, 0.19);
+
 }
 #content:before {
 	-webkit-transform: rotate(-3deg);
@@ -274,6 +276,8 @@ p {
 	transform: rotate(-3deg);
 	top: 0;
 	z-index: -2;
+	box-shadow: 0 4px 8px 0 rgba(200, 200, 200, 0.2), 0 6px 20px 0 rgba(200, 200, 200, 0.19);
+
 }
 #content form { margin: 0 20px; position: relative; width: 400px; top: 250px}
 #content form input[type="text"] {
@@ -447,7 +451,6 @@ body{
 	width:20px;
 	height:20px;
 	left:93px;
-	top: 110px;
 }
 
 .card{

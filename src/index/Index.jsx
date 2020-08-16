@@ -29,23 +29,23 @@ export default class Index extends React.Component {
 
                     <div className="flex-first">
                         <div className="left">
-                        <div>
-                                        <div id="deck">
-                                            <div class="card" id="blackCard2">
-                                                <p class="cardLabel black">A</p>
-                                            </div>
-                                            <div class="card" id="blackCard1">
-                                                <p class="cardLabel black">J</p>
-                                            </div>
-                                            <div class="card" id="redCard">
-                                                <p class="cardLabel red">Q</p>
-                                            </div>
-                                            <div class="card" id="heartCard">
-                                                <p class="cardLabel red">K</p>
-                                                <div id="heart"></div>
-                                            </div>
-                                        </div>
+                            <div>
+                                <div id="deck">
+                                    <div class="card" id="blackCard2">
+                                        <p class="cardLabel black">A</p>
                                     </div>
+                                    <div class="card" id="blackCard1">
+                                        <p class="cardLabel black">J</p>
+                                    </div>
+                                    <div class="card" id="redCard">
+                                        <p class="cardLabel red">Q</p>
+                                    </div>
+                                    <div class="card" id="heartCard">
+                                        <p class="cardLabel red">K</p>
+                                        <div id="heart"></div>
+                                    </div>
+                                </div>
+                            </div>
                         
                                 <form action="">
                                 
@@ -72,7 +72,7 @@ export default class Index extends React.Component {
                         <div className="right-first">
                                 
                                 
-                                    <div id="rules">
+                            <div id="rules">
     
                                 <h2 className="rainbow-text">How to play</h2>
                                 <br></br>
@@ -123,8 +123,13 @@ export default class Index extends React.Component {
                                 </p>
                                 <br></br>
                                 <br></br>
-
+                                <br></br>
+                               
+                                
+                                
+                                
                             </div>
+                            
                             
                         </div>
                     </div>
