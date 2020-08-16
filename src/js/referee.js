@@ -1,10 +1,12 @@
 /**
  * implementación de reglas del juego 
  */
-var trump = null
-var tricks = []
-var turn = -1
-
+// var trump = null
+// var tricks = []
+// var turn = -1
+// var deck = initDeck()
+// var moves = []
+var room_variables = []
 module.exports = {
     initDeck,
     setTrump,
@@ -12,25 +14,103 @@ module.exports = {
     getHigherCard,
     getTrickWinner,
     calculateGroupScore,
-    playerTurn
+    playerTurn,
+    initRoom,
+    getDeck,
+    getMoves,
+    getTricks,
+    setMove,
+    initVariables
 }
-function initDeck(deck){
-    setTrump(deck[deck.length-1])
+function initVariables(){
+    room_variables.push({
+        trump: [],
+        tricks: [],
+        turn: -1,
+        moves: []
+    })
+
+}
+function initRoom(){
+    const new_room_number = room_variables.length-1
+    room_variables.push({
+        trump: [],
+        tricks: [],
+        turn: -1,
+        deck: initDeck(new_room_number),
+        moves: []
+    })
+}
+function initDeck(room){
+    let temp_arr = [...Array(52).keys()]
+    var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+    let arr = []    
+    temp_arr.forEach(x => arr.push(values[x%13]))
+    /**
+     * asignar valores reales a numeros del deck 
+     * 1-13: spades 
+     * 14-26: clubs
+     * 27-39: diamonds
+     * 40-52: hearts 
+     */
+    let c_types = [...Array(13).fill("spades")].concat(Array(13).fill("clubs"), Array(13).fill("diamonds"), Array(13).fill("hearts"))
+    // console.log(c_types) 
+    let cards = temp_arr.map(x => JSON.parse(`{"value": "${arr[x]}", "type": "${c_types[temp_arr.indexOf(x)]}"}`))
+    // randomize deck
+    let currentIndex = temp_arr.length,
+        temporaryValue,
+        randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = cards[currentIndex];
+        cards[currentIndex] = cards[randomIndex];
+        cards[randomIndex] = temporaryValue;
+    }
+    setTrump(room, cards[cards.length-1])
+    room_variables[room].deck = cards
+    return cards
+  }
+
+function setMove(room,move){
+    room_variables[room].moves.push(move)
+    if(room_variables[room].moves.length ===4){
+        // parseo de arreay a objeto 
+        const moves_json = {0: 0, 1: 1, 2: 0, 3: 0}
+        for (var key in moves_json) {
+            var index = Number(key)
+            moves_json[key] = moves[index].username
+        }
+        room_variables[room].moves = []
+        return getHigherCard(moves_json)
+    }
+
+    return -1
+
+}
+function getMoves(room){
+    return room_variables[room].moves.length
+}
+function getTricks(room){
+    return room_variables[room].tricks.length
 }
 
-function setTrump(trump_card){
-    trump = trump_card
+function setTrump(room,trump_card){
+    console.log(room)
+    console.log(room_variables)
+    console.log(room_variables[room])
+    room_variables[room].trump = trump_card
 }
 
-function getTrump(){
-    return trump
+function getTrump(room){
+    return room_variables[room].trump
 }
 
 function getKeyByValue(object, value) {
 return Object.keys(object).find(key => object[key] === value);
 }
 
-function getHigherCard(data){
+function getHigherCard(room,data){
     const initial_cards = Object.values(data)
     var cards = []
 
@@ -67,19 +147,17 @@ function getHigherCard(data){
         
 
     isTrump = true
-    trump = getTrump();
+    const trump = getTrump(room).type;
 
     while (isTrump){
         cards.forEach(element =>
-            cplayed.push(element[1])
+            cplayed.push(element[0])
         );
 
-        //haria falta analizar el trump en caso que venga de lo contrario si se manda como 
-        //0 no hace falta
         cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
 
-        trump_card = cards[maxCardIndex][0]
+        trump_card = cards[maxCardIndex][1]
         if (trump_card == trump){
         isTrump = false
         }
@@ -91,12 +169,12 @@ function getHigherCard(data){
 //players se veria  asi:
 // players = ["Juan", "Pedro", "Luis", "Hee"]
 // index es el valor que getHigherCard devuelve
-function getTrickWinner(players, index){
-    tricks.push(index)
+function getTrickWinner(room, players, index){
+    room_variables[room].tricks.push(index)
     return players[index];
 }
 
-function calculateGroupScore(users){
+function calculateGroupScore(room){
     let g1 = 0,
         g2 = 0
     for (i = 0; i < tricks.length; i++) {
@@ -114,12 +192,15 @@ function calculateGroupScore(users){
         return ["grupo2", g2]
     }
 }
-function playerTurn(players){
-    if(tricks.length !== 13){
-        turn +=1
-        return players[turn % 4]
+function playerTurn(room,players){
+    if(room_variables[room].tricks.length !== 13){
+        room_variables[room].turn +=1
+        return players[room_variables[room].turn % 4]
     }
     return null
+}
+function getDeck(room){
+    return room_variables[room].deck
 }
 
 
