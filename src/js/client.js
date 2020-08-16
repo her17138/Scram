@@ -84,7 +84,9 @@ module.exports ={
     make_move,
     get_trump_card,
     get_winner,
-    get_deck
+    get_deck,
+    get_lastest_move,
+    get_trick_winner
 
 }
 
