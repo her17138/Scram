@@ -76,7 +76,8 @@ header{
 .flex-first{
     display: flex;
     height: 100%;    
-    box-sizing: border-box;
+	box-sizing: border-box;
+	margin-top: 60px
 }
 
 .left{
@@ -194,16 +195,19 @@ form:after {
 	-ms-box-shadow: 0 1px 0 #fff inset;
 	-o-box-shadow: 0 1px 0 #fff inset;
 	box-shadow: 0 1px 0 #fff inset;
-	border: 1px solid #c4c6ca;
+	border: 2px solid #c4c6ca;
 	margin: 0 auto;
-	padding: 25px 0 0;
+	border-radius: 4px;
+	padding: 35px 15px;
 	position: relative;
 	text-align: center;
-	text-shadow: 0 1px 0 #fff;
 	width: 100%;
 }
+p {
+	color: #284b63;
+}
 #content h1 {
-	color: #7E7E7E;
+	color: #0d3b66;
 	font: bold 55px Helvetica, Arial, sans-serif;
 	letter-spacing: -0.05em;
 	line-height: 20px;
@@ -215,6 +219,7 @@ form:after {
 	height: 1px;
 	position: absolute;
 	width: 37%;
+	
 }
 #content h1:after {
 	background: rgb(126,126,126);
@@ -250,6 +255,7 @@ form:after {
 	left: -1px;
 	position: absolute;
 	width: 100%;
+	border-radius: 4px;
 }
 #content:after {
 	-webkit-transform: rotate(2deg);
@@ -569,3 +575,19 @@ body{
 	transform: rotate(-45deg);
 }
 
+
+
+
+
+
+
+h2 {
+	font-family: "Work Sans", sans-serif;
+	color: #fec151;
+	font-weight: 600;
+	font-size: 35px;
+  }
+  
+
+  
+  
