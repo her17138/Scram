@@ -188,6 +188,7 @@ export default class Board extends React.Component {
         </CardsContext.Provider>
         {this.state.players.map((player, i) => (
           <Hand
+            username={this.props.clientjs.get_username()}
             player={player.nombre}
             cards={player.hand}
             pos={playerPos[i]}

@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import Card from "../card/Card.jsx";
 import Fucs from "../js/utilities.js";
 
-import dorval from "../../assets/dorval.jpg";
-import hans from "../../assets/hans.jpg";
-import mijangos from "../../assets/mijangos.jpg";
-
 import c2 from "../../assets/clubs/2.png"
 import c3 from "../../assets/clubs/3.png"
 import c4 from "../../assets/clubs/4.png"
@@ -118,6 +114,9 @@ export default function Hand(props) {
     height: "150px",
     transform: `rotate(${props.pos.rotate}deg)`
   };
+  if(props.player !== props.username){
+    handStyle.pointerEvents = "none"
+  }
   
   return (
     <div style={handStyle} id={props.player + "hand"}>

@@ -31,17 +31,17 @@ export default class Index extends React.Component {
                         <div className="left">
                             <div>
                                 <div id="deck">
-                                    <div class="card" id="blackCard2">
-                                        <p class="cardLabel black">A</p>
+                                    <div className="card" id="blackCard2">
+                                        <p className="cardLabel black">A</p>
                                     </div>
-                                    <div class="card" id="blackCard1">
-                                        <p class="cardLabel black">J</p>
+                                    <div className="card" id="blackCard1">
+                                        <p className="cardLabel black">J</p>
                                     </div>
-                                    <div class="card" id="redCard">
-                                        <p class="cardLabel red">Q</p>
+                                    <div className="card" id="redCard">
+                                        <p className="cardLabel red">Q</p>
                                     </div>
-                                    <div class="card" id="heartCard">
-                                        <p class="cardLabel red">K</p>
+                                    <div className="card" id="heartCard">
+                                        <p className="cardLabel red">K</p>
                                         <div id="heart"></div>
                                     </div>
                                 </div>
@@ -111,13 +111,13 @@ export default class Index extends React.Component {
 
                                 <p>
                                 After a round is finished the score is calculated. The tricks of each team are counted, and they get a point
-                                for each trick over 6 tricks. So if <span class="left-player-name">Mike</span> and 
-                                <span class="right-player-name">Lisa</span> get 8 tricks and 
-                                <span class="bottom-player-name">You</span> and 
-                                <span class="top-player-name">Bill</span> get 5, then 
-                                <span class="left-player-name">Mike</span> and <span class="right-player-name">Lisa</span>
-                                get 2 points but <span class="bottom-player-name">You</span> 
-                                and <span class="top-player-name">Bill</span> get no points. Points are tracked between rounds and the first team to get
+                                for each trick over 6 tricks. So if <span className="left-player-name">Mike</span> and 
+                                <span className="right-player-name">Lisa</span> get 8 tricks and 
+                                <span className="bottom-player-name">You</span> and 
+                                <span className="top-player-name">Bill</span> get 5, then 
+                                <span className="left-player-name">Mike</span> and <span className="right-player-name">Lisa</span>
+                                get 2 points but <span className="bottom-player-name">You</span> 
+                                and <span className="top-player-name">Bill</span> get no points. Points are tracked between rounds and the first team to get
                                 7 points wins the entire game. Since there are 13 tricks in each round and you get points for number of
                                 tricks above 6 that means that if you get all 13 tricks you will be able to win in one round. 
                                 </p>
