@@ -18,16 +18,19 @@ export default function Playarea(props) {
       ev.target.appendChild(card.parentElement);
 
       let pts = card.getElementsByTagName("p")[0].innerHTML;
+      let identifier = card.getElementsByTagName("p")[1].innerHTML;
       let player = card.getElementsByTagName("p")[2].innerHTML;
-
       let playerObj = {
-        player: player,
-        points: pts,
+        username: {
+          value: pts,
+          type: identifier,
+        },
       };
       //modificar arreglo del board
 
       cardContext.push(playerObj);
-    } 
+      props.clientjs.make_move(playerObj)
+    }
   }
 
   function allowDrop(ev) {

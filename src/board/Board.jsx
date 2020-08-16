@@ -184,9 +184,8 @@ export default class Board extends React.Component {
     return (
       <div className="board">
         <CardsContext.Provider value={this.state.playedCards}>
-          <Playarea turn={this.props.clientjs.whos_turn()} />
+          <Playarea clientjs={this.props.clientjs} turn={this.props.clientjs.whos_turn()} />
         </CardsContext.Provider>
-
         {this.state.players.map((player, i) => (
           <Hand
             player={player.nombre}
