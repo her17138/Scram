@@ -1,10 +1,5 @@
 import React from "react";
 import "./Board.scss";
-
-import back from "../../assets/back.jpg";
-import dorval from "../../assets/dorval.jpg";
-import hans from "../../assets/hans.jpg";
-import mijangos from "../../assets/mijangos.jpg";
 import Hand from "../hand/Hand.jsx";
 import Playarea from "../playarea/Playarea.jsx";
 
@@ -40,7 +35,6 @@ export default class Board extends React.Component {
 
     const types = ["spades", "clubs", "diamonds", "hearts"];
 
-
     let cards = [];
     for (let i = 0; i < types.length; i++) {
       for (let j = 1; j < 14; j++) {
@@ -51,8 +45,6 @@ export default class Board extends React.Component {
         });
       }
     }
-
-    var images = [back, dorval, hans, mijangos];
   }
 
   /* init of references
@@ -93,8 +85,8 @@ export default class Board extends React.Component {
         this.getDeck();
         this.dealCard();
         this.setState({
-          turno: this.props.clientjs.whos_turn()
-        })
+          turno: this.props.clientjs.whos_turn(),
+        });
         clearInterval(id);
       }
     }, 1000);
@@ -171,7 +163,6 @@ export default class Board extends React.Component {
   //    Should stop when there are no more available cards to play on all players
 
   render() {
-    var images = [back, dorval, hans, mijangos];
 
     // Player positions in order: 1, 2, 3, 4
     const playerPos = [

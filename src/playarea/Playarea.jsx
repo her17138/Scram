@@ -6,7 +6,7 @@ import "./Playarea.scss";
 export default function Playarea(props) {
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
 
-  const cardContext = useContext(CardsContext);
+  let cardContext = useContext(CardsContext);
 
   function drop(ev) {
     ev.preventDefault();
@@ -28,9 +28,10 @@ export default function Playarea(props) {
       };
       //modificar arreglo del board
 
-      
-      props.clientjs.make_move(playerObj)
-      cardContext.push(props.clientjs.whos_turn());
+      console.log("client",playerObj)
+      props.clientjs.make_move(playerObj) 
+      console.log("server says",props.clientjs.whos_turn())
+      cardContext = props.clientjs.whos_turn()
       //cardContext = props.clientjs.whos_turn()
     }
   }
