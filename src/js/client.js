@@ -16,6 +16,7 @@ var socket = new WebSocket("ws://localhost:3000/");
 //    jugada = {username1: {value: '2', type:'diamonds'}}
 // make_move(jugada) -> void
 // get_latest_move() -> [username, equipo, {equipo1: pts, equipo2: pts}]
+// set_trump_card(card_value) -> void
 // get_trump_card() -> {value: '2', type: 'diamonds'}
 // init_deck() ->[{value: '2', type:'diamonds'}]
 // get_players() -> [username1, username2, username3, username4]
@@ -49,7 +50,6 @@ function get_winner(){
     return winner
 }
 function get_players(){
-    current_turn = players[0]
     return players
 }
 
@@ -71,6 +71,9 @@ function get_username(){
 function get_room(){
     return room
 }
+function exit(){
+    socket.send('disconnect')
+}
 
 module.exports ={
     set_username,
@@ -86,8 +89,8 @@ module.exports ={
     get_winner,
     get_deck,
     get_lastest_move,
-    get_trick_winner
-
+    get_trick_winner,
+    exit
 }
 
 /** 
@@ -97,7 +100,7 @@ module.exports ={
  *      2. send_message : action||username||message
  *      3. receive_message : action||message
  *      4. get_players : action||room
- *      5. can_disconnect : action
+ *      5. disconnect : action
  *      6. init_deck : action
  *      7. make_move : action||move
  */
@@ -126,7 +129,7 @@ socket.onmessage = function(event) {
         case 'init_deck':
             deck = JSON.parse(data[1])
             console.log("deck", deck)
-            //initDeck(deck)
+            // initDeck(deck)
             break;
         case 'get_move':
             moves.push(JSON.parse(data[1]))

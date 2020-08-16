@@ -15,8 +15,8 @@ function getCurrentUser(id) {
 }
 
 // User leaves chat
-function userLeave(username) {
-  const index = users.findIndex(user => user.username === username);
+function userLeave(id) {
+  const index = users.findIndex(user => user.id === id);
   if (index !== -1) {
     return users.splice(index, 1)[0];
   }
@@ -29,7 +29,6 @@ function getRoomUsers(room) {
 
 // get room of single user
 function getUserRoom(username) {
-  console.log('getuserroom usr',username)
   return users.find(user => user.username === username).room; 
 }
 
