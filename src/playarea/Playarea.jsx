@@ -79,7 +79,7 @@ export default class Playarea extends React.Component {
     const imgs = [c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,
     h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12,h13,h14,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14]
     var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-    let c_types = ["spades","clubs","diamonds", "hearts"]
+    let c_types = ["clubs","diamonds","hearts", "spades"]
     // console.log(c_types) 
     let cards = []
     c_types.map(x => values.forEach((v => cards.push(v+x))))
@@ -133,7 +133,21 @@ export default class Playarea extends React.Component {
       <div
         className="playableArea"
         id="playablearea"
-      ></div>
+      >
+        {
+          this.state.onDeck.map((item, i) => (
+              <Card 
+                key={i}
+                flipped={true}
+                identifier={item.type}
+                style={item.style}
+                value={item.value}
+                img={item.img_src}
+                player={this.props.clientjs.get_username()}
+              />
+          ))
+        }
+      </div>
     );
   }
 }
