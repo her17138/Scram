@@ -68,9 +68,7 @@ export default class Playarea extends React.Component {
       styles: [{},{right: "25%"},{bottom: "35%"},{bottom: "35%", right:"25%"}]
     }
     this.updateArea = this.updateArea.bind(this)
-    this.triggerState = this.triggerState.bind(this)
-    this.drop = this.drop.bind(this)
-    this.allowDrop = this.allowDrop.bind(this)
+    
   }
   componentDidMount(){
     this.updateArea()
@@ -90,6 +88,11 @@ export default class Playarea extends React.Component {
       let move_made = this.props.clientjs.get_latest_move()
       // console.log("move_made update area", move_made)
       if(move_made){
+        let new_turn = this.props.clientjs.whos_turn();
+        console.log("receiving",new_turn);
+        if (new_turn !== this.props.turn) {
+          this.props.updateTurn(new_turn);
+        }
         console.log("update area", move_made)
         /* let new_card = document.createElement("div", {className: "cardContainer"})
         let new_card_component = document.createElement("div", {
@@ -124,81 +127,13 @@ export default class Playarea extends React.Component {
 
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
 
-  drop(ev) {
-    ev.preventDefault();
-    
-    let data = ev.dataTransfer.getData("clicked");
-    let card = document.getElementById(data);
-    ev.target.appendChild(card.parentElement);
-    //jalamos padre por el wrapper de la carta.
-
-    if (ev.dataTransfer.getData("owner") === this.props.turn) {
-      let pts = card.getElementsByTagName("p")[0].innerHTML;
-      let identifier = card.getElementsByTagName("p")[1].innerHTML;
-      let player = card.getElementsByTagName("p")[2].innerHTML;
-      let playerObj = {
-        username: {
-          value: pts,
-          type: identifier,
-        },
-      };
-      //modificar arreglo del board
-
-      this.props.clientjs.make_move(playerObj);
-
-      console.log("server says", this.props.clientjs.whos_turn());
-      triggerState()
-      //cardContext = this.props.clientjs.whos_turn()
-      //cardContext = this.props.clientjs.whos_turn()
-    }
-  }
-
-  triggerState() {
-    if (this.props.turn === "") {
-      console.log("setting initial turn");
-      this.props.updateTurn(this.props.clientjs.whos_turn());
-    } else {
-      let id = setInterval(() => {
-        let new_turn = this.props.clientjs.whos_turn();
-        console.log(new_turn);
-        if (new_turn !== this.props.turn) {
-          this.props.updateTurn(new_turn);
-          clearInterval(id);
-        }
-      }, 100);
-    }
-  }
-
-  allowDrop(ev) {
-    ev.preventDefault();
-  }
 
   render() {
     return (
       <div
         className="playableArea"
         id="playablearea"
-        onDrop={(e) => {
-          drop(e);
-        }}
-        onDragOver={(e) => {
-          allowDrop(e);
-        }}
-      >
-        {
-          this.state.onDeck.map((item, i) => (
-              <Card 
-                key={i}
-                flipped={true}
-                style={item.style}
-                identifier={item.type}
-                value={item.value}
-                img={item.img_src}
-                player={this.props.clientjs.get_username()}
-              />
-          ))
-        } 
-      </div>
+      ></div>
     );
   }
 }
