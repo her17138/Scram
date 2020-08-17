@@ -33,7 +33,8 @@ function whos_turn(){
     return current_turn
 }
 function make_move(jugada){
-    socket.send(['make_move', JSON.stringify(jugada)])
+    console.log("make MOVE", jugada)
+    socket.send(['make_move', JSON.stringify(jugada)].join("||"))
 }
 function get_trick_winner(){
     return tricks.pop()
@@ -139,7 +140,8 @@ function startWebsocket() {
             case 'game_over':
                 winner = JSON.parse(data[1])
             case 'whos_turn':
-                turn = data[1]
+                console.log("whos turn", data[1])
+                current_turn = data[1]
         }
     }
     socket.onclose = function(event) {

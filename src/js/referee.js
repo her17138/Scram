@@ -89,6 +89,8 @@ function setMove(room,move){
 
 }
 function getMoves(room){
+    console.log("getmoves room", room)
+    console.log("getmoves", room_variables[room])
     return room_variables[room].moves.length
 }
 function getTricks(room){
@@ -195,6 +197,8 @@ function calculateGroupScore(room){
 function playerTurn(room,players){
     if(room_variables[room].tricks.length !== 13){
         room_variables[room].turn +=1
+        console.log("turn", room_variables[room].turn)
+        console.log('server returns playerturn', players[room_variables[room].turn % 4])
         return players[room_variables[room].turn % 4]
     }
     return null
