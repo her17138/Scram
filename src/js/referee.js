@@ -76,6 +76,7 @@ function setMove(room,move){
     room_variables[room].moves.push(move)
     if(room_variables[room].moves.length ===4){
         // parseo de arreay a objeto 
+        console.log(room_variables[room].moves)
         const moves_json = {0: 0, 1: 1, 2: 0, 3: 0}
         for (var key in moves_json) {
             var index = Number(key)
@@ -139,6 +140,7 @@ function getHigherCard(room,data){
 
     var cplayed = [];
     var cards_map = [];
+    var cards_map_duplicated = [];
     var maxCardIndex = -1;
     //validar si van a mandar los numeros como ints o como strings desde el frontend
     var values = {
@@ -172,6 +174,7 @@ function getHigherCard(room,data){
     console.log('cplayed', cplayed)
 
     cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
+    cards_map_duplicated = cards_map
     console.log('cards_map', cards_map)
 
     console.log("HOLAAAA")
@@ -179,18 +182,28 @@ function getHigherCard(room,data){
         console.log('iniciando el while', cards_map)
         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
         console.log('max_card_index', maxCardIndex)
-        trump_card = cards[maxCardIndex][1]
-        console.log("ghc trump card", trump_card)
-        if (trump_card == trump){
-            isTrump = false
-        } else { 
-            cards_map = removeItemFromArr( cards_map, cards_map[maxCardIndex] );
-            console.log('al eliminar el card que no es igual al trump', cards_map)
+        if(maxCardIndex == -1){
+            break;
+        } else {
+            trump_card = cards[maxCardIndex][1]
+            console.log("ghc trump card", trump_card)
+            if (trump_card == trump){
+                isTrump = false
+            } else { 
+                cards_map = removeItemFromArr( cards_map, cards_map[maxCardIndex] );
+                console.log('al eliminar el card que no es igual al trump', cards_map)
+            }
         }
     }
+
+    if(maxCardIndex == -1){
+        maxCardIndex = cards_map_duplicated.indexOf(Math.max(...cards_map));
+        return maxCardIndex;
+    } else {
+        return maxCardIndex;
+
+    }
     
-    console.log("salio del while maximo", maxCardIndex)
-    return maxCardIndex;
 }
 
 //players se veria  asi:
