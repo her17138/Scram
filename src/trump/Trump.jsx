@@ -29,11 +29,16 @@ export default class Trump extends React.Component{
 
     render(){
         return(
-            <div className="card" id="heartCard">
-                <p className="cardLabel red">{this.state.trump}</p>
-                <div id={this.state.trump}></div>
-            </div>
+            <div id="trump-container" className="main-score">
+                <div className="trumpTitle">
+                    TRUMP
+                </div>
+                <div className="trumpDetails">
+                    <p className="trumpSubtitle">{this.state.trump}</p>
+                    <div id={this.state.trump}></div>
+                </div>
 
+            </div>
         )
     }
 }
