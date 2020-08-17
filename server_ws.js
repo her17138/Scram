@@ -16,7 +16,8 @@ const {
   getMoves,
   getTricks,
   setMove, 
-  initVariables} = require('./src/js/referee')
+  initVariables,
+  setTrump} = require('./src/js/referee')
 initVariables()
 
 
@@ -147,9 +148,14 @@ wss.on('connection',  (ws) => {
         // console.log("getmoves", getMoves(this_room))
         // verificar si ya se hicieron los 4 moves, si sí, enviar el ganador del trick 
         if(getMoves(this_room) === 4){
+          console.log("getmoves igual a 4")
+          var deck = getDeck(this_room)
+          var trump = deck[Math.floor(Math.random() * 52)]
+          console.log("trumpcardserver", trump)
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;
             usr_socket.send(['trick_winner', getTrickWinner(this_room,room_users, max_index)].join("||"))
+            usr_socket.send(['set_trump', setTrump(this_room, trump)].join("||"))
             // de paso, verificar si se termino el juego 
             if(getTricks() == 13){
               usr_socket.send(['game_over', JSON.stringify(calculateGroupScore(this_room))].join("||"))
