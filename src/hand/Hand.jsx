@@ -76,17 +76,24 @@ export default class Hand extends React.Component {
   }
   //object id, player, value, type
   clickOnCard = (param) => {
-    this.setState({
-      clicked: param
-    });
-    let obj = {"username" : {"value": param.value, "type":param.type}}
-    console.log("parsing", obj)
-    this.props.clientjs.make_move(obj)
+    let obj = { username: { value: param.value, type: param.type } };
+    console.log("parsing", obj);
+    this.props.clientjs.make_move(obj);
+    for (let i = 0; i < this.props.cards.length; i++) {
+      if (
+        this.props.cards[i].value === param.value &&
+        this.props.cards[i].type === param.type
+      ) {
+        console.log("pop", i);
+        this.popCard(i);
+
+      }
+    }
   };
   popCard = (cardId) => {
-    let index = cards.indexOf(cardId);
-    if (index > -1) {
-      let newHand = cards.splice(index, 1);
+    if (cardId > -1) {
+      let newHand = this.props.cards.splice(cardId, 1);
+      console.log("setting",newHand)
       this.setState({
         cards: newHand,
       });
@@ -193,7 +200,7 @@ export default class Hand extends React.Component {
               player={this.props.player}
               img={images[Fucs.randomInterval(images.length)]}
               value={this.props.cards[i].value}
-              updateClick = {this.clickOnCard}
+              updateClick={this.clickOnCard}
             ></Card>
           </div>
         ))}
