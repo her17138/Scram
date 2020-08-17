@@ -41,7 +41,7 @@ This project features this tools
 * **María Fernanda López Díaz** [diazMafer](https://github.com/diazMafer)
 * **Ana Lucía Hernandez** [her17138](https://github.com/her17138)
 * **Rodrigo Zea** [her17138](https://github.com/her17138)
-* **Francisco Molina** [her17138](https://github.com/her17138)
+* **Francisco Molina** [molinajimenez](https://github.com/molinajimenez)
 
 
 
