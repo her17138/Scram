@@ -198,9 +198,9 @@ function calculateGroupScore(room){
 function playerTurn(room,players){
     if(room_variables[room].tricks.length !== 13){
         room_variables[room].turn +=1
-        console.log("turn", room_variables[room].turn)
-        console.log("player list", players, "turn #", room_variables[room].turn % 4)
-        console.log('server returns playerturn', players[room_variables[room].turn % 4])
+        console.log("turn #", room_variables[room].turn)
+        // console.log("player list", players, "turn #", room_variables[room].turn % 4)
+        console.log('server returns playerturn', players[room_variables[room].turn % 4].username)
         return players[room_variables[room].turn % 4].username
     }
     return null

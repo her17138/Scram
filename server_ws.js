@@ -159,8 +159,8 @@ wss.on('connection',  (ws) => {
         // si no, solo hacer broadcast al movimiento 
         else {
           console.log("ELSE MAKE MOVE room users", room_users, "room", this_room)
-          console.log("ELSE MAKE MOVE player turn", playerTurn(this_room, room_users))
           const ply_turn = playerTurn(this_room, room_users)
+          console.log("ELSE MAKE MOVE player turn", ply_turn)
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;
             usr_socket.send(['get_move', JSON.stringify(move)].join("||"))

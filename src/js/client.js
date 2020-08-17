@@ -141,7 +141,7 @@ function startWebsocket() {
             case 'game_over':
                 winner = JSON.parse(data[1])
             case 'whos_turn':
-                console.log("whos turn", data[1])
+                console.log("whos turn clientjs", data[1])
                 current_turn = data[1]
         }
     }
