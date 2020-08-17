@@ -140,11 +140,11 @@ wss.on('connection',  (ws) => {
         const move = JSON.parse(msg[1])
         const user_name = getCurrentUser(ws).username
         var this_room = getUserRoom(user_name) -1
-        var room_users = getRoomUsers(this_room)
+        var room_users = getRoomUsers(this_room+1)
         // hacer movimiento 
         const max_index = setMove(this_room,move)
-        console.log("max_index", max_index, "move", move, "room", this_room)
-        console.log("get moves", getMoves())
+        // console.log("max_index", max_index, "move", move, "room", this_room)
+        // console.log("getmoves", getMoves(this_room))
         // verificar si ya se hicieron los 4 moves, si sí, enviar el ganador del trick 
         if(getMoves(this_room) === 4){
           for (let i = 0; i < room_users.length; i++) {
@@ -158,10 +158,13 @@ wss.on('connection',  (ws) => {
         }
         // si no, solo hacer broadcast al movimiento 
         else {
+          console.log("ELSE MAKE MOVE room users", room_users, "room", this_room)
+          console.log("ELSE MAKE MOVE player turn", playerTurn(this_room, room_users))
+          const ply_turn = playerTurn(this_room, room_users)
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;
             usr_socket.send(['get_move', JSON.stringify(move)].join("||"))
-            usr_socket.send(["whos_turn", playerTurn(this_room, room_users)].join("||"))
+            usr_socket.send(["whos_turn", ply_turn].join("||"))
           }
         }
         

@@ -175,7 +175,7 @@ export default function Hand(props) {
         <div className="cardContainer">
           <Card
             key={i}
-            identifier={i}
+            identifier={props.cards[i].type}
             flipped={flip}
             player={props.player}
             img={images[Fucs.randomInterval(images.length)]}
