@@ -26,7 +26,6 @@ export default function Card(props) {
 
   return (
     <div
-      style={props.style}
       id={props.player + props.img + props.identifier}
       className="card"
       
