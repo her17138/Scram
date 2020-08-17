@@ -184,10 +184,10 @@ export default class Board extends React.Component {
       { x: 2, y: 1, rotate: 180, userRotate: 360},
       { x: 1, y: 2, rotate: 90, userRotate: 270},
     ];
-
+    console.log("props clientjs board", this.props.clientjs)
     return (
       <div className="board">
-        {this.state.showScore && <Score players={this.state.players}></Score>} 
+        {this.state.showScore && <Score players={this.state.players} clientjs={this.props.clientjs}></Score>} 
 
         <Playarea
           clientjs={this.props.clientjs}

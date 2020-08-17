@@ -3,6 +3,27 @@ import React, { useContext } from "react";
 import "./Playarea.scss";
 
 export default function Playarea(props) {
+
+  function updateArea(){
+    var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+    let play_space = document.getElementById("playablearea")
+    setInterval(() => {
+      let move_made = props.clientjs.get_latest_move()
+      if(move_made){
+        console.log("update area", move_made)
+        let new_card = document.createElement("div", {className: "cardContainer"})
+        new_card.innerHTML = `
+          <Card
+            identifier=${move_made.username.type}
+            img="../../assets/${move_made.username.type}/${values.indexOf(move_made.username.value)+2}
+            value=${move_made.username.value}
+          ></Card>
+        `
+        play_space.appendChild(new_card)
+      }
+    })
+  }
+
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
 
   function drop(ev) {
