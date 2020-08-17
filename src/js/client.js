@@ -135,12 +135,13 @@ function startWebsocket() {
                 break;
             case 'get_move':
                 moves.push(JSON.parse(data[1]))
+                console.log("client getmove", moves)
             case 'trick_winner':
                 tricks.push(JSON.parse(data[1]))
             case 'game_over':
                 winner = JSON.parse(data[1])
             case 'whos_turn':
-                console.log("whos turn", data[1])
+                console.log("whos turn clientjs", data[1])
                 current_turn = data[1]
         }
     }

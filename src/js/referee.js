@@ -26,7 +26,7 @@ function initVariables(){
     room_variables.push({
         trump: [],
         tricks: [],
-        turn: -1,
+        turn: 0,
         moves: []
     })
 
@@ -36,7 +36,7 @@ function initRoom(){
     room_variables.push({
         trump: [],
         tricks: [],
-        turn: -1,
+        turn: 0,
         deck: initDeck(new_room_number),
         moves: []
     })
@@ -73,6 +73,7 @@ function initDeck(room){
   }
 
 function setMove(room,move){
+    console.log("room vars", room_variables[room], "ROOM NUMBER", room)
     room_variables[room].moves.push(move)
     if(room_variables[room].moves.length ===4){
         // parseo de arreay a objeto 
@@ -89,8 +90,8 @@ function setMove(room,move){
 
 }
 function getMoves(room){
-    console.log("getmoves room", room)
-    console.log("getmoves", room_variables[room])
+    // console.log("getmoves room", room)
+    // console.log("getmoves", room_variables[room])
     return room_variables[room].moves.length
 }
 function getTricks(room){
@@ -197,9 +198,10 @@ function calculateGroupScore(room){
 function playerTurn(room,players){
     if(room_variables[room].tricks.length !== 13){
         room_variables[room].turn +=1
-        console.log("turn", room_variables[room].turn)
-        console.log('server returns playerturn', players[room_variables[room].turn % 4])
-        return players[room_variables[room].turn % 4]
+        console.log("turn #", room_variables[room].turn)
+        // console.log("player list", players, "turn #", room_variables[room].turn % 4)
+        console.log('server returns playerturn', players[room_variables[room].turn % 4].username)
+        return players[room_variables[room].turn % 4].username
     }
     return null
 }
