@@ -77,32 +77,37 @@ export default class Hand extends React.Component {
   //object id, player, value, type
   clickOnCard = (param) => {
     let obj = { username: { value: param.value, type: param.type } };
-    this.props.clientjs.make_move(obj);
-    let check = false;
 
-    for (let i = 0; i < this.props.cards.length; i++) {
-      let checkType = this.props.trumpCard.type;
-      if (this.props.cards[i].type === checkType) {
-        check = true;
-        console.log("common type!");
-      }
-      if (
-        this.props.cards[i].value === param.value &&
-        this.props.cards[i].type === param.type
-      ) {
-        //we need to see that the one we clicked is that type
-        if (check === true) {
-          if (param.type === checkType) {
-            console.log("met criteria!", param.type, checkType)
-            this.popCard(i);
+    let check = false;
+    if (this.props.turn === this.props.player) {
+      for (let i = 0; i < this.props.cards.length; i++) {
+        let checkType = this.props.trumpCard.type;
+        if (this.props.cards[i].type === checkType) {
+          check = true;
+          console.log("common type!");
+        }
+        if (
+          this.props.cards[i].value === param.value &&
+          this.props.cards[i].type === param.type
+        ) {
+          //we need to see that the one we clicked is that type
+          if (check === true) {
+            if (param.type === checkType) {
+              console.log("met criteria!", param.type, checkType);
+              this.popCard(i);
+              this.props.clientjs.make_move(obj);
+            } else {
+              alert("Ponga carta que sea mismo tipo que trump card");
+            }
           } else {
-            alert("Ponga carta que sea mismo tipo que trump card");
+            console.log("pop", i);
+            this.popCard(i);
+            this.props.clientjs.make_move(obj);
           }
-        } else {
-          console.log("pop", i);
-          this.popCard(i);
         }
       }
+    } else{
+      alert("NO ES TU TURNO")
     }
   };
   popCard = (cardId) => {
