@@ -30,7 +30,8 @@ export default class Board extends React.Component {
           suma: 0,
         },
       ],
-
+      scoreG1: 0,
+      scoreG2: 0,
       trumpCard: null,
       showScore: false
     };
@@ -173,15 +174,15 @@ export default class Board extends React.Component {
 
     // Player positions in order: 1, 2, 3, 4
     const playerPos = [
-      { x: 2, y: 3, rotate: 0 },
-      { x: 3, y: 2, rotate: 270 },
-      { x: 2, y: 1, rotate: 180 },
-      { x: 1, y: 2, rotate: 90 },
+      { x: 2, y: 3, rotate: 0, usrRotate: 0 },
+      { x: 3, y: 2, rotate: 270, userRotate: 450 },
+      { x: 2, y: 1, rotate: 180, userRotate: 360},
+      { x: 1, y: 2, rotate: 90, userRotate: 270},
     ];
 
     return (
       <div className="board">
-        {/* {this.state.showScore && <Score players={this.state.players}></Score>} */}
+        {this.state.showScore && <Score players={this.state.players} clientjs={this.props.clientjs}></Score>}
         <CardsContext.Provider value={this.state.turno}>
           <Playarea clientjs={this.props.clientjs} turn={this.state.turno} />
         </CardsContext.Provider>
