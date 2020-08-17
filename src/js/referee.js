@@ -73,17 +73,16 @@ function initDeck(room){
   }
 
 function setMove(room,move){
-    console.log("room vars", room_variables[room], "ROOM NUMBER", room)
     room_variables[room].moves.push(move)
     if(room_variables[room].moves.length ===4){
         // parseo de arreay a objeto 
         const moves_json = {0: 0, 1: 1, 2: 0, 3: 0}
         for (var key in moves_json) {
             var index = Number(key)
-            moves_json[key] = moves[index].username
+            moves_json[key] = room_variables[room].moves[index].username
         }
         room_variables[room].moves = []
-        return getHigherCard(moves_json)
+        return getHigherCard(room, moves_json)
     }
 
     return -1
@@ -113,7 +112,18 @@ function getKeyByValue(object, value) {
 return Object.keys(object).find(key => object[key] === value);
 }
 
+function removeItemFromArr ( arr, item ) {
+    var i = arr.indexOf( item );
+ 
+    if ( i !== -1 ) {
+        arr.splice( i, 1 );
+    }
+
+    return arr
+}
+
 function getHigherCard(room,data){
+    console.log("data ghc", data)
     const initial_cards = Object.values(data)
     var cards = []
 
@@ -151,21 +161,35 @@ function getHigherCard(room,data){
 
     isTrump = true
     const trump = getTrump(room).type;
+    console.log("ghc trump", trump)
 
+    console.log('cards', cards)
+
+    cards.forEach(element =>
+        cplayed.push(element[0])
+    );
+
+    console.log('cplayed', cplayed)
+
+    cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
+    console.log('cards_map', cards_map)
+
+    console.log("HOLAAAA")
     while (isTrump){
-        cards.forEach(element =>
-            cplayed.push(element[0])
-        );
-
-        cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
+        console.log('iniciando el while', cards_map)
         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
-
+        console.log('max_card_index', maxCardIndex)
         trump_card = cards[maxCardIndex][1]
+        console.log("ghc trump card", trump_card)
         if (trump_card == trump){
-        isTrump = false
+            isTrump = false
+        } else { 
+            cards_map = removeItemFromArr( cards_map, cards_map[maxCardIndex] );
+            console.log('al eliminar el card que no es igual al trump', cards_map)
         }
     }
     
+    console.log("salio del while maximo", maxCardIndex)
     return maxCardIndex;
 }
 
