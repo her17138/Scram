@@ -93,6 +93,7 @@ export default class Board extends React.Component {
         this.showScore();
         this.setState({
           turno: this.props.clientjs.whos_turn(),
+          trumpCard: this.props.clientjs.get_trump_card()
         });
         clearInterval(id);
       }
@@ -195,6 +196,7 @@ export default class Board extends React.Component {
             pos={playerPos[i]}
             turn={this.state.turno}
             clientjs={this.props.clientjs}
+            trumpCard={this.state.trumpCard}
           />
         ))}
       </div>
