@@ -9,8 +9,6 @@ import "./Card.scss";
 
 export default function Card(props) {
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
-  const [flipped, setFlip] = useState(false);
-  const [clickedCard, setCard] = useState(null);
   function handleClick(e) {
     e.preventDefault();
     //set state above

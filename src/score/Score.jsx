@@ -39,7 +39,7 @@ export default class Score extends React.Component {
   }
 
   componentDidMount() {
-    this.updateScore();
+    //this.updateScore();
   }
 
   render() {
