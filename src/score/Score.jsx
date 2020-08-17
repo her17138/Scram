@@ -15,21 +15,25 @@ export default class Score extends React.Component {
 
   updateScore() {
     ups = setInterval(() => {
-      const trickWinner = this.props.clientjs.get_trick_winner()
-      //const trickWinner = 0;
+      //const trickWinner = this.props.clientjs.get_trick_winner()
+      const trickWinner = 1;
       console.log("trickWinner " + trickWinner);
-      let g1 = this.state.grupo1
-      let g2 = this.state.grupo2
+      let g1 = this.state.grupo1;
+      let g2 = this.state.grupo2;
       if (trickWinner != undefined) {
-          console.log("im in")
-          if (trickWinner % 2 == 0) {
-            g1 += 1;
-            this.setState({ grupo1: g1 });
-          } else {
-            g2 += 1;
-            this.setState({ grupo2: g2 });
-          }
-        
+        if (trickWinner % 2 == 0) {
+          g1 += 1;
+          this.setState({ grupo1: g1 });
+        } else {
+          g2 += 1;
+          this.setState({ grupo2: g2 });
+        }
+        if (g1 === 13 || g2 === 13) {
+          clearInterval(ups);
+          let winner = g1 > g2 ? "Grupo 1" : "Grupo 2";
+          
+          alert("Grupo ganador: " + winner);
+        }
       }
     }, 3000);
   }
