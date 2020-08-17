@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "../card/Card.jsx";
 import Fucs from "../js/utilities.js";
 
@@ -59,87 +59,43 @@ import s13 from "../../assets/spades/13.png";
 import s14 from "../../assets/spades/14.png";
 
 import "./Hand.scss";
-export default function Hand(props) {
+export default class Hand extends React.Component {
   //let images = [dorval, hans, mijangos];
-  let images = [
-    c2,
-    c3,
-    c4,
-    c5,
-    c6,
-    c7,
-    c8,
-    c9,
-    c10,
-    c11,
-    c12,
-    c13,
-    c14,
-    d2,
-    d3,
-    d4,
-    d5,
-    d6,
-    d7,
-    d8,
-    d9,
-    d10,
-    d11,
-    d12,
-    d13,
-    d14,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    h7,
-    h8,
-    h9,
-    h10,
-    h11,
-    h12,
-    h13,
-    h14,
-    s2,
-    s3,
-    s4,
-    s5,
-    s6,
-    s7,
-    s8,
-    s9,
-    s10,
-    s11,
-    s12,
-    s13,
-    s14,
-  ];
+  constructor(props) {
+    super(props);
 
-  const [cards, setCard] = useState(props.cards);
-
-  function popCard(cardId) {
+    this.state = {
+      cards: props.cards,
+      clicked: {
+        id: "",
+        player: "",
+        value: null,
+        type: "",
+      },
+    };
+  }
+  //object id, player, value, type
+  clickOnCard = (param) => {
+    this.setState({
+      clicked: param
+    });
+  };
+  popCard = (cardId) => {
     let index = cards.indexOf(cardId);
-
     if (index > -1) {
       let newHand = cards.splice(index, 1);
-      setCard(newHand);
+      this.setState({
+        cards: newHand,
+      });
     }
-  }
-  
-  let flip = true
+  };
 
-  function dragStart(event) {
-    event.dataTransfer.setData("clicked", event.target.id);
-    event.dataTransfer.setData("owner", props.player);
-  }
-
-  function dropEnd(event) {
-    console.log("event", event)
+  dropEnd = (event) => {
+    console.log("event", event);
     let data = event.dataTransfer.getData("clicked");
-    console.log("data", data)
+    console.log("data", data);
     let dragged_obj = document.getElementById(data);
-    console.log("dragged_obj", dragged_obj)
+    console.log("dragged_obj", dragged_obj);
     let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
     console.log("llegando", props.player, props.turn);
     if (
@@ -148,53 +104,100 @@ export default function Hand(props) {
     ) {
       popCard(index);
       cards.pop();
-
       setCard(cards);
     }
-  }
+  };
 
- 
+  render() {
+    const images = [
+      c2,
+      c3,
+      c4,
+      c5,
+      c6,
+      c7,
+      c8,
+      c9,
+      c10,
+      c11,
+      c12,
+      c13,
+      c14,
+      d2,
+      d3,
+      d4,
+      d5,
+      d6,
+      d7,
+      d8,
+      d9,
+      d10,
+      d11,
+      d12,
+      d13,
+      d14,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      h7,
+      h8,
+      h9,
+      h10,
+      h11,
+      h12,
+      h13,
+      h14,
+      s2,
+      s3,
+      s4,
+      s5,
+      s6,
+      s7,
+      s8,
+      s9,
+      s10,
+      s11,
+      s12,
+      s13,
+      s14,
+    ];
+    const handStyle = {
+      gridColumn: `${this.props.pos.x - 5}/${this.props.pos.x}`,
+      gridRow: `${this.props.pos.y}`,
+      display: "flex",
+      padding: "20px",
+      width: "245px",
+      position: "relative",
+      height: "150px",
+      transform: `rotate(${this.props.pos.rotate}deg)`,
+    };
+    var flip = true;
+    if (this.props.player !== this.props.username) {
+      handStyle.pointerEvents = "none";
+      flip = false;
+    }
 
-  const handStyle = {
-    gridColumn: `${props.pos.x -5}/${props.pos.x}`,
-    gridRow: `${props.pos.y}`,
-    display: "flex",
-    padding: "20px",
-    width: "245px",
-    position: "relative",
-    height: "150px",
-    transform: `rotate(${props.pos.rotate}deg)`
-  }
-
-  const userStyle = {
-    transform: `rotate(${props.pos.userRotate}deg)`
-  }
-
-  if(props.player !== props.username){
-    handStyle.pointerEvents = "none"
-    flip = false
-  }
-  
-  return (
-      
-    <div style={handStyle} id={props.player + "hand"}>
-      {props.cards.map((x, i) => (
-        <div className="cardContainer">
-          <Card
-            key={i}
-            identifier={props.cards[i].type}
-            flipped={flip}
-            player={props.player}
-            img={images[Fucs.randomInterval(images.length)]}
-            startFunction={dragStart}
-            endFunction={dropEnd}
-            value={props.cards[i].value}
-          ></Card>
+    return (
+      <div style={handStyle} id={this.props.player + "hand"}>
+        {this.props.cards.map((x, i) => (
+          <div className="cardContainer">
+            <Card
+              key={i}
+              identifier={this.props.cards[i].type}
+              flipped={flip}
+              player={this.props.player}
+              img={images[Fucs.randomInterval(images.length)]}
+              value={this.props.cards[i].value}
+              updateClick = {this.clickOnCard}
+            ></Card>
+          </div>
+        ))}
+        <div className="username-container">
+          <h3>{this.props.player}</h3>
         </div>
-      ))}
-      <div className="username-container">
-        <h3>{props.player}</h3>
       </div>
-    </div>
-  );
+    );
+  }
 }
