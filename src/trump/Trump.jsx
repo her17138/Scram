@@ -14,7 +14,7 @@ export default class Trump extends React.Component{
     updateTrump(props) {
         ups = setInterval(() => {
             const newTrump = props.clientjs.get_trump_card()
-            console.log('new_trumo', newTrump)
+            // console.log('new_trumo', newTrump)
             if(newTrump){
                 this.setState({trump: newTrump.type})
             }

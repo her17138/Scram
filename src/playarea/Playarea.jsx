@@ -2,9 +2,14 @@ import React, { useContext } from "react";
 
 import "./Playarea.scss";
 
-export default function Playarea(props) {
-
-  function updateArea(){
+export default class Playarea extends React.Component {
+  constructor(props){
+    super(props)
+  }
+  componentDidMount(){
+    this.updateArea()
+  }
+  updateArea(){
     var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
     let play_space = document.getElementById("playablearea")
     setInterval(() => {
@@ -26,7 +31,7 @@ export default function Playarea(props) {
 
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
 
-  function drop(ev) {
+  drop(ev) {
     ev.preventDefault();
     
     let data = ev.dataTransfer.getData("clicked");
@@ -55,7 +60,7 @@ export default function Playarea(props) {
     }
   }
 
-  function triggerState() {
+  triggerState() {
     if (props.turn === "") {
       console.log("setting initial turn");
       props.updateTurn(props.clientjs.whos_turn());
@@ -71,20 +76,22 @@ export default function Playarea(props) {
     }
   }
 
-  function allowDrop(ev) {
+  allowDrop(ev) {
     ev.preventDefault();
   }
 
-  return (
-    <div
-      className="playableArea"
-      id="playablearea"
-      onDrop={(e) => {
-        drop(e);
-      }}
-      onDragOver={(e) => {
-        allowDrop(e);
-      }}
-    ></div>
-  );
+  render() {
+    return (
+      <div
+        className="playableArea"
+        id="playablearea"
+        onDrop={(e) => {
+          drop(e);
+        }}
+        onDragOver={(e) => {
+          allowDrop(e);
+        }}
+      ></div>
+    );
+  }
 }
