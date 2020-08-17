@@ -178,7 +178,6 @@ export default function Hand(props) {
   return (
       
     <div style={handStyle} id={props.player + "hand"}>
-      <p >{props.player}</p>
       {props.cards.map((x, i) => (
         <div className="cardContainer">
           <Card
