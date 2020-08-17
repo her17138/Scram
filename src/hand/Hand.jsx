@@ -154,7 +154,7 @@ export default function Hand(props) {
   }
 
   const handStyle = {
-    gridColumn: `${props.pos.x}/${props.pos.x}`,
+    gridColumn: `${props.pos.x -5}/${props.pos.x}`,
     gridRow: `${props.pos.y}`,
     display: "flex",
     padding: "20px",
@@ -185,6 +185,9 @@ export default function Hand(props) {
           ></Card>
         </div>
       ))}
+      <div className="username-container">
+        <h3>{props.player}</h3>
+      </div>
     </div>
   );
 }
