@@ -10,31 +10,33 @@ import "./Card.scss";
 export default function Card(props) {
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
   const [flipped, setFlip] = useState(false);
+  const [clickedCard, setCard] = useState(null);
   function handleClick(e) {
     e.preventDefault();
-    setFlip((prevVal) => !prevVal);
+    //set state above
+    console.log("updating card state -> passing up to hand")
+    let obj = {
+      id: props.player + props.img + props.identifier,
+      player: props.player,
+      value: props.value,
+      type: props.identifier
+    }
+    
+    props.updateClick(obj)
+    
   }
 
   return (
     <div
       id={props.player + props.img + props.identifier}
       className="card"
-      draggable="true"
-      onClick={(e) => {
-        handleClick(e);
-      }}
-      onDragEnd={(e) => {
-        props.endFunction(e);
-      }}
-      onDragStart={(e) => {
-        props.startFunction(e);
-      }}
+      
     >
       <p className="hidden">{props.value}</p>
       <p className="hidden">{props.identifier}</p>
       <p className="hidden">{props.player}</p>
       {props.flipped ? (
-        <img draggable="false" className="cardImg" src={props.img}></img>
+        <img draggable="false" className="cardImg" onClick={(e) => {handleClick(e)}} src={props.img}></img>
       ) : (
         <img className="cardImg" draggable="false" src={backImage}></img>
       )}
