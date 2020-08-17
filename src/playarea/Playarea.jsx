@@ -65,7 +65,7 @@ export default class Playarea extends React.Component {
     super(props)
     this.state = {
       onDeck: [],
-      styles: [{},{right: 360},{bottom: 100},{bottom: 100, right:360}]
+      styles: [{},{right: "25%"},{bottom: "35%"},{bottom: "35%", right:"25%"}]
     }
     this.updateArea = this.updateArea.bind(this)
     this.triggerState = this.triggerState.bind(this)
