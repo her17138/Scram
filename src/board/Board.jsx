@@ -152,16 +152,6 @@ export default class Board extends React.Component {
     //playerArr[0].hand.push(this.props.clientjs.get_trump_card());
   };
 
-  isHandEmpty = () => {
-    let players = this.state.players;
-    let count = 0;
-    for (let i = 0; i < players.length; i++) {
-      count = player[i].hands.length + count;
-    }
-    //gracias zea
-    return count === 0 ? true : false;
-  };
-
   updateTurn = (param) => {
     console.log("setting", param)
     this.setState({
@@ -202,6 +192,7 @@ export default class Board extends React.Component {
             cards={player.hand}
             pos={playerPos[i]}
             turn={this.state.turno}
+            clientjs={this.props.clientjs}
           />
         ))}
       </div>
