@@ -152,18 +152,27 @@ function getHigherCard(room,data){
     isTrump = true
     const trump = getTrump(room).type;
     console.log("ghc trump", trump)
-    while (isTrump){
-        cards.forEach(element =>
-            cplayed.push(element[0])
-        );
 
-        cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
-        maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
+    console.log('cards', cards)
+
+    cards.forEach(element =>
+        cplayed.push(element[0])
+    );
+
+    console.log('cplayed', cplayed)
+
+    cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
+    console.log('cards_map', cards_map)
+
+    console.log("HOLAAAA")
+    while (isTrump){
         
+        maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
+        console.log('max_card_index', maxCardIndex)
         trump_card = cards[maxCardIndex][1]
         console.log("ghc trump card", trump_card)
         if (trump_card == trump){
-        isTrump = false
+            isTrump = false
         }
     }
     
