@@ -153,6 +153,8 @@ export default function Hand(props) {
     }
   }
 
+ 
+
   const handStyle = {
     gridColumn: `${props.pos.x -5}/${props.pos.x}`,
     gridRow: `${props.pos.y}`,
@@ -164,12 +166,17 @@ export default function Hand(props) {
     transform: `rotate(${props.pos.rotate}deg)`
   }
 
+  const userStyle = {
+    transform: `rotate(${props.pos.userRotate}deg)`
+  }
+
   if(props.player !== props.username){
     handStyle.pointerEvents = "none"
     flip = false
   }
   
   return (
+      
     <div style={handStyle} id={props.player + "hand"}>
       {props.cards.map((x, i) => (
         <div className="cardContainer">
