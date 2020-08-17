@@ -1,11 +1,6 @@
 import React from "react";
 import "./Board.scss";
 import Score from "../score/Score.jsx"
-
-import back from "../../assets/back.jpg";
-import dorval from "../../assets/dorval.jpg";
-import hans from "../../assets/hans.jpg";
-import mijangos from "../../assets/mijangos.jpg";
 import Hand from "../hand/Hand.jsx";
 import Playarea from "../playarea/Playarea.jsx";
 
