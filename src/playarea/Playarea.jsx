@@ -5,6 +5,10 @@ import "./Playarea.scss";
 export default class Playarea extends React.Component {
   constructor(props){
     super(props)
+    this.updateArea = this.updateArea.bind(this)
+    this.triggerState = this.triggerState.bind(this)
+    this.drop = this.drop.bind(this)
+    this.allowDrop = this.allowDrop.bind(this)
   }
   componentDidMount(){
     this.updateArea()
@@ -13,7 +17,7 @@ export default class Playarea extends React.Component {
     var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
     let play_space = document.getElementById("playablearea")
     setInterval(() => {
-      let move_made = props.clientjs.get_latest_move()
+      let move_made = this.props.clientjs.get_latest_move()
       if(move_made){
         console.log("update area", move_made)
         let new_card = document.createElement("div", {className: "cardContainer"})
@@ -39,7 +43,7 @@ export default class Playarea extends React.Component {
     ev.target.appendChild(card.parentElement);
     //jalamos padre por el wrapper de la carta.
 
-    if (ev.dataTransfer.getData("owner") === props.turn) {
+    if (ev.dataTransfer.getData("owner") === this.props.turn) {
       let pts = card.getElementsByTagName("p")[0].innerHTML;
       let identifier = card.getElementsByTagName("p")[1].innerHTML;
       let player = card.getElementsByTagName("p")[2].innerHTML;
@@ -51,25 +55,25 @@ export default class Playarea extends React.Component {
       };
       //modificar arreglo del board
 
-      props.clientjs.make_move(playerObj);
+      this.props.clientjs.make_move(playerObj);
 
-      console.log("server says", props.clientjs.whos_turn());
+      console.log("server says", this.props.clientjs.whos_turn());
       triggerState()
-      //cardContext = props.clientjs.whos_turn()
-      //cardContext = props.clientjs.whos_turn()
+      //cardContext = this.props.clientjs.whos_turn()
+      //cardContext = this.props.clientjs.whos_turn()
     }
   }
 
   triggerState() {
-    if (props.turn === "") {
+    if (this.props.turn === "") {
       console.log("setting initial turn");
-      props.updateTurn(props.clientjs.whos_turn());
+      this.props.updateTurn(this.props.clientjs.whos_turn());
     } else {
       let id = setInterval(() => {
-        let new_turn = props.clientjs.whos_turn();
+        let new_turn = this.props.clientjs.whos_turn();
         console.log(new_turn);
-        if (new_turn !== props.turn) {
-          props.updateTurn(new_turn);
+        if (new_turn !== this.props.turn) {
+          this.props.updateTurn(new_turn);
           clearInterval(id);
         }
       }, 100);
