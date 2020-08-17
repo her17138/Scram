@@ -31,6 +31,9 @@ function get_deck(){
     return deck
 }
 function whos_turn(){
+    if (current_turn === ''){
+        current_turn = players[0]
+    }
     return current_turn
 }
 function make_move(jugada){
@@ -52,7 +55,6 @@ function get_winner(){
     return winner
 }
 function get_players(){
-    current_turn = players[0]
     return players
 }
 

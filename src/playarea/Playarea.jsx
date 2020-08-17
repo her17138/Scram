@@ -94,28 +94,17 @@ export default class Playarea extends React.Component {
           this.props.updateTurn(new_turn);
         }
         console.log("update area", move_made)
-        /* let new_card = document.createElement("div", {className: "cardContainer"})
-        let new_card_component = document.createElement("div", {
-          className:"card",
-          identifier:move_made.username.type,
-          value:move_made.username.value,
-          img:imgs[cards.indexOf(move_made.username.value+move_made.username.type)]
-        })
-        new_card.appendChild(new_card_component)
-        play_space.appendChild(new_card) */
 
-        const upd_cards = this.state.onDeck
+        let upd_cards = this.state.onDeck
         if(upd_cards.length === 4){
           upd_cards = []
         }
-        
         upd_cards.push({
           style: this.state.styles[upd_cards.length],
           type:move_made.username.type,
           value:move_made.username.value,
           img_src:imgs[cards.indexOf(move_made.username.value+move_made.username.type)]
         })
-      
         this.setState({
           onDeck: upd_cards
         })
@@ -126,8 +115,6 @@ export default class Playarea extends React.Component {
   }
 
   //aqui declaras tu variable, flip y llamas la funcion setFlip(param) para cambiar su valor.
-
-
   render() {
     return (
       <div
