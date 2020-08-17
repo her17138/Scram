@@ -112,6 +112,16 @@ function getKeyByValue(object, value) {
 return Object.keys(object).find(key => object[key] === value);
 }
 
+function removeItemFromArr ( arr, item ) {
+    var i = arr.indexOf( item );
+ 
+    if ( i !== -1 ) {
+        arr.splice( i, 1 );
+    }
+
+    return arr
+}
+
 function getHigherCard(room,data){
     console.log("data ghc", data)
     const initial_cards = Object.values(data)
@@ -166,16 +176,20 @@ function getHigherCard(room,data){
 
     console.log("HOLAAAA")
     while (isTrump){
-        
+        console.log('iniciando el while', cards_map)
         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
         console.log('max_card_index', maxCardIndex)
         trump_card = cards[maxCardIndex][1]
         console.log("ghc trump card", trump_card)
         if (trump_card == trump){
             isTrump = false
+        } else { 
+            cards_map = removeItemFromArr( cards_map, cards_map[maxCardIndex] );
+            console.log('al eliminar el card que no es igual al trump', cards_map)
         }
     }
     
+    console.log("salio del while maximo", maxCardIndex)
     return maxCardIndex;
 }
 
