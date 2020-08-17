@@ -16,10 +16,9 @@ export default class Score extends React.Component{
     }
 
     updateScore() {
-        console.log("score props", this.props)
-        var clientjs = this.props.clientjs
-        ups = setInterval(function(){
-            const trickWinner = clientjs.get_trick_winner()
+        ups = setInterval(() => {
+            const trickWinner = this.props.clientjs.get_trick_winner()
+            console.log('trickWinner' + trickWinner)
             if(trickWinner){
                 for (i = 0; i < this.props.players.length; i++) {
                     if(trickWinner === this.props.players[i].nombre){
@@ -37,7 +36,7 @@ export default class Score extends React.Component{
     }
 
     componentDidMount() {
-        this.updateScore()
+        // this.updateScore()
     }
 
     

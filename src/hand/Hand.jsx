@@ -79,6 +79,9 @@ export default class Hand extends React.Component {
     this.setState({
       clicked: param
     });
+    let obj = {"username" : {"value": param.value, "type":param.type}}
+    console.log("parsing", obj)
+    this.props.clientjs.make_move(obj)
   };
   popCard = (cardId) => {
     let index = cards.indexOf(cardId);

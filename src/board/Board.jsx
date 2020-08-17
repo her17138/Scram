@@ -1,6 +1,7 @@
 import React from "react";
 import "./Board.scss";
 import Score from "../score/Score.jsx";
+import Trump from "../trump/Trump.jsx"
 import Hand from "../hand/Hand.jsx";
 import Playarea from "../playarea/Playarea.jsx";
 
@@ -152,16 +153,6 @@ export default class Board extends React.Component {
     //playerArr[0].hand.push(this.props.clientjs.get_trump_card());
   };
 
-  isHandEmpty = () => {
-    let players = this.state.players;
-    let count = 0;
-    for (let i = 0; i < players.length; i++) {
-      count = player[i].hands.length + count;
-    }
-    //gracias zea
-    return count === 0 ? true : false;
-  };
-
   updateTurn = (param) => {
     console.log("setting", param)
     this.setState({
@@ -188,6 +179,7 @@ export default class Board extends React.Component {
     return (
       <div className="board">
         {this.state.showScore && <Score players={this.state.players} clientjs={this.props.clientjs}></Score>} 
+        {this.state.showScore && <Trump clientjs={this.props.clientjs}></Trump>}
 
         <Playarea
           clientjs={this.props.clientjs}
@@ -202,6 +194,7 @@ export default class Board extends React.Component {
             cards={player.hand}
             pos={playerPos[i]}
             turn={this.state.turno}
+            clientjs={this.props.clientjs}
           />
         ))}
       </div>
