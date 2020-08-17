@@ -76,17 +76,39 @@ export default class Hand extends React.Component {
   }
   //object id, player, value, type
   clickOnCard = (param) => {
-    this.setState({
-      clicked: param
-    });
-    let obj = {"username" : {"value": param.value, "type":param.type}}
-    console.log("parsing", obj)
-    this.props.clientjs.make_move(obj)
+    let obj = { username: { value: param.value, type: param.type } };
+    this.props.clientjs.make_move(obj);
+    let check = false;
+
+    for (let i = 0; i < this.props.cards.length; i++) {
+      let checkType = this.props.trumpCard.type;
+      if (this.props.cards[i].type === checkType) {
+        check = true;
+        console.log("common type!");
+      }
+      if (
+        this.props.cards[i].value === param.value &&
+        this.props.cards[i].type === param.type
+      ) {
+        //we need to see that the one we clicked is that type
+        if (check === true) {
+          if (param.type === checkType) {
+            console.log("met criteria!", param.type, checkType)
+            this.popCard(i);
+          } else {
+            alert("Ponga carta que sea mismo tipo que trump card");
+          }
+        } else {
+          console.log("pop", i);
+          this.popCard(i);
+        }
+      }
+    }
   };
   popCard = (cardId) => {
-    let index = cards.indexOf(cardId);
-    if (index > -1) {
-      let newHand = cards.splice(index, 1);
+    if (cardId > -1) {
+      let newHand = this.props.cards.splice(cardId, 1);
+      console.log("setting", newHand);
       this.setState({
         cards: newHand,
       });
@@ -191,9 +213,16 @@ export default class Hand extends React.Component {
               identifier={this.props.cards[i].type}
               flipped={flip}
               player={this.props.player}
-              img={images[Fucs.randomInterval(images.length)]}
+              img={
+                images[
+                  Fucs.getImage(
+                    this.props.cards[i].value,
+                    this.props.cards[i].type
+                  )
+                ]
+              }
               value={this.props.cards[i].value}
-              updateClick = {this.clickOnCard}
+              updateClick={this.clickOnCard}
             ></Card>
           </div>
         ))}

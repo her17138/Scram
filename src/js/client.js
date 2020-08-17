@@ -6,6 +6,7 @@ var deck = []
 var tricks = [] //sera implementado como una cola 
 var moves = [] //sera implementado como una cola 
 var winner = null
+var trump = {}
 var current_turn =  '' // se envia el username del jugador al que le toca
 var socket = null
 
@@ -36,6 +37,7 @@ function make_move(jugada){
     console.log("make MOVE", jugada)
     socket.send(['make_move', JSON.stringify(jugada)].join("||"))
 }
+
 function get_trick_winner(){
     console.log('desde el client' + tricks.pop())
     return tricks.pop()
@@ -44,7 +46,7 @@ function get_latest_move(){
     return moves.pop()
 }
 function get_trump_card(){
-    return deck[deck.length-1]
+    return trump
 }
 function get_winner(){
     return winner
@@ -53,6 +55,7 @@ function get_players(){
     current_turn = players[0]
     return players
 }
+
 
 /**
  *  implementacion de chat 
@@ -132,6 +135,7 @@ function startWebsocket() {
             case 'init_deck':
                 deck = JSON.parse(data[1])
                 console.log("deck", deck)
+                trump = deck[deck.length-1]
                 // initDeck(deck)
                 break;
             case 'get_move':
@@ -139,6 +143,9 @@ function startWebsocket() {
                 console.log("client getmove", moves)
             case 'trick_winner':
                 tricks.push(JSON.parse(data[1]))
+            case 'set_trump':
+                console.log("set trump", JSON.parse(data[1]))
+                trump = JSON.parse(data[1]).username
             case 'game_over':
                 winner = JSON.parse(data[1])
             case 'whos_turn':
