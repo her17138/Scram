@@ -38,22 +38,18 @@ export default class Score extends React.Component {
     }, 3000);
   }
 
-  componentDidMount() {
-    //this.updateScore();
-  }
-
-  render() {
-    return (
-      <div class="main-score">
-        <div class="score">
-          <span>{this.state.grupo1}</span>
-          <span>{this.state.grupo2}</span>
-        </div>
-        <div class="team">
-          <span>{this.state.usrG1}</span>
-          <span>{this.state.usrG2}</span>
-        </div>
-      </div>
-    );
-  }
+    render(){
+        return(
+            <div id="score-container" class="main-score">
+                <div class="scoreTitle">
+                    SCORE
+                </div>
+                <div class="score">
+                    <span>{this.state.grupo1}</span><span>{this.state.grupo2}</span>
+                </div>
+                <div class="team">
+                    <span>{this.state.usrG1}</span><span>{this.state.usrG2}</span>
+                </div>
+            </div>
+        )}
 }
