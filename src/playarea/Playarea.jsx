@@ -64,7 +64,8 @@ export default class Playarea extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      onDeck: []
+      onDeck: [],
+      styles: [{},{right: 360},{bottom: 100},{bottom: 100, right:360}]
     }
     this.updateArea = this.updateArea.bind(this)
     this.triggerState = this.triggerState.bind(this)
@@ -74,6 +75,8 @@ export default class Playarea extends React.Component {
   componentDidMount(){
     this.updateArea()
   }
+
+  
   updateArea(){
     const imgs = [c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,
     h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12,h13,h14,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14]
@@ -88,7 +91,7 @@ export default class Playarea extends React.Component {
       // console.log("move_made update area", move_made)
       if(move_made){
         console.log("update area", move_made)
-        let new_card = document.createElement("div", {className: "cardContainer"})
+        /* let new_card = document.createElement("div", {className: "cardContainer"})
         let new_card_component = document.createElement("div", {
           className:"card",
           identifier:move_made.username.type,
@@ -96,19 +99,25 @@ export default class Playarea extends React.Component {
           img:imgs[cards.indexOf(move_made.username.value+move_made.username.type)]
         })
         new_card.appendChild(new_card_component)
-        play_space.appendChild(new_card)
-        // const upd_cards = this.state.onDeck
-        // if(upd_cards.length ===4){
-        //   upd_cards = []
-        // }
-        // upd_cards.push({
-        //   type:move_made.username.type,
-        //   value:move_made.username.value,
-        //   img_src:imgs[cards.indexOf(move_made.username.value+move_made.username.type)]
-        // })
-        // this.setState({
-        //   onDeck: upd_cards
-        // })
+        play_space.appendChild(new_card) */
+
+        const upd_cards = this.state.onDeck
+        if(upd_cards.length === 4){
+          upd_cards = []
+        }
+        
+        upd_cards.push({
+          style: this.state.styles[upd_cards.length],
+          type:move_made.username.type,
+          value:move_made.username.value,
+          img_src:imgs[cards.indexOf(move_made.username.value+move_made.username.type)]
+        })
+      
+        this.setState({
+          onDeck: upd_cards
+        })
+        
+        
       }
     }, 500)
   }
@@ -176,18 +185,19 @@ export default class Playarea extends React.Component {
           allowDrop(e);
         }}
       >
-        {/* {
+        {
           this.state.onDeck.map((item, i) => (
               <Card 
                 key={i}
                 flipped={true}
+                style={item.style}
                 identifier={item.type}
                 value={item.value}
                 img={item.img_src}
                 player={this.props.clientjs.get_username()}
               />
           ))
-        } */}
+        } 
       </div>
     );
   }
