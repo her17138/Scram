@@ -10,6 +10,22 @@
   margin: 0px 8px;
 }
 
+.username-container {
+  background-color: burlywood;
+  border-radius: 25px;
+  text-align: center;
+  padding: 25px;
+  width: 100%;
+  background-color: #a3d063;
+  /* Center vertically */
+  position: absolute;
+  top: 110%;
+  color:white;
+  font-style: bold;
+
+  /* border */
+  // border: 7px solid #284b63;
+}
 /* :nth-child(n+7) {
  margin: 150px 40px;
 }

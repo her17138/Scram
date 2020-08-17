@@ -39,6 +39,7 @@
 .chat-main {
 	height: 87%;
 	max-height: 89%; //porque al mandar muchos mensajes el chat main se estira hasta que chat-form-container ya no se ve
+	overflow-y: scroll;
 }
 
 
@@ -70,6 +71,7 @@
 
 .chat-messages {
 	padding: 30px;
+	overflow-y: scroll;
 }
 
 .chat-messages .message {
