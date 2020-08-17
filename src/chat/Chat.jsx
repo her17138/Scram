@@ -2,6 +2,9 @@ import React from "react";
 import "./Chat.scss"
 import { Redirect } from 'react-router'
 var client = null
+var refreshId = null
+var userlist_update = null
+var message_update = null
 export default class Chat extends React.Component{
     constructor(props){
         super(props)
@@ -27,7 +30,7 @@ export default class Chat extends React.Component{
             `;
     }
     receiveMessage(){
-        setInterval(function(){ 
+        message_update = setInterval(function(){ 
             const message = client.receive_message()
             if(message){
                 const div = document.createElement('div');
@@ -44,12 +47,17 @@ export default class Chat extends React.Component{
          }, 100);
     }
     getPlayers(){
-        setInterval(function() {
-            const usrs = client.get_players()
-            const userList = document.getElementById('users');
-            userList.innerHTML = `
-                    ${usrs.map(user => `<li>${user}</li>`).join('')}
-                `;
+        userlist_update = setInterval(function() {
+            try {
+                const usrs = client.get_players()
+                const userList = document.getElementById('users');
+                userList.innerHTML = `
+                        ${usrs.map(user => `<li>${user}</li>`).join('')}
+                    `;
+            }
+            catch(e){
+                clearInterval(userlist_update)
+            }
         }, 500)
         
     }
@@ -60,12 +68,11 @@ export default class Chat extends React.Component{
     }
     getRoom() {
         var room_nm =-1
-        var refreshId = setInterval(function(){
+        refreshId = setInterval(function(){
             room_nm = client.get_room();
             if (room_nm !== -1) {
                 const roomName = document.getElementById('room-name');
                 roomName.innerText = `Room: ${room_nm}`
-                console.log("innerhtml")
                 clearInterval(refreshId);
             }
         }, 500);
@@ -92,6 +99,11 @@ export default class Chat extends React.Component{
               }}/>;
         }
         return(
+            <div className="global-div">
+                <div className="chat-sidebar">
+                    <h3><i className="icon fas fa-users"></i> Users</h3>
+                    <ul id="users"></ul>
+                    </div>
             <div id="main-chat-container">
                 <div className="chat-container">
                 <header className="chat-header">
@@ -102,28 +114,28 @@ export default class Chat extends React.Component{
                     <button onClick={this.exitRoom} id="leave-room" className="btn">Leave Room</button>
                 </header>
                 <main className="chat-main">
-                    <div className="chat-sidebar">
-                    <h3><i className="icon fas fa-users"></i> Users</h3>
-                    <ul id="users"></ul>
-                    </div>
+                    
                     <div className="chat-messages"></div>
                 </main>
                 <div className="chat-form-container">
-                    <div id="chat-form">
+                    <div className="message_input_wrapper">
                     <input
                         id="msg"
                         type="text"
+                        className="message_input"
                         placeholder="Enter Message"
                         required
                         autoComplete="off"
                         value={this.state.message}
                         onChange={event => this.setState({message:event.target.value})}
                     />
-                    <button onClick={this.sendMessage} className="btn"><i className="fas fa-paper-plane"></i> Send</button>
                     </div>
+                    <button onClick={this.sendMessage} className="send_message"><i className="fas fa-paper-plane"></i> Send</button>
                 </div>
                 </div>
             </div>
+            </div>
+
         )
     }
 }

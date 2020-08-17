@@ -126,6 +126,8 @@ export default function Hand(props) {
       setCard(newHand);
     }
   }
+  
+  let flip = true
 
   function dragStart(event) {
     event.dataTransfer.setData("clicked", event.target.id);
@@ -133,10 +135,11 @@ export default function Hand(props) {
   }
 
   function dropEnd(event) {
+    console.log("event", event)
     let data = event.dataTransfer.getData("clicked");
-
+    console.log("data", data)
     let dragged_obj = document.getElementById(data);
-
+    console.log("dragged_obj", dragged_obj)
     let index = dragged_obj.getElementsByTagName("p")[1].innerHTML;
     console.log("llegando", props.player, props.turn);
     if (
@@ -158,9 +161,14 @@ export default function Hand(props) {
     width: "245px",
     position: "relative",
     height: "150px",
-    transform: `rotate(${props.pos.rotate}deg)`,
-  };
+    transform: `rotate(${props.pos.rotate}deg)`
+  }
 
+  if(props.player !== props.username){
+    handStyle.pointerEvents = "none"
+    flip = false
+  }
+  
   return (
     <div style={handStyle} id={props.player + "hand"}>
       {props.cards.map((x, i) => (
@@ -168,6 +176,7 @@ export default function Hand(props) {
           <Card
             key={i}
             identifier={props.cards[i].type}
+            flipped={flip}
             player={props.player}
             img={images[Fucs.randomInterval(images.length)]}
             startFunction={dragStart}

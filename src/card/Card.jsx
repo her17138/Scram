@@ -33,7 +33,7 @@ export default function Card(props) {
       <p className="hidden">{props.value}</p>
       <p className="hidden">{props.identifier}</p>
       <p className="hidden">{props.player}</p>
-      {flipped ? (
+      {props.flipped ? (
         <img draggable="false" className="cardImg" src={props.img}></img>
       ) : (
         <img className="cardImg" draggable="false" src={backImage}></img>

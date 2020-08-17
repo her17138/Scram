@@ -7,8 +7,10 @@ var tricks = [] //sera implementado como una cola
 var moves = [] //sera implementado como una cola 
 var winner = null
 var current_turn =  '' // se envia el username del jugador al que le toca
+var socket = null
 
-var socket = new WebSocket("ws://localhost:3000/");
+// startWebsocket()
+console.log("start client")
 /**
  * implementacion de movimientos del juego 
  */
@@ -22,8 +24,6 @@ var socket = new WebSocket("ws://localhost:3000/");
 // get_players() -> [username1, username2, username3, username4]
 // get_winner() -> index_team_ganador
 function init_deck(){
-    // return initDeck()
-    console.log("INIT DECK")
     socket.send("init_deck")
 }
 function get_deck(){
@@ -33,9 +33,8 @@ function whos_turn(){
     return current_turn
 }
 function make_move(jugada){
-    // const index = getHigherCard(jugadores)
-    // return getTrickWinner(players, index)
-    socket.send(['make_move', JSON.stringify(jugada)])
+    console.log("make MOVE", jugada)
+    socket.send(['make_move', JSON.stringify(jugada)].join("||"))
 }
 function get_trick_winner(){
     return tricks.pop()
@@ -91,7 +90,8 @@ module.exports ={
     get_deck,
     get_lastest_move,
     get_trick_winner,
-    exit
+    exit,
+    startWebsocket
 }
 
 /** 
@@ -105,51 +105,58 @@ module.exports ={
  *      6. init_deck : action
  *      7. make_move : action||move
  */
-socket.onopen = function (event) {
-    socket.send(['join_room', user].join("||"));
-    init_deck()
-};
-
-socket.onmessage = function(event) {
-    let data = event.data.split("||")
-    let action = data[0]
-    switch(action){
-        case 'join_room':
-            room = data[1]
-            socket.send(['get_players', room].join("||"))
-            break;
-        case 'send_players':
-            players = JSON.parse(data[1])
-            // outputUsers(players)
-            break;
-        case 'receive_message':
-            var msg_json  = JSON.parse(data[1])
-            // outputMessage(msg_json)
-            usr_msg.push(msg_json)
-            break;
-        case 'init_deck':
-            deck = JSON.parse(data[1])
-            console.log("deck", deck)
-            // initDeck(deck)
-            break;
-        case 'get_move':
-            moves.push(JSON.parse(data[1]))
-        case 'trick_winner':
-            tricks.push(JSON.parse(data[1]))
-        case 'game_over':
-            winner = JSON.parse(data[1])
-        case 'whos_turn':
-            turn = data[1]
+function startWebsocket() {
+    socket = new WebSocket("ws://localhost:3000/");
+    socket.onopen = function (event) {
+        socket.send(['join_room', user].join("||"));
+        init_deck()
+    };
+    socket.onmessage = function(event) {
+        let data = event.data.split("||")
+        let action = data[0]
+        switch(action){
+            case 'join_room':
+                room = data[1]
+                socket.send(['get_players', room].join("||"))
+                break;
+            case 'send_players':
+                players = JSON.parse(data[1])
+                // outputUsers(players)
+                break;
+            case 'receive_message':
+                var msg_json  = JSON.parse(data[1])
+                // outputMessage(msg_json)
+                usr_msg.push(msg_json)
+                break;
+            case 'init_deck':
+                deck = JSON.parse(data[1])
+                console.log("deck", deck)
+                // initDeck(deck)
+                break;
+            case 'get_move':
+                moves.push(JSON.parse(data[1]))
+                console.log("client getmove", moves)
+            case 'trick_winner':
+                tricks.push(JSON.parse(data[1]))
+            case 'game_over':
+                winner = JSON.parse(data[1])
+            case 'whos_turn':
+                console.log("whos turn clientjs", data[1])
+                current_turn = data[1]
+        }
     }
+    socket.onclose = function(event) {
+        if (event.wasClean) {
+            alert(`[close] Connection closed cleanly, code=${event.code} usr=${user}`);
+            socket = null
+            // setTimeout(startWebsocket, 500)
+        } else {
+            alert('[close] Connection died');
+        }
+    };
+      
+    socket.onerror = function(error) {
+        alert(`[error] ${error.message}`);
+    };
+    
 }
-socket.onclose = function(event) {
-    if (event.wasClean) {
-        alert(`[close] Connection closed cleanly, code=${event.code} usr=${user}`);
-    } else {
-        alert('[close] Connection died');
-    }
-};
-  
-socket.onerror = function(error) {
-    alert(`[error] ${error.message}`);
-};

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Board.scss";
+import Score from "../score/Score.jsx"
 import Hand from "../hand/Hand.jsx";
 import Playarea from "../playarea/Playarea.jsx";
 
@@ -31,6 +32,7 @@ export default class Board extends React.Component {
       ],
 
       trumpCard: null,
+      showScore: false
     };
 
     const types = ["spades", "clubs", "diamonds", "hearts"];
@@ -63,6 +65,10 @@ export default class Board extends React.Component {
     });
   };
 
+  showScore = () => {
+    this.setState({showScore: true})
+  }
+
   buildPlayers = () => {
     let current = [];
 
@@ -84,6 +90,7 @@ export default class Board extends React.Component {
         });
         this.getDeck();
         this.dealCard();
+        this.showScore()
         this.setState({
           turno: this.props.clientjs.whos_turn(),
         });
@@ -174,11 +181,13 @@ export default class Board extends React.Component {
 
     return (
       <div className="board">
+        {/* {this.state.showScore && <Score players={this.state.players}></Score>} */}
         <CardsContext.Provider value={this.state.turno}>
           <Playarea clientjs={this.props.clientjs} turn={this.state.turno} />
         </CardsContext.Provider>
         {this.state.players.map((player, i) => (
           <Hand
+            username={this.props.clientjs.get_username()}
             player={player.nombre}
             cards={player.hand}
             pos={playerPos[i]}
