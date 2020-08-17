@@ -191,7 +191,7 @@ export default class Hand extends React.Component {
               identifier={this.props.cards[i].type}
               flipped={flip}
               player={this.props.player}
-              img={images[Fucs.randomInterval(images.length)]}
+              img={images[Fucs.getImage(this.props.cards[i].value, this.props.cards[i].type)]}
               value={this.props.cards[i].value}
               updateClick = {this.clickOnCard}
             ></Card>
