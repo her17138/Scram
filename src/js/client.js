@@ -37,6 +37,7 @@ function make_move(jugada){
     socket.send(['make_move', JSON.stringify(jugada)].join("||"))
 }
 function get_trick_winner(){
+    console.log('desde el client' + tricks.pop())
     return tricks.pop()
 }
 function get_lastest_move(){
