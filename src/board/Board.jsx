@@ -1,6 +1,7 @@
 import React from "react";
 import "./Board.scss";
 import Score from "../score/Score.jsx";
+import Trump from "../trump/Trump.jsx"
 import Hand from "../hand/Hand.jsx";
 import Playarea from "../playarea/Playarea.jsx";
 
@@ -177,7 +178,8 @@ export default class Board extends React.Component {
 
     return (
       <div className="board">
-        {this.state.showScore && <Score players={this.state.players}></Score>} 
+        {this.state.showScore && <Score players={this.state.players} clientjs={this.props.clientjs}></Score>} 
+        {this.state.showScore && <Trump clientjs={this.props.clientjs}></Trump>}
 
         <Playarea
           clientjs={this.props.clientjs}
