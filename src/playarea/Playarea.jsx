@@ -89,15 +89,10 @@ export default class Playarea extends React.Component {
       // console.log("move_made update area", move_made)
       if(move_made){
         let new_turn = this.props.clientjs.whos_turn();
-        console.log("receiving b4 interval",new_turn);
-        const turn_refresh = setInterval(() => {
-          if (new_turn !== this.props.turn) {
-            new_turn = this.props.clientjs.whos_turn();
-            this.props.updateTurn(new_turn);
-            clearInterval(turn_refresh)
-          }
-        })
-        console.log("receiving after interval",new_turn);
+        console.log("receiving",new_turn);
+        if (new_turn !== this.props.turn) {
+          this.props.updateTurn(new_turn);
+        }
         // console.log("update area", move_made)
 
         let upd_cards = this.state.onDeck
