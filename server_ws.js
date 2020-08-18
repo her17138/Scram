@@ -148,7 +148,7 @@ wss.on('connection',  (ws) => {
         // console.log("getmoves", getMoves(this_room))
         // verificar si ya se hicieron los 4 moves, si sí, enviar el ganador del trick 
         const moves_made = getMoves(this_room)
-        console.log("server getmoves", moves_made)
+        
         const ply_turn = playerTurn(this_room, room_users)
         if(moves_made === 4){
           const trick_winner = getTrickWinner(this_room,room_users, max_index)
@@ -167,7 +167,7 @@ wss.on('connection',  (ws) => {
         // si no, solo hacer broadcast al movimiento 
         else {
           // console.log("ELSE MAKE MOVE room users", room_users, "room", this_room)
-          console.log("ELSE MAKE MOVE player turn", ply_turn)
+          
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;
             usr_socket.send(['get_move', JSON.stringify(move)].join("||"))
@@ -202,7 +202,7 @@ wss.on('connection',  (ws) => {
                 JSON.stringify(formatMessage(botName, user.username + " ha salido del chat.")),
               ].join("||")
             );
-            console.log('room users after exit', rm_usrs)
+            
             usr_socket.send(['send_players', JSON.stringify(rm_usrs)].join("||"))
           }
         }

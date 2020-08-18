@@ -17,9 +17,6 @@ export default class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //  "nombre_carta","valor_carta"
-      // j || 11 || k || 13 || //
-
       deck: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       turno: "",
       players: [],
@@ -53,7 +50,6 @@ export default class Board extends React.Component {
      INPUT: natural number of player (4)
      OUTPUT: array of references. 
    */
-
   componentDidMount() {
     this.buildPlayers();
     //this.updateTurn();
@@ -110,25 +106,6 @@ export default class Board extends React.Component {
     });
   }
 
-  /* 
-      newPlayer(params){
-        let x = this.state.players
-        obj = {
-          nombre: "",
-          hand: [],
-          equipo: ""
-        }
-        x.push(obj)
-
-      }
-  
-  */
-
-  /* TODO */
-  // Poner players como arrays temporales que serán asignados al estado de mano
-
-  // Deal cards
-  //    Deal a card, and rotate player. Last card doesnt get directly dealt, it is first shown as the trump card and then is given to the dealer.
   dealCard = () => {
     /* let actualDeck = this.state.deck;
     let players = this.state.players; */
@@ -143,8 +120,8 @@ export default class Board extends React.Component {
       this.setState({
         players: playerArr,
       });
-      console.log("reached set state");
-      console.log("play", playerArr);
+      
+      
     } catch (e) {
       console.warn("jaja");
     }
@@ -155,7 +132,7 @@ export default class Board extends React.Component {
   };
 
   updateTurn = (param) => {
-    console.log("setting", param)
+    
     this.setState({
       turno: param
       
@@ -176,7 +153,7 @@ export default class Board extends React.Component {
       { x: 2, y: 1, rotate: 180, userRotate: 360},
       { x: 1, y: 2, rotate: 90, userRotate: 270},
     ];
-    console.log("props clientjs board", this.props.clientjs)
+    
     return (
       <div className="board">
         {this.state.showScore && <Score players={this.state.players} clientjs={this.props.clientjs}></Score>} 

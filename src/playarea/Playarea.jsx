@@ -89,7 +89,7 @@ export default class Playarea extends React.Component {
       // console.log("move_made update area", move_made)
       if(move_made){
         let new_turn = this.props.clientjs.whos_turn();
-        console.log("receiving",new_turn);
+        
         if (new_turn !== this.props.turn) {
           this.props.updateTurn(new_turn);
         }

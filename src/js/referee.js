@@ -76,14 +76,14 @@ function setMove(room,move){
     room_variables[room].moves.push(move)
     if(room_variables[room].moves.length ===4){
         // parseo de arreay a objeto 
-        console.log(room_variables[room].moves)
+        
         const moves_json = {0: 0, 1: 1, 2: 0, 3: 0}
         for (var key in moves_json) {
             var index = Number(key)
             moves_json[key] = room_variables[room].moves[index].username
         }
         highercard = getHigherCard(room, moves_json)
-        console.log("higher card setmove", highercard, "moves json", moves_json)
+        
         return highercard
     }
 
@@ -92,7 +92,7 @@ function setMove(room,move){
 }
 function getMoves(room){
     // console.log("getmoves room", room)
-    console.log("getmoves on referee", room_variables[room].moves)
+    
     const moves = room_variables[room].moves.length
     if(moves === 4){
         room_variables[room].moves = []
@@ -105,11 +105,11 @@ function getTricks(room){
 }
 
 function setTrump(room){
-    console.log("room vars",room_variables[room])
+    
     const deck = room_variables[room].deck
     var trump = deck[Math.floor(Math.random() * 52)]
     room_variables[room].trump = trump
-    console.log("server trumpcard", room_variables[room].trump)
+    
     return room_variables[room].trump
 }
 
@@ -132,7 +132,7 @@ function removeItemFromArr ( arr, item ) {
 }
 
 function getHigherCard(room,data){
-    console.log("data ghc", data)
+    
     const initial_cards = Object.values(data)
     var cards = []
 
@@ -171,41 +171,41 @@ function getHigherCard(room,data){
 
     isTrump = true
     const trump = getTrump(room).type;
-    console.log("ghc trump", trump)
+    
 
-    console.log('cards', cards)
+    
 
     cards.forEach(element =>
         cplayed.push(element[0])
     );
 
-    console.log('cplayed', cplayed)
+    
 
     cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
     cards_map_duplicated = Array.from(cards_map)
-    console.log('cards_map', cards_map)
+    
 
     while (isTrump){
-        console.log('iniciando el while', cards_map)
+        
         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
-        console.log('max_card_index', maxCardIndex)
+        
         if(maxCardIndex === -1){
-            console.log("saliendo del while no encontro trump", trump)
+            
             break;
         } else {
             trump_card = cards[maxCardIndex][1]
-            console.log("ghc trump card", trump_card)
+            
             if (trump_card == trump){
                 isTrump = false
             } else { 
                 cards_map = removeItemFromArr( cards_map, cards_map[maxCardIndex] );
-                console.log('al eliminar el card que no es igual al trump', cards_map)
+                
             }
         }
     }
     if(maxCardIndex === -1){
         maxCardIndex = cards_map_duplicated.indexOf(Math.max(...cards_map_duplicated));
-        console.log("maxcard index if -1", maxCardIndex, "cards_map_duplicated", cards_map_duplicated)
+        
         return maxCardIndex;
     } else {
         return maxCardIndex;
@@ -246,7 +246,7 @@ function playerTurn(room,players){
         room_variables[room].turn +=1
         console.log("turn #", room_variables[room].turn)
         // console.log("player list", players, "turn #", room_variables[room].turn % 4)
-        console.log('server returns playerturn', players[room_variables[room].turn % 4].username)
+        
         return players[room_variables[room].turn % 4].username
     }
     return null

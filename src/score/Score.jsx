@@ -20,15 +20,20 @@ export default class Score extends React.Component {
       let g1 = this.state.grupo1;
       let g2 = this.state.grupo2;
       if (trickWinner != undefined) {
-        console.log("trickWinner " + trickWinner);
-        if (trickWinner % 2 == 0) {
-          g2 += 1;
-          this.setState({ grupo2: g2 });
-        } else {
+        //devuelve nombre
+        
+        let group1 = String(this.state.usrG1)
+        
+        if (group1.includes(trickWinner)) {
+          
           g1 += 1;
           this.setState({ grupo1: g1 });
+        } else {
+          
+          g2 += 1;
+          this.setState({ grupo2: g2 });
         }
-        if (g1 === 13 || g2 === 13) {
+        if (g1 === 12 || g2 === 12) {
           clearInterval(ups);
           let winner = g1 > g2 ? "Grupo 1" : "Grupo 2";
           

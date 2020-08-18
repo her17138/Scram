@@ -3,7 +3,7 @@ import card from "../cards.json"
 
 const funcs = {
   randomInterval(upLimit, mycard) {
-    console.log(mycard)
+    
     return Math.floor(Math.random() * upLimit);
   } ,
 

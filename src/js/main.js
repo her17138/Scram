@@ -21,7 +21,7 @@ socket.onmessage('roomUsers', ({ room, users }) => {
 
 // Message from server
 socket.onmessage(message => {
-  console.log(message);
+  
   outputMessage(message);
 
   // Scroll down

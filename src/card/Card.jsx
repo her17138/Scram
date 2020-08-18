@@ -12,7 +12,7 @@ export default function Card(props) {
   function handleClick(e) {
     e.preventDefault();
     //set state above
-    console.log("updating card state -> passing up to hand")
+    
     let obj = {
       id: props.player + props.img + props.identifier,
       player: props.player,

@@ -11,7 +11,7 @@ var current_turn =  '' // se envia el username del jugador al que le toca
 var socket = null
 
 // startWebsocket()
-console.log("start client")
+
 /**
  * implementacion de movimientos del juego 
  */
@@ -31,11 +31,11 @@ function get_deck(){
     return deck
 }
 function whos_turn(){
-    console.log("call on whos turn returns", current_turn)
+    
     if (current_turn === ''){
         current_turn = players[0]
     }
-    console.log("call2 on whos turn returns", current_turn)
+    
     return current_turn
 }
 function make_move(jugada){
@@ -146,19 +146,19 @@ function startWebsocket() {
                 moves.push(JSON.parse(data[1]))
                 break;
             case 'trick_winner':
-                console.log("client received trick", data[1])
+                
                 tricks.push((data[1]))
-                console.log("tricks on queue", tricks)
+                
                 break;
             case 'get_trump':
-                console.log("clientjs set trump", data[1])
+                
                 trump = JSON.parse(data[1]).username
                 break;
             case 'game_over':
                 winner = JSON.parse(data[1])
                 break;
             case 'whos_turn':
-                console.log("whos turn clientjs", data[1])
+                
                 current_turn = data[1]
                 break;
         }

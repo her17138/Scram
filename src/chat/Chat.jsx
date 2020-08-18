@@ -63,7 +63,7 @@ export default class Chat extends React.Component{
     }
     sendMessage(){
         const msg = this.state.message
-        console.log('msg ' + msg)
+        
         client.send_message(msg)
     }
     getRoom() {

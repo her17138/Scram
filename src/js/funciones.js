@@ -60,7 +60,7 @@ function getHigherCard(data){
 
 function setMove(move){
     moves.push(move)
-    console.log("entro")
+    
     if(moves.length ===4){
         // parseo de arreay a objeto 
         const moves_json = {0: 0, 1: 1, 2: 0, 3: 0}
@@ -68,7 +68,7 @@ function setMove(move){
             var index = Number(key)
             moves_json[key] = moves[index].username
         }
-      	console.log(moves_json)
+      	
         getHigherCard(moves_json)
     }
 }
