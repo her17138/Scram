@@ -14,7 +14,7 @@ You need to have Node.js and npm in your computer.
 -> For Linux users [download](https://nodejs.org/en/download/) 
 
 # Installing
-1. Clone the repository using `https://github.com/her17138/Scram`
+1. Clone the repository using `https://github.com/her17138/Whist.git`
 2. Move to the directory where you clone the repository <br />
 3. Run `npm install` to install dependencies.<br />
 4. Run `npm run start` to start playing at `http://localhost:3000`.
@@ -26,7 +26,7 @@ You need to have Node.js and npm in your computer.
 This game  exposes a simple socket interface to play. 
 
 
-- `npm run start` - start the dev server
+- `npm start` - start the express server
 
 ## Built with
 This project features this tools
