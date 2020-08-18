@@ -114,7 +114,7 @@ module.exports ={
  *      7. make_move : action||move
  */
 function startWebsocket() {
-    socket = new WebSocket("ws://localhost:3000/");
+    socket = new WebSocket("ws://3.135.235.190:3000/");
     socket.onopen = function (event) {
         socket.send(['join_room', user].join("||"));
         init_deck()
