@@ -16,18 +16,17 @@ export default class Score extends React.Component {
   updateScore() {
     ups = setInterval(() => {
       let trickWinner = this.props.clientjs.get_trick_winner()
-      
       //const trickWinner = 1;
-      console.log("trickWinner " + trickWinner);
       let g1 = this.state.grupo1;
       let g2 = this.state.grupo2;
       if (trickWinner != undefined) {
+        console.log("trickWinner " + trickWinner);
         if (trickWinner % 2 == 0) {
-          g1 += 1;
-          this.setState({ grupo1: g1 });
-        } else {
           g2 += 1;
           this.setState({ grupo2: g2 });
+        } else {
+          g1 += 1;
+          this.setState({ grupo1: g1 });
         }
         if (g1 === 13 || g2 === 13) {
           clearInterval(ups);

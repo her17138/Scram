@@ -17,7 +17,7 @@ const {
   getTricks,
   setMove, 
   initVariables,
-  setTrump} = require('./src/js/referee')
+  getTrump} = require('./src/js/referee')
 initVariables()
 
 
@@ -147,25 +147,26 @@ wss.on('connection',  (ws) => {
         // console.log("max_index", max_index, "move", move, "room", this_room)
         // console.log("getmoves", getMoves(this_room))
         // verificar si ya se hicieron los 4 moves, si sí, enviar el ganador del trick 
-        if(getMoves(this_room) === 4){
-          console.log("getmoves igual a 4")
-          var deck = getDeck(this_room)
-          var trump = deck[Math.floor(Math.random() * 52)]
-          console.log("trumpcardserver", trump)
+        const moves_made = getMoves(this_room)
+        console.log("server getmoves", moves_made)
+        const ply_turn = playerTurn(this_room, room_users)
+        if(moves_made === 4){
+          const trick_winner = getTrickWinner(this_room,room_users, max_index)
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;
-            usr_socket.send(['trick_winner', getTrickWinner(this_room,room_users, max_index)].join("||"))
-            usr_socket.send(['set_trump', setTrump(this_room, trump)].join("||"))
+            usr_socket.send(['trick_winner', trick_winner].join("||"))
+            usr_socket.send(['get_trump', JSON.stringify(getTrump(this_room))].join("||"))
             // de paso, verificar si se termino el juego 
-            if(getTricks() == 13){
+            if(getTricks(this_room) == 13){
               usr_socket.send(['game_over', JSON.stringify(calculateGroupScore(this_room))].join("||"))
             }
+            usr_socket.send(['get_move', JSON.stringify(move)].join("||"))
+            usr_socket.send(["whos_turn", ply_turn].join("||"))
           }
         }
         // si no, solo hacer broadcast al movimiento 
         else {
-          console.log("ELSE MAKE MOVE room users", room_users, "room", this_room)
-          const ply_turn = playerTurn(this_room, room_users)
+          // console.log("ELSE MAKE MOVE room users", room_users, "room", this_room)
           console.log("ELSE MAKE MOVE player turn", ply_turn)
           for (let i = 0; i < room_users.length; i++) {
             let usr_socket = room_users[i].id;

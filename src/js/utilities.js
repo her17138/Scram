@@ -8,7 +8,6 @@ const funcs = {
   } ,
 
   getImage(value, type){
-    console.log("HOLAAA")
     var cards = card.cards
     var i = 0
     for (i; i < cards.length; i++) {

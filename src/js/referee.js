@@ -67,8 +67,8 @@ function initDeck(room){
         cards[currentIndex] = cards[randomIndex];
         cards[randomIndex] = temporaryValue;
     }
-    setTrump(room, cards[cards.length-1])
     room_variables[room].deck = cards
+    room_variables[room].trump = cards[cards.length-1]
     return cards
   }
 
@@ -82,8 +82,9 @@ function setMove(room,move){
             var index = Number(key)
             moves_json[key] = room_variables[room].moves[index].username
         }
-        room_variables[room].moves = []
-        return getHigherCard(room, moves_json)
+        highercard = getHigherCard(room, moves_json)
+        console.log("higher card setmove", highercard, "moves json", moves_json)
+        return highercard
     }
 
     return -1
@@ -91,18 +92,25 @@ function setMove(room,move){
 }
 function getMoves(room){
     // console.log("getmoves room", room)
-    // console.log("getmoves", room_variables[room])
-    return room_variables[room].moves.length
+    console.log("getmoves on referee", room_variables[room].moves)
+    const moves = room_variables[room].moves.length
+    if(moves === 4){
+        room_variables[room].moves = []
+        setTrump(room)
+    }
+    return moves
 }
 function getTricks(room){
     return room_variables[room].tricks.length
 }
 
-function setTrump(room,trump_card){
-    console.log(room)
-    console.log(room_variables)
-    console.log(room_variables[room])
-    room_variables[room].trump = trump_card
+function setTrump(room){
+    console.log("room vars",room_variables[room])
+    const deck = room_variables[room].deck
+    var trump = deck[Math.floor(Math.random() * 52)]
+    room_variables[room].trump = trump
+    console.log("server trumpcard", room_variables[room].trump)
+    return room_variables[room].trump
 }
 
 function getTrump(room){
@@ -174,15 +182,15 @@ function getHigherCard(room,data){
     console.log('cplayed', cplayed)
 
     cplayed.forEach(element => cards_map.push(Number(getKeyByValue(values,element))));
-    cards_map_duplicated = cards_map
+    cards_map_duplicated = Array.from(cards_map)
     console.log('cards_map', cards_map)
 
-    console.log("HOLAAAA")
     while (isTrump){
         console.log('iniciando el while', cards_map)
         maxCardIndex = cards_map.indexOf(Math.max(...cards_map));
         console.log('max_card_index', maxCardIndex)
-        if(maxCardIndex == -1){
+        if(maxCardIndex === -1){
+            console.log("saliendo del while no encontro trump", trump)
             break;
         } else {
             trump_card = cards[maxCardIndex][1]
@@ -195,9 +203,9 @@ function getHigherCard(room,data){
             }
         }
     }
-
-    if(maxCardIndex == -1){
-        maxCardIndex = cards_map_duplicated.indexOf(Math.max(...cards_map));
+    if(maxCardIndex === -1){
+        maxCardIndex = cards_map_duplicated.indexOf(Math.max(...cards_map_duplicated));
+        console.log("maxcard index if -1", maxCardIndex, "cards_map_duplicated", cards_map_duplicated)
         return maxCardIndex;
     } else {
         return maxCardIndex;
@@ -211,7 +219,8 @@ function getHigherCard(room,data){
 // index es el valor que getHigherCard devuelve
 function getTrickWinner(room, players, index){
     room_variables[room].tricks.push(index)
-    return players[index];
+    // console.log("gettrickwinner ref", players)
+    return players[index].username;
 }
 
 function calculateGroupScore(room){

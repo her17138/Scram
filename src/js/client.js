@@ -31,18 +31,20 @@ function get_deck(){
     return deck
 }
 function whos_turn(){
+    console.log("call on whos turn returns", current_turn)
     if (current_turn === ''){
         current_turn = players[0]
     }
+    console.log("call2 on whos turn returns", current_turn)
     return current_turn
 }
 function make_move(jugada){
-    console.log("make MOVE", jugada)
+    // console.log("make MOVE", jugada)
     socket.send(['make_move', JSON.stringify(jugada)].join("||"))
 }
 
 function get_trick_winner(){
-    console.log('desde el client' + tricks.pop())
+    // console.log('desde el client ', tricks)
     return tricks.pop()
 }
 function get_latest_move(){
@@ -136,23 +138,29 @@ function startWebsocket() {
                 break;
             case 'init_deck':
                 deck = JSON.parse(data[1])
-                console.log("deck", deck)
+                // console.log("deck", deck)
                 trump = deck[deck.length-1]
                 // initDeck(deck)
                 break;
             case 'get_move':
                 moves.push(JSON.parse(data[1]))
-                console.log("client getmove", moves)
+                break;
             case 'trick_winner':
-                tricks.push(JSON.parse(data[1]))
-            case 'set_trump':
-                console.log("set trump", JSON.parse(data[1]))
+                console.log("client received trick", data[1])
+                tricks.push((data[1]))
+                console.log("tricks on queue", tricks)
+                break;
+            case 'get_trump':
+                console.log("clientjs set trump", data[1])
                 trump = JSON.parse(data[1]).username
+                break;
             case 'game_over':
                 winner = JSON.parse(data[1])
+                break;
             case 'whos_turn':
                 console.log("whos turn clientjs", data[1])
                 current_turn = data[1]
+                break;
         }
     }
     socket.onclose = function(event) {

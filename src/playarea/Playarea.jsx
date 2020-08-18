@@ -93,7 +93,7 @@ export default class Playarea extends React.Component {
         if (new_turn !== this.props.turn) {
           this.props.updateTurn(new_turn);
         }
-        console.log("update area", move_made)
+        // console.log("update area", move_made)
 
         let upd_cards = this.state.onDeck
         if(upd_cards.length === 4){
